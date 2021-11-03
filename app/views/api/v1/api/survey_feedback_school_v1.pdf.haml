@@ -1,0 +1,552 @@
+- @feedbacks.each_with_index do |fb, index|
+  - if fb.page == 1
+    #page1.page_break.obs_page
+      %header#header
+        #head
+          .container-area
+            %h1.ab #{fb.title.split(' GUIA EDUTEC')[0]}
+            %h1.ab.mgt0 #{fb.title.split('RESULTADOS DO ')[1]}
+            .divisor
+            - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+              %h1.title.mgtb15.uppc #{@school.name}
+            - else
+              %h1.title.mgtb15.uppc #{fb.body["0"]}
+            .head_spacer
+            .tagline #{fb.body["1"]}
+            - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+              - if !@survey_response.nil?
+                .tagline #{l(@survey_response.submitted_at, format: :month)}
+            - else
+              .tagline #{fb.body["2"]}
+      .obs_logo
+        =wicked_pdf_image_tag("logo.png", class:"logo2")
+  - elsif fb.page == 2
+    #page2.page_break.obs_page
+      .header_t
+        %h1.aa #{fb.title}
+        .underline
+      .container-area
+        .container
+          .row
+            .col-xs-12
+              %h3 #{fb.subtitle}
+          .row
+            .col-xs-6
+              %p.lead.text-muted
+                #{fb.body["0"]}
+            .col-xl-6
+              .text-center.mgt220
+                =wicked_pdf_image_tag("4d.png")
+      .obs
+        .col-xs-9
+          %p.detail_a_pdf * #{fb.body["1"]}
+  - elsif fb.page == 3
+    #page3.page_break
+      .header_t
+        %h1.aa #{fb.title}
+        .underline
+      .container-area
+        .row
+          .col-xs-12
+            %h3 #{fb.subtitle}
+        .row
+          .col-xs-6
+            .col-xs-2.pd0
+              =wicked_pdf_image_tag("1.png")
+            .col-xs-10.section1
+              %h4.d1 #{fb.body["0"]}
+              %p.smaller #{fb.body["1"]}
+          .col-xs-6
+            .col-xs-2.pd0
+              =wicked_pdf_image_tag("2.png")
+            .col-xs-10.section2
+              %h4.d2 #{fb.body["2"]}
+              %p.smaller #{fb.body["3"]}
+  - elsif fb.page == 4
+    #page4.page_break
+      .header_t
+        %h1.aa #{fb.title}
+        .underline
+      .container-area
+        .row
+          .col-xs-12
+            %h3 #{fb.subtitle}
+        .row
+          .col-xs-6
+            .col-xs-2.pd0
+              =wicked_pdf_image_tag("3.png")
+            .col-xs-10.section3
+              %h4.d3 #{fb.body["0"]}
+              %p.smaller #{fb.body["1"]}
+
+          .col-xs-6
+            .col-xs-2.pd0
+              =wicked_pdf_image_tag("4.png")
+            .col-xs-10.section4
+              %h4.d4 #{fb.body["2"]}
+              %p.smaller #{fb.body["3"]}
+  - elsif fb.page == 5
+    #page5.page_break
+      .header_t
+        %h1.aa #{fb.title}
+        .underline
+      .container-area
+        .container
+          .row.section
+            .col-xs-9
+              %h3 #{fb.subtitle}
+              %p.lead.text-muted
+                #{fb.body["0"]}
+              %p.lead.text-muted
+                #{fb.body["1"]}
+            .col-xs-3
+              .text-center.mgt220
+                =wicked_pdf_image_tag("4d.png")
+  - elsif fb.page == 6
+    #page6.page_break.obs_page
+      .header_t
+        %h1.aa #{fb.title}
+        .underline
+      .container-area
+        .container
+          .row.section
+            .col-xs-12
+              %p.smaller #{fb.body["0"]}
+              %div
+                %p.smaller #{fb.body["6"]}
+          %br
+          %br
+          .row.section
+            .col-xs-12.pdr0
+              .tables_area
+                %table.tg
+                  %tr
+                    %th.dc1{:colspan => "11"}
+                      - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                        Dimensão VISÃO
+                      - else
+                        #{fb.body["7"]}
+                    %th.dc1.ft
+                      - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                        #{(score_level_and_name_new @survey_response.vision_level).html_safe}
+                      - else
+                        #{fb.body["19"]}
+                  - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                    %tr
+                      - 1.upto(@scores[0].size).each do |i|
+                        %td.dc1_2 Visão #{i.alph}
+                      %td.dc1_2.total <b>TOTAL</b>
+                    %tr
+                      - @scores[0].each do |score|
+                        %td.dc1_3= "#{score.round(1)} ponto#{'s' if score != 1}"
+                      %td.dc1_3.total <b>#{@scores[0].sum.round(1)} pontos</b>
+                  - else
+                    %tr
+                      %td.dc1_2 #{fb.body["8"]}
+                      %td.dc1_2 #{fb.body["9"]}
+                      %td.dc1_2 #{fb.body["10"]}
+                      %td.dc1_2 #{fb.body["11"]}
+                      %td.dc1_2 #{fb.body["12"]}
+                      %td.dc1_2 #{fb.body["13"]}
+                      %td.dc1_2 #{fb.body["14"]}
+                      %td.dc1_2 #{fb.body["15"]}
+                      %td.dc1_2 #{fb.body["16"]}
+                      %td.dc1_2 #{fb.body["17"]}
+                      %td.dc1_2 #{fb.body["100"]}
+                      %td.dc1_2 #{fb.body["18"]}
+                    %tr
+                      %td.dc1_2 #{fb.body["20"]}
+                      %td.dc1_2 #{fb.body["21"]}
+                      %td.dc1_2 #{fb.body["22"]}
+                      %td.dc1_2 #{fb.body["23"]}
+                      %td.dc1_2 #{fb.body["24"]}
+                      %td.dc1_2 #{fb.body["25"]}
+                      %td.dc1_2 #{fb.body["26"]}
+                      %td.dc1_2 #{fb.body["27"]}
+                      %td.dc1_2 #{fb.body["28"]}
+                      %td.dc1_2 #{fb.body["29"]}
+                      %td.dc1_2 #{fb.body["101"]}
+                      %td.dc1_2 #{fb.body["30"]}
+                    %tr
+                %table.tg.mgt10
+                  %tr
+                    %th.dc2{:colspan => "10"}
+                      - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                        Dimensão COMPETÊNCIA
+                      - else
+                        #{fb.body["31"]}
+                    %th.dc2.ft
+                      - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                        #{(score_level_and_name_new @survey_response.competence_level).html_safe}
+                      - else
+                        #{fb.body["43"]}
+                  - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                    %tr
+                      - 1.upto(@scores[1].size).each do |i|
+                        %td.dc2_2 Compet. #{i.alph}
+                      %td.dc2_2.total <b>TOTAL</b>
+                    %tr
+                      - @scores[1].each do |score|
+                        %td.dc2_3= "#{score.round(1)} ponto#{'s' if score != 1}"
+                      %td.dc2_3.total <b>#{@scores[1].sum.round(1)} pontos</b>
+                  - else
+                    %tr
+                      %td.dc1_2 #{fb.body["32"]}
+                      %td.dc1_2 #{fb.body["33"]}
+                      %td.dc1_2 #{fb.body["34"]}
+                      %td.dc1_2 #{fb.body["35"]}
+                      %td.dc1_2 #{fb.body["36"]}
+                      %td.dc1_2 #{fb.body["37"]}
+                      %td.dc1_2 #{fb.body["38"]}
+                      %td.dc1_2 #{fb.body["39"]}
+                      %td.dc1_2 #{fb.body["40"]}
+                      %td.dc1_2 #{fb.body["41"]}
+                      %td.dc1_2 #{fb.body["42"]}
+                    %tr
+                      %td.dc1_2 #{fb.body["44"]}
+                      %td.dc1_2 #{fb.body["45"]}
+                      %td.dc1_2 #{fb.body["46"]}
+                      %td.dc1_2 #{fb.body["47"]}
+                      %td.dc1_2 #{fb.body["48"]}
+                      %td.dc1_2 #{fb.body["49"]}
+                      %td.dc1_2 #{fb.body["50"]}
+                      %td.dc1_2 #{fb.body["51"]}
+                      %td.dc1_2 #{fb.body["52"]}
+                      %td.dc1_2 #{fb.body["53"]}
+                      %td.dc1_2 #{fb.body["54"]}
+                %table.tg.mgt10
+                  %tr
+                    %th.dc3{:colspan => "7"}
+                      - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                        Dimensão CONTEÚDOS
+                      - else
+                        #{fb.body["55"]}
+                    %th.dc3.ft
+                      - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                        #{(score_level_and_name_new @survey_response.resource_level).html_safe}
+                      - else
+                        #{fb.body["64"]}
+                  - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                    %tr
+                      - 1.upto(@scores[2].size).each do |i|
+                        %td.dc3_2 CRD #{i.alph}
+                      %td.dc3_2.total <b>TOTAL</b>
+                    %tr
+                      - @scores[2].each do |score|
+                        %td.dc3_3= "#{score.round(1)} ponto#{'s' if score != 1}"
+                      %td.dc3_3.total <b>#{@scores[2].sum.round(1)} pontos</b>
+                  - else
+                    %tr
+                      %td.dc3_2 #{fb.body["56"]}
+                      %td.dc3_2 #{fb.body["57"]}
+                      %td.dc3_2 #{fb.body["58"]}
+                      %td.dc3_2 #{fb.body["59"]}
+                      %td.dc3_2 #{fb.body["60"]}
+                      %td.dc3_2 #{fb.body["61"]}
+                      %td.dc3_2 #{fb.body["62"]}
+                      %td.dc3_2 #{fb.body["63"]}
+                    %tr
+                      %td.dc3_3 #{fb.body["65"]}
+                      %td.dc3_3 #{fb.body["66"]}
+                      %td.dc3_3 #{fb.body["67"]}
+                      %td.dc3_3 #{fb.body["68"]}
+                      %td.dc3_3 #{fb.body["69"]}
+                      %td.dc3_3 #{fb.body["70"]}
+                      %td.dc3_2 #{fb.body["71"]}
+                      %td.dc3_2 #{fb.body["72"]}
+
+                %table.tg.mgt10
+                  %tr
+                    %th.dc4{:colspan => "10"}
+                      - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                        Dimensão INFRAESTRUTURA
+                      - else
+                        #{fb.body["73"]}
+                    %th.dc4.ft
+                      - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                        #{(score_level_and_name_new @survey_response.infrastructure_level).html_safe}
+                      - else
+                        #{fb.body["85"]}
+                  - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                    %tr
+                      - 1.upto(@scores[3].size).each do |i|
+                        %td.dc4_2 Infra #{i.alph}
+                      %td.dc4_2.total <b>TOTAL</b>
+                    %tr
+                      - @scores[3].each do |score|
+                        %td.dc4_3= "#{score.round(1)} ponto#{'s' if score != 1}"
+                      %td.dc4_3.total <b>#{@scores[3].sum.round(1)} pontos</b>
+                  - else
+                    %tr
+                      %td.dc1_2 #{fb.body["74"]}
+                      %td.dc1_2 #{fb.body["75"]}
+                      %td.dc1_2 #{fb.body["76"]}
+                      %td.dc1_2 #{fb.body["77"]}
+                      %td.dc1_2 #{fb.body["78"]}
+                      %td.dc1_2 #{fb.body["79"]}
+                      %td.dc1_2 #{fb.body["80"]}
+                      %td.dc1_2 #{fb.body["81"]}
+                      %td.dc1_2 #{fb.body["82"]}
+                      %td.dc1_2 #{fb.body["83"]}
+                      %td.dc1_2 #{fb.body["84"]}
+                    %tr
+                      %td.dc1_2 #{fb.body["86"]}
+                      %td.dc1_2 #{fb.body["87"]}
+                      %td.dc1_2 #{fb.body["88"]}
+                      %td.dc1_2 #{fb.body["89"]}
+                      %td.dc1_2 #{fb.body["90"]}
+                      %td.dc1_2 #{fb.body["91"]}
+                      %td.dc1_2 #{fb.body["92"]}
+                      %td.dc1_2 #{fb.body["93"]}
+                      %td.dc1_2 #{fb.body["94"]}
+                      %td.dc1_2 #{fb.body["95"]}
+                      %td.dc1_2 #{fb.body["96"]}
+                %br
+                %br
+                %table.ftz.mgt10
+                  %tr
+                    %td.ftz.s1
+                      #{fb.body["97"].html_safe}
+                    %td.ftz.s2
+                      #{fb.body["98"].html_safe}
+                    %td.ftz.s3
+                      #{fb.body["99"].html_safe}
+      .obs
+        %div
+          %p.resp-by
+            <b>Respondido por: </b>#{@user.name}
+  - elsif fb.page == 7
+    #page7.page_break
+      .header_t
+        %h1.aa #{fb.title}
+        .underline
+      .container-area
+        .container
+          .row.section
+            %h3.pdb20.normal.b #{fb.subtitle}
+            %br
+            %br
+            %br
+            %br
+            %br
+            .col-xs-9
+              %table.tg
+                %tr
+                  %th.tg-031e
+                  %th.blue.smaller #{fb.body["1"].html_safe}
+                  %th.blue.smaller #{fb.body["2"].html_safe}
+                  %th.blue.smaller #{fb.body["3"].html_safe}
+                  %th.blue.smaller #{fb.body["4"].html_safe}
+
+                %tr
+                  %td.blue.smaller #{fb.body["6"].html_safe}
+                  %td.tg-031e
+                    - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                      =wicked_pdf_image_tag('1.png') if @results[0]["value"] == 4
+                    - else
+                      =wicked_pdf_image_tag('1.png') if false == true
+                  %td.tg-031e
+                    - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                      =wicked_pdf_image_tag('2.png') if @results[1]["value"] == 4
+                    - else
+                      =wicked_pdf_image_tag('2.png') if false == true
+                  %td.tg-031e
+                    - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                      =wicked_pdf_image_tag('3.png') if @results[2]["value"] == 4
+                    - else
+                      =wicked_pdf_image_tag('3.png') if false == true
+                  %td.tg-031e
+                    - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                      =wicked_pdf_image_tag('4.png') if @results[3]["value"] == 4
+                    - else
+                      =wicked_pdf_image_tag('4.png') if false == true
+                %tr
+                  %td.blue.smaller #{fb.body["7"].html_safe}
+                  %td.tg-yw4l
+                    - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                      =wicked_pdf_image_tag('1.png') if @results[0]["value"] == 3
+                    - else
+                      =wicked_pdf_image_tag('1.png') if false == true
+                  %td.tg-yw4l
+                    - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                      =wicked_pdf_image_tag('2.png') if @results[1]["value"] == 3
+                    - else
+                      =wicked_pdf_image_tag('2.png') if false == true
+                  %td.tg-yw4l
+                    - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                      =wicked_pdf_image_tag('3.png') if @results[2]["value"] == 3
+                    - else
+                      =wicked_pdf_image_tag('3.png') if true == true
+                  %td.tg-yw4l
+                    - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                      =wicked_pdf_image_tag('4.png') if @results[3]["value"] == 3
+                    - else
+                      =wicked_pdf_image_tag('4.png') if false == true
+
+                %tr
+                  %td.blue.smaller #{fb.body["8"].html_safe}
+                  %td.tg-yw4l
+                    - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                      =wicked_pdf_image_tag('1.png') if @results[0]["value"] == 2
+                    - else
+                      =wicked_pdf_image_tag('1.png') if false == true
+                  %td.tg-yw4l
+                    - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                      =wicked_pdf_image_tag('2.png') if @results[1]["value"] == 2
+                    - else
+                      =wicked_pdf_image_tag('2.png') if true == true
+                  %td.tg-yw4l
+                    - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                      =wicked_pdf_image_tag('3.png') if @results[2]["value"] == 2
+                    - else
+                      =wicked_pdf_image_tag('3.png') if false == true
+                  %td.tg-yw4l
+                    - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                      =wicked_pdf_image_tag('4.png') if @results[3]["value"] == 2
+                    - else
+                      =wicked_pdf_image_tag('4.png') if true == true
+                %tr
+                  %td.blue.smaller #{fb.body["9"].html_safe}
+                  %td.tg-yw4l
+                    - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                      =wicked_pdf_image_tag('1.png') if @results[0]["value"] == 1
+                    - else
+                      =wicked_pdf_image_tag('1.png') if true == true
+                  %td.tg-yw4l
+                    - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                      =wicked_pdf_image_tag('2.png') if @results[1]["value"] == 1
+                    - else
+                      =wicked_pdf_image_tag('2.png') if false == true
+                  %td.tg-yw4l
+                    - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                      =wicked_pdf_image_tag('3.png') if @results[2]["value"] == 1
+                    - else
+                      =wicked_pdf_image_tag('3.png') if false == true
+                  %td.tg-yw4l
+                    - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                      =wicked_pdf_image_tag('4.png') if @results[3]["value"] == 1
+                    - else
+                      =wicked_pdf_image_tag('4.png') if false == true
+            .col-xs-3
+              %p.lead.text-muted
+                - if  @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                  - if @survey_response.count_worst_section == 1
+                    A dimensão menos desenvolvida em sua escola é #{@survey_response.worst_section_score_name.html_safe} e, de acordo com a teoria 4D, essa deveria ser sua prioridade.
+                  - else
+                    As dimensões menos desenvolvidas em sua escola são #{@survey_response.worst_section_score_name.html_safe} e, de acordo com a teoria 4D, essas deveriam ser suas prioridades.
+                - else
+                  A dimensão menos desenvolvida em sua escola é <span class=section1><u>VISÃO</u><span>, e, de acordo com a teoria 4D, essa deveria ser sua prioridade.
+  - elsif fb.page > 7 && fb.page < 1000
+    - if fb.survey_section.name == 'Visão'
+      #page8.page_break.section1
+        .header_t
+          %h1.aa #{fb.title}
+          .underline
+        .container-area
+          .container
+            .row.section
+              .col-xs-12
+                %h3.normal #{fb.subtitle.html_safe}
+                .div
+                  - questions = fb.body
+                  %ul
+                    - questions.each_pair do |key, value|
+                      - value.gsub! "<li>-", "<li>"
+                      %li  #{value.html_safe}
+    - elsif fb.survey_section.name == 'Competência'
+      #page13.page_break.section2
+        .header_t
+          %h1.aa #{fb.title}
+          .underline
+        .container-area
+          .container
+            .row.section
+              .col-xs-12
+                %h3.normal #{fb.subtitle.html_safe}
+                .div
+                  - questions = fb.body
+                  %ul
+                    - questions.each_pair do |key, value|
+                      - value.gsub! "<li>-", "<li>"
+                      %li  #{value.html_safe}
+    - elsif fb.survey_section.name == 'Recursos'
+      #page18.page_break.section3
+        .header_t
+          %h1.aa #{fb.title}
+          .underline
+        .container-area
+          .container
+            .row.section
+              .col-xs-12
+                %h3.normal #{fb.subtitle.html_safe}
+                .div
+                  - questions = fb.body
+                  %ul
+                    - questions.each_pair do |key, value|
+                      - value.gsub! "<li>-", "<li>"
+                      %li  #{value.html_safe}
+    - elsif fb.survey_section.name == 'Infraestrutura'
+      #page23.page_break.section4
+        .header_t
+          %h1.aa #{fb.title}
+          .underline
+        .container-area
+          .container
+            .row.section
+              .col-xs-12
+                %h3.normal #{fb.subtitle.html_safe}
+                .div
+                  - questions = fb.body
+                  %ul
+                    - questions.each_pair do |key, value|
+                      - value.gsub! "<li>-", "<li>"
+                      %li #{value.html_safe}
+    - else
+      #page12.page_break.section0
+        .header_t
+          %h1.aa #{fb.title}
+          .underline
+        .container-area
+          .container
+            .row.section
+              .col-xs-12
+                %h3.normal #{fb.subtitle.html_safe}
+                .div
+                  - questions = fb.body
+                  %ul
+                    - questions.each_pair do |key, value|
+                      %li  #{value.html_safe}
+  - elsif fb.page == 1000
+    #page28.page_break.footer
+      .header_t
+        %h1.aa #{fb.title}
+        .underline
+      .container-area
+        .container
+          .row.section
+            .col-xs-12
+              %p.lead.text-muted
+                #{fb.body["0"]}
+              %p.lead.text-muted
+                #{fb.body["1"]}
+                - if @user._profile.to_s == "principal" || @user._profile.to_s == "teacher"
+                  - if @school.type == "Estadual"
+                    Estado #{@school.state_name}
+                  - if @school.type == "Municipal"
+                    Município de #{@school.city_name}
+                - else
+                  [ESTADO|CIDADE],
+                #{fb.body["2"]}
+              %p.lead.text-muted
+                #{fb.body["3"]}
+      %footer#footer
+        .container
+          .row
+            .col-xs-12e.widget
+              - if @school
+                - images = @feedbackImages
+                - images.each do |imageUpload|
+                  .inline
+                  =image_tag("#{imageUpload.file_upload.url}",{width: 90, height: 90})
+              .inline
+                =wicked_pdf_image_tag('cieb.png')

@@ -1,0 +1,13 @@
+= simple_form_for @survey_section, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :name
+  = error_span(@survey_section[:name])
+  = f.input :position
+  = error_span(@survey_section[:position])
+  = f.input :description
+  = error_span(@survey_section[:description])
+  = f.input :questions
+  = error_span(@survey_section[:questions])
+  = f.association :survey
+  = error_span(@survey_section[:survey_id])
+  = f.button :submit, :class => 'btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), survey_sections_path, :class => 'btn btn-default'

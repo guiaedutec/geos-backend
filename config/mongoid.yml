@@ -1,0 +1,35 @@
+development:
+  clients:
+    default:
+      database: <%= ENV['MONGODB_DATABASE'] %>
+      hosts:
+        - <%= ENV['MONGODB_HOST_1'] %>
+      options:
+        user: <%= ENV['MONGODB_USER'] %>
+        password: <%= ENV['MONGODB_PASS'] %>
+        allow_dynamic_fields: true
+        max_retries: 30
+        retry_interval: 1
+        timeout: 15
+        refresh_interval: 10
+        auth_mech: :scram256
+  options:
+    raise_not_found_error: false
+
+production:
+  clients:
+    default:
+      database: <%= ENV['MONGODB_DATABASE'] %>
+      hosts:
+        - <%= ENV['MONGODB_HOST_1'] %>
+      options:
+        user: <%= ENV['MONGODB_USER'] %>
+        password: <%= ENV['MONGODB_PASS'] %>
+        allow_dynamic_fields: true
+        max_retries: 30
+        retry_interval: 1
+        timeout: 15
+        refresh_interval: 10
+        auth_mech: :scram256
+  options:
+    raise_not_found_error: false

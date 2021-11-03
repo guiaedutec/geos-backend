@@ -1,0 +1,18 @@
+<h1>Pages#home</h1>
+<p>Find me in app/views/pages/home.html.erb</p>
+
+
+<% if current_user %>
+  Olá, <%= current_user.name %>
+  <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
+<% else %>
+  <p>
+    <%= link_to 'Cadastre-se', new_user_registration_path %>
+  </p>
+  <p>
+    <%= link_to 'Logar', new_user_session_path %>
+  </p>
+  <p>
+    <%= link_to 'Esqueci minha senha', new_user_password_path %>
+  </p>
+<% end %>

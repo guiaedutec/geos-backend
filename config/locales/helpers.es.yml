@@ -1,0 +1,15 @@
+es:
+  profiles:
+    admin: 'Administración'
+    principal: 'Director'
+    teacher: 'Profesor'
+    other: 'Otros'
+    admin_state: 'Admin Estatal'
+    admin_city: 'Admin Municipal'
+    monitor_state: 'Monitor Estatal'
+    monitor_city: 'Monitor Municipal'
+    monitor_state_regional: 'Monitor Estatal Regional'
+    monitor_city_regional: 'Monitor Municipal Regional'
+  activities:
+    teacher: 'Profesor'
+    school: 'Colegio'

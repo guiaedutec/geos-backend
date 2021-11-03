@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title= content_for?(:title) ? yield(:title) : "Guia edutec"
+    %meta{:content => content_for?(:description) ? yield(:description) : "Guia Edutec", :name => "description"}/
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    / Bootstrap
+    %link{href: "http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel: "stylesheet"}/
+    / Icons
+    %link{href: "http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", rel: "stylesheet"}/
+    / Fonts
+    %link{href: "http://fonts.googleapis.com/css?family=Lato:400,400i,700", rel: "stylesheet"}/
+    / Custom styles
+    = wicked_pdf_stylesheet_link_tag @survey.type + '_pdf'
+    /[if lt IE 9] <script src="assets/js/html5shiv.js"></script>
+
+  %body.home
+    %main{:role => "main2"}
+      = yield

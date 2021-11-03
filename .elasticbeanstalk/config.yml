@@ -1,0 +1,9 @@
+branch-defaults:
+  master:
+    environment: $CIRCLE_BRANCH-guia-edutec-2-4
+global:
+  application_name: Guia Edutec
+  default_ec2_keyname: circleci
+  default_platform: Puma with Ruby 2.4 running on 64bit Amazon Linux/2.11.2
+  default_region: us-west-2
+  sc: git

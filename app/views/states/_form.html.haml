@@ -1,0 +1,9 @@
+= simple_form_for @state, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :acronym
+  = error_span(@state[:acronym])
+  = f.input :name
+  = error_span(@state[:name])
+  = f.association :region
+  = error_span(@state[:region])
+  = f.button :submit, :class => 'btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), states_path, :class => 'btn btn-default'

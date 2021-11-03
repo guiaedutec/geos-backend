@@ -1,0 +1,19 @@
+- model_class = SpreadSheet
+.page-header
+  %h1=t '.title', :default => "Funcionalidade de Inclusão de Registros do Questionário"
+  %meta{ :name => "ROBOTS", :content => "NOINDEX, NOFOLLOW" }
+.col-xs-12
+=@spreadSheetPopProcMsg
+- 2.times do
+  %br
+- if(@invalidSpreadSheetRowsList.length > 0) then
+  %h3=t '.linhasInvalidas', :default => "Linhas não Inseridas: "
+  %br
+  - @invalidSpreadSheetRowsList.each do |line|
+    Linha #{line} da planilha não foi importada porque tem coluna sem conteúdo
+    %br
+    %br
+  %br
+  %br
+  %h3=t '.listaColunasObrigatorias', :default => "As colunas da planilha que são obrigatórias são: A, H, I, J, K, L, M, P, V"
+.col-xs-12

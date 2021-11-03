@@ -1,0 +1,13 @@
+= simple_form_for @survey_response, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :vision_level
+  = error_span(@survey_response[:vision_level])
+  = f.input :competence_level
+  = error_span(@survey_response[:competence_level])
+  = f.input :resource_level
+  = error_span(@survey_response[:resource_level])
+  = f.input :infrastructure_level
+  = error_span(@survey_response[:infrastructure_level])
+  = f.association :school
+  = error_span(@survey_response[:school])
+  = f.button :submit, :class => 'btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), survey_responses_path, :class => 'btn btn-default'

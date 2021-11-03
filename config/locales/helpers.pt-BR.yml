@@ -1,0 +1,16 @@
+pt-BR:
+  profiles:
+    admin: 'Admin'
+    principal: 'Diretor'
+    teacher: 'Professor'
+    other: 'Outros'
+    admin_state: 'Admin Estadual'
+    admin_city: 'Admin Municipal'
+    monitor_state: 'Monitor Estadual'
+    monitor_city: 'Monitor Municipal'
+    monitor_state_regional: 'Monitor Estadual Regional'
+    monitor_city_regional: 'Monitor Municipal Regional'
+  activities:
+    teacher: 'Professor'
+    school: 'Escola'
+

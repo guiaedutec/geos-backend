@@ -1,0 +1,598 @@
+- desc_nivel = @descLevel
+- resultado_pedadogica = nil
+- resultado_cidadania = nil
+- resultado_desenvolvimento = nil
+
+%link(rel="stylesheet" type="text/css" href="assets/stylesheets/api.css")
+
+- @feedbacks.delete_if do |feedback|
+  -if feedback.group['name'] == ''
+    - if feedback.title.include? 'RESULTADO - P'
+      - if @avg_pedagogica == feedback.page
+        - resultado_pedadogica = feedback
+    - if feedback.title.include? 'RESULTADO - C'
+      - if @avg_cidadania == feedback.page
+        - resultado_cidadania = feedback
+    - if feedback.title.include? 'RESULTADO - D'
+      - if @avg_desenvolvimento == feedback.page
+        - resultado_desenvolvimento = feedback
+    - true
+.capa.container-fluid.page-break
+  .row
+    .col-xs-7
+      %h1  #{@devolutiveT['title.h1']}
+      %hr{:style => "border-color: #{@colorPrimary};"}
+      %h2  #{@devolutiveT['title.h2']}
+    .col-xs-5
+      .logo.pull-right
+        =wicked_pdf_image_tag("devolutive/imgLogoHeader.png",  :width => "200")
+  .row
+    .col-xs-6
+      .row.explicacao
+        .col-xs-3
+          %div.imagem
+            =wicked_pdf_image_tag("devolutive/pin.svg")
+        .col-xs-9
+          %div.texto #{@devolutiveT['label.div.txt1']}
+      .row.explicacao
+        .col-xs-3
+          %div.imagem
+            =wicked_pdf_image_tag("devolutive/lampada.svg")
+        .col-xs-9
+          %div.texto #{@devolutiveT['label.div.txt2']}
+      .row.explicacao
+        .col-xs-3
+          %div.imagem
+            =wicked_pdf_image_tag("devolutive/grafico.svg")
+        .col-xs-9
+          %div.texto #{@devolutiveT['label.div.txt3']}
+    .col-xs-6
+      .professora.imagem
+        =wicked_pdf_image_tag("devolutive/professora.svg")
+  .row
+    .dados.col-xs-12.text-uppercase
+      .row
+        .col-xs-12
+          %p #{l(@survey_response.submitted_at, format: :long)}
+          %hr{:style => "border-color: #{@colorPrimary};"}
+        .col-xs-8
+          %div.dado
+            %div.label #{@devolutiveT['label.answered_by']}
+            %div
+              %strong
+                #{@user.name}
+          %div.dado
+            %div.label #{@devolutiveT['label.school']}
+            %div
+              %strong
+                #{@school.name}
+        .col-xs-4.text-right
+          %div.dado
+            %div.label #{@devolutiveT['label.location']}
+            %div #{@school.state_name} / #{@school.province_name}
+.page2.container-fluid.page-break
+  .row
+    .instruction
+      .col-xs-4
+        .description
+          %p
+            #{@devolutiveT['instruction.txt1']}
+      .col-xs-8
+        .items
+          .item.item-1
+            .image
+              .label
+                %strong #{@devolutiveT['instruction.areas']}
+              =wicked_pdf_image_tag("devolutive/img2.svg", :width => "200",  :height=>"200")
+              .title #{@devolutiveT['label.area_ped']}
+            .meta
+              .label
+                %strong #{@devolutiveT['instruction.comp']}
+              %ul
+                %li #{@devolutiveT['instruction.comp.ped.pp']}
+                %li #{@devolutiveT['instruction.comp.ped.pe']}
+                %li #{@devolutiveT['instruction.comp.ped.av']}
+                %li #{@devolutiveT['instruction.comp.ped.cc']}
+          
+          .item.item-2
+            .image
+              =wicked_pdf_image_tag("devolutive/img1.svg", :width => "200",  :height=>"200")
+              .title #{@devolutiveT['label.area_cid']}
+            .meta
+              %ul
+                %li #{@devolutiveT['instruction.comp.cid.ur']}
+                %li #{@devolutiveT['instruction.comp.cid.uc']}
+                %li #{@devolutiveT['instruction.comp.cid.us']}
+                %li #{@devolutiveT['instruction.comp.cid.in']}
+          
+          .item.item-3
+            .image
+              =wicked_pdf_image_tag("devolutive/img3.svg", :width => "200",  :height=>"200")
+              .title #{@devolutiveT['label.area_dev_prof']}
+            .meta
+              %ul
+                %li #{@devolutiveT['instruction.comp.des.ad']}
+                %li #{@devolutiveT['instruction.comp.des.aa']}
+                %li #{@devolutiveT['instruction.comp.des.cp']}
+                %li #{@devolutiveT['instruction.comp.des.cm']}
+  .row
+    .levels
+      %strong #{@devolutiveT['instruction.txt2']}
+      %div
+        !!! XML
+        %svg#Camada_1{style: "enable-background: new 0 0 1188.4 350",width: "1188.4",
+  height: "305", version: "1.0", viewbox: "0 0 1188.4 350", x: "0px", "xml:space" => "preserve", xmlns: "http://www.w3.org/2000/svg", "xmlns:xlink" => "http://www.w3.org/1999/xlink", y: "0px"}
+          :css
+            .st0 {
+                fill: none;
+                stroke: #ffffff;
+                stroke-miterlimit: 10;
+            }
+
+            .st1 {
+                fill: none;
+            }
+
+            .st2 {
+                fill: #cfd0d5;
+            }
+
+            .st3 {
+                fill: #9fa7b2;
+            }
+
+            .st4 {
+                fill: #414960;
+            }
+
+            .st5 {
+                fill: #28263e;
+            }
+
+            .st6 {
+                fill: #697a8c;
+            }
+
+            .st7 {
+                fill: #f0f0ee;
+            }
+
+            .st8 {
+                fill: none;
+                stroke: #000000;
+                stroke-miterlimit: 10;
+            }
+
+            .st9 {
+                fill: #ffffff;
+            }
+
+            .st10 {
+                fill: #7c2558;
+            }
+
+            .st11 {
+                fill: #0b7b7d;
+            }
+
+            .st12 {
+                fill: #048fd2;
+            }
+
+            .st13 {
+                fill: #414757;
+            }
+
+            .st14 {
+                font-family: "Arial", sans-serif;
+            }
+
+            .st15 {
+                font-size: 20.673px;
+            }
+          %rect.st9{height: "539.1", width: "1528.2", x: "-169.9", y: "-107.8"}
+          %g
+            %path.st2{d: "M489.9,283.2c-14.8,21.1-23.5,46.9-23.5,74.7H403c0-41.3,12.9-79.6,35-111L489.9,283.2z"}
+          %g
+            %path.st3{d: "M558.2,233.4c-28,8.6-51.9,26.4-68.3,49.8L438,246.8c24.4-34.8,60-61.2,101.5-74L558.2,233.4z"}
+          %g
+            %path.st4{d: "M755.1,246.8l-51.9,36.3c-16.4-23.4-40.3-41.2-68.3-49.8l18.7-60.5C695.1,185.6,730.7,212,755.1,246.8z"}
+          %g
+            %path.st5{d: "M790.1,357.9h-63.3c0-27.8-8.7-53.5-23.5-74.7l51.9-36.3C777.2,278.3,790.1,316.5,790.1,357.9z"}
+          %path.st6{d: "M653.6,172.9l-18.7,60.5c-12.1-3.7-25-5.7-38.4-5.7s-26.2,2-38.4,5.7l-18.7-60.5c18-5.5,37.2-8.5,57-8.5\r\n    C616.4,164.3,635.6,167.3,653.6,172.9z"}
+          %path.st7{d: "M403,357.3l193.5-5.8c3.5-0.1,6.4,2.7,6.6,6.2c0.1,3.5-2.7,6.4-6.2,6.6c-0.1,0-0.3,0-0.4,0L403,358.4\r\n    c-0.3,0-0.5-0.3-0.5-0.6C402.5,357.6,402.8,357.3,403,357.3z"}
+          %g
+            %polygon.st2{points: "420.8,296.8 324.4,272.3 324.4,232.3 30.5,232.3 30.5,273.7 323.6,273.7 420.4,298.4 \t"}
+          %g
+            %polygon.st3{points: "489,209.3 421,152.6 421,111.5 127.1,111.5 127.1,152.9 419,152.9 488,210.5 \t"}
+          %polygon.st6{points: "743.6,28.7 449.6,28.7 449.6,70.1 595.8,70.1 595.8,171.2 597.4,171.2 597.4,70.1 743.6,70.1 "}
+          %g
+            %polygon.st4{points: "1066.1,111.5 772.1,111.5 772.1,152.7 709.5,212.8 710.6,214 774.1,152.9 1066.1,152.9 \t"}
+          %g
+            %polygon.st5{points: "1162.7,232.3 868.7,232.3 868.7,272.9 779.5,294.4 779.9,295.9 872.1,273.7 1162.7,273.7 \t"}
+          %g{transform: "matrix(1 0 0 1 175 255)"}
+            %text.st13.st14.st15{"alignment-baseline" => "middle", "text-anchor" => "middle", x: "0", y: "0"}
+              #{desc_nivel[0]}
+          %g{transform: "matrix(1 0 0 1 270 135)"}
+            %text.st9.st14.st15{"alignment-baseline" => "middle", "text-anchor" => "middle", x: "0", y: "0"}
+              #{desc_nivel[1]}
+          %g{transform: "matrix(1 0 0 1 595 50)"}
+            %text.st9.st14.st15{"alignment-baseline" => "middle", "text-anchor" => "middle", x: "0", y: "0"}
+              #{desc_nivel[2]}
+          %g{transform: "matrix(1 0 0 1 920 135)"}
+            %text.st9.st14.st15{"alignment-baseline" => "middle", "text-anchor" => "middle", x: "0", y: "0"}
+              #{desc_nivel[3]}
+          %g{transform: "matrix(1 0 0 1 1015 255)"}
+            %text.st9.st14.st15{"alignment-baseline" => "middle", "text-anchor" => "middle", x: "0", y: "0"}
+              #{desc_nivel[4]}
+.area.resumo.container-fluid.page-break
+  .row.cabecalho
+    .col-xs-10
+      %h1 #{@devolutiveT['label.consolidated_results_by_area']}
+  .row.linha-diagonal
+    .col-xs-12.primeira
+    .col-xs-12.segunda
+    .col-xs-12.terceira
+  .row.with-padding
+    .col-xs-4.quadrante.pedagogica
+      %h2 #{@devolutiveT['label.area_ped']}
+      .imagem-velocimentro
+        =wicked_pdf_image_tag("devolutive/vel-ped-#{@avg_pedagogica}.svg")
+      .nivel
+        %span #{desc_nivel[@avg_pedagogica - 1]}
+    .col-xs-4.quadrante.middle.cidadania-digital
+      %h2 #{@devolutiveT['label.area_cid']}
+      .imagem-velocimentro
+        =wicked_pdf_image_tag("devolutive/vel-cid-#{@avg_cidadania}.svg")
+      .nivel
+        %span #{desc_nivel[@avg_cidadania - 1]}
+    .col-xs-4.quadrante.desenvolvimento-profissional
+      %h2 #{@devolutiveT['label.area_dev_prof']}
+      .imagem-velocimentro
+        =wicked_pdf_image_tag("devolutive/vel-des-#{@avg_desenvolvimento}.svg")
+      .nivel
+        %span #{desc_nivel[@avg_desenvolvimento - 1]}
+  .row.with-padding
+    .col-xs-8.col-xs-offset-2.detalhamento
+      %p #{@devolutiveT['label.area_detail']}
+
+.area.pedagogica.container-fluid.page-break
+  .row.cabecalho
+    .col-xs-10
+      %h1 #{@devolutiveT['label.results']} - #{@devolutiveT['label.area_ped']}
+    .col-xs-2
+      .imagem-titulo
+        =wicked_pdf_image_tag("devolutive/pedagogica-light.svg")
+  .row.linha-diagonal
+    .col-xs-12.primeira
+    .col-xs-12.segunda
+    .col-xs-12.terceira
+  .row.with-padding
+    .col-xs-12
+      .row
+        .col-xs-offset-1.col-xs-5.quadrante
+          .imagem-velocimentro
+            =wicked_pdf_image_tag("devolutive/vel-ped-#{@avg_pedagogica}.svg")
+          .nivel
+            %span #{desc_nivel[@avg_pedagogica - 1]}
+        .col-xs-6.quadrante
+          .icone
+            =wicked_pdf_image_tag("devolutive/lampada.svg")
+          .conteudo.o-que
+            %h2 #{@devolutiveT['label.div.txt2']}
+            %p.detalhamento #{resultado_pedadogica.body.to_a[1][1].to_s.html_safe}
+      .row
+        .col-xs-offset-1.col-xs-5.quadrante
+          .icone
+            =wicked_pdf_image_tag("devolutive/pin.svg")
+          .conteudo.onde
+            %h2 #{@devolutiveT['label.div.txt1']}
+            %p.detalhamento #{resultado_pedadogica.body.to_a[0][1].to_s.html_safe}
+        .col-xs-6.quadrante
+          .icone
+            =wicked_pdf_image_tag("devolutive/grafico.svg")
+          .conteudo.como
+            %h2 #{@devolutiveT['label.div.txt3']}
+            %p.detalhamento #{resultado_pedadogica.body.to_a[2][1].to_s.html_safe}
+
+- @fb_filtrado = @feedbacks.select { |fb|  fb.group['name'].parameterize == 'pedagogica' }
+- @fb_filtrado.each_with_index do |fb, index|
+  - if index % 2 == 0
+    - fb_left = fb
+    - fb_right = @fb_filtrado[index + 1]
+    .competencia.container-fluid.with-padding.page-break{class: "#{fb.group['name'].parameterize}"}
+      .row
+        .col-xs-12
+          %h1 #{@devolutiveT['label.results_by_competence']} - #{fb_left.title}
+        .col-xs-8
+          -# .item
+            .icone
+              =wicked_pdf_image_tag("devolutive/pin.svg")
+            .conteudo
+              %h2 #{@devolutiveT['label.div.txt1']}
+              %p.detalhamento #{fb_left.body.to_a[0][1].to_s.html_safe}
+          -# .clear
+          -# .item
+            .icone
+              =wicked_pdf_image_tag("devolutive/lampada.svg")
+            .conteudo
+              %h2 #{@devolutiveT['label.div.txt2']}
+              %p.detalhamento #{fb_left.body.to_a[1][1].to_s.html_safe}
+          -# .clear
+          .item
+            .icone
+              =wicked_pdf_image_tag("devolutive/grafico.svg")
+            .conteudo
+              %h2 #{@devolutiveT['label.div.txt3']}
+              %p.detalhamento #{fb_left.body.to_a[0][1].to_s.html_safe}
+          .clear
+        .col-xs-4
+          %p.descricao #{fb_left.survey_section.description.to_s.html_safe}
+          .imagem-velocimentro
+            =wicked_pdf_image_tag("devolutive/vel-#{fb.group['name'].parameterize.first(3)}-#{fb_left.page}.svg")
+          .nivel
+            %span #{desc_nivel[fb_left.page - 1]}
+        .col-xs-12
+          %hr.divisor
+        .col-xs-12
+          %h1 #{@devolutiveT['label.results_by_competence']} - #{fb_right.title}
+        .col-xs-4
+          %p.descricao #{fb_right.survey_section.description.to_s.html_safe}
+          .imagem-velocimentro
+            =wicked_pdf_image_tag("devolutive/vel-#{fb.group['name'].parameterize.first(3)}-#{fb_right.page}.svg")
+          .nivel
+            %span #{desc_nivel[fb_right.page - 1]}
+        .col-xs-8
+          -# .item
+            .icone
+              =wicked_pdf_image_tag("devolutive/pin.svg")
+            .conteudo
+              %h2 #{@devolutiveT['label.div.txt1']}
+              %p.detalhamento #{fb_right.body.to_a[0][1].to_s.html_safe}
+          -# .item
+            .icone
+              =wicked_pdf_image_tag("devolutive/lampada.svg")
+            .conteudo
+              %h2 #{@devolutiveT['label.div.txt2']}
+              %p.detalhamento #{fb_right.body.to_a[1][1].to_s.html_safe}
+          .item.right
+            .icone
+              =wicked_pdf_image_tag("devolutive/grafico.svg")
+            .conteudo
+              %h2 #{@devolutiveT['label.div.txt3']}
+              %p.detalhamento #{fb_right.body.to_a[0][1].to_s.html_safe}
+
+.area.cidadania-digital.container-fluid.page-break
+  .row.cabecalho
+    .col-xs-10
+      %h1 #{@devolutiveT['label.results']} - #{@devolutiveT['label.area_cid']}
+    .col-xs-2
+      .imagem-titulo
+        =wicked_pdf_image_tag("devolutive/cidadania-light.svg")
+  .row.linha-diagonal
+    .col-xs-12.primeira
+    .col-xs-12.segunda
+    .col-xs-12.terceira
+  .row.with-padding
+    .col-xs-12
+      .row
+        .col-xs-offset-1.col-xs-5.quadrante
+          .imagem-velocimentro
+            =wicked_pdf_image_tag("devolutive/vel-cid-#{@avg_cidadania}.svg")
+          .nivel
+            %span #{desc_nivel[@avg_cidadania - 1]}
+        .col-xs-6.quadrante
+          .icone
+            =wicked_pdf_image_tag("devolutive/lampada.svg")
+          .conteudo.o-que
+            %h2 #{@devolutiveT['label.div.txt2']}
+            %p.detalhamento #{resultado_cidadania.body.to_a[1][1].to_s.html_safe}
+      .row
+        .col-xs-offset-1.col-xs-5.quadrante
+          .icone
+            =wicked_pdf_image_tag("devolutive/pin.svg")
+          .conteudo.onde
+            %h2 #{@devolutiveT['label.div.txt1']}
+            %p.detalhamento #{resultado_cidadania.body.to_a[0][1].to_s.html_safe}
+        .col-xs-6.quadrante
+          .icone
+            =wicked_pdf_image_tag("devolutive/grafico.svg")
+          .conteudo.como
+            %h2 #{@devolutiveT['label.div.txt3']}
+            %p.detalhamento #{resultado_cidadania.body.to_a[2][1].to_s.html_safe}
+
+- @fb_filtrado = @feedbacks.select { |fb|  fb.group['name'].parameterize == 'cidadania-digital' }
+- @fb_filtrado.each_with_index do |fb, index|
+  - if index % 2 == 0
+    - fb_left = fb
+    - fb_right = @fb_filtrado[index + 1]
+    .competencia.container-fluid.with-padding.page-break{class: "#{fb.group['name'].parameterize}"}
+      .row
+        .col-xs-12
+          %h1 #{@devolutiveT['label.results_by_competence']} - #{fb_left.title}
+        .col-xs-8
+          -# .item
+            .icone
+              =wicked_pdf_image_tag("devolutive/pin.svg")
+            .conteudo
+              %h2 #{@devolutiveT['label.div.txt1']}
+              %p.detalhamento #{fb_left.body.to_a[0][1].to_s.html_safe}
+          -# .clear
+          -# .item
+            .icone
+              =wicked_pdf_image_tag("devolutive/lampada.svg")
+            .conteudo
+              %h2 #{@devolutiveT['label.div.txt2']}
+              %p.detalhamento #{fb_left.body.to_a[1][1].to_s.html_safe}
+          -# .clear
+          .item
+            .icone
+              =wicked_pdf_image_tag("devolutive/grafico.svg")
+            .conteudo
+              %h2 #{@devolutiveT['label.div.txt3']}
+              %p.detalhamento #{fb_left.body.to_a[0][1].to_s.html_safe}
+          .clear
+        .col-xs-4
+          %p.descricao #{fb_left.survey_section.description.to_s.html_safe}
+          .imagem-velocimentro
+            =wicked_pdf_image_tag("devolutive/vel-#{fb.group['name'].parameterize.first(3)}-#{fb_left.page}.svg")
+          .nivel
+            %span #{desc_nivel[fb_left.page - 1]}
+        .col-xs-12
+          %hr.divisor
+        .col-xs-12
+          %h1 #{@devolutiveT['label.results_by_competence']} - #{fb_right.title}
+        .col-xs-4
+          %p.descricao #{fb_right.survey_section.description.to_s.html_safe}
+          .imagem-velocimentro
+            =wicked_pdf_image_tag("devolutive/vel-#{fb.group['name'].parameterize.first(3)}-#{fb_right.page}.svg")
+          .nivel
+            %span #{desc_nivel[fb_right.page - 1]}
+        .col-xs-8
+          -# .item
+            .icone
+              =wicked_pdf_image_tag("devolutive/pin.svg")
+            .conteudo
+              %h2 #{@devolutiveT['label.div.txt1']}
+              %p.detalhamento #{fb_right.body.to_a[0][1].to_s.html_safe}
+          -# .item
+            .icone
+              =wicked_pdf_image_tag("devolutive/lampada.svg")
+            .conteudo
+              %h2 #{@devolutiveT['label.div.txt2']}
+              %p.detalhamento #{fb_right.body.to_a[1][1].to_s.html_safe}
+          .item.right
+            .icone
+              =wicked_pdf_image_tag("devolutive/grafico.svg")
+            .conteudo
+              %h2 #{@devolutiveT['label.div.txt3']}
+              %p.detalhamento #{fb_right.body.to_a[0][1].to_s.html_safe}
+
+.area.desenvolvimento-profissional.container-fluid.page-break
+  .row.cabecalho
+    .col-xs-10
+      %h1 #{@devolutiveT['label.results']} - #{@devolutiveT['label.area_dev_prof']}
+    .col-xs-2
+      .imagem-titulo
+        =wicked_pdf_image_tag("devolutive/desenvolvimento-light.svg")
+  .row.linha-diagonal
+    .col-xs-12.primeira
+    .col-xs-12.segunda
+    .col-xs-12.terceira
+  .row.with-padding
+    .col-xs-12
+      .row
+        .col-xs-offset-1.col-xs-5.quadrante
+          .imagem-velocimentro
+            =wicked_pdf_image_tag("devolutive/vel-des-#{@avg_desenvolvimento}.svg")
+          .nivel
+            %span #{desc_nivel[@avg_desenvolvimento - 1]}
+        .col-xs-6.quadrante
+          .icone
+            =wicked_pdf_image_tag("devolutive/lampada.svg")
+          .conteudo.o-que
+            %h2 #{@devolutiveT['label.div.txt2']}
+            %p.detalhamento #{resultado_desenvolvimento.body.to_a[1][1].to_s.html_safe}
+      .row
+        .col-xs-offset-1.col-xs-5.quadrante
+          .icone
+            =wicked_pdf_image_tag("devolutive/pin.svg")
+          .conteudo.onde
+            %h2 #{@devolutiveT['label.div.txt1']}
+            %p.detalhamento #{resultado_desenvolvimento.body.to_a[0][1].to_s.html_safe}
+        .col-xs-6.quadrante
+          .icone
+            =wicked_pdf_image_tag("devolutive/grafico.svg")
+          .conteudo.como
+            %h2 #{@devolutiveT['label.div.txt3']}
+            %p.detalhamento #{resultado_desenvolvimento.body.to_a[2][1].to_s.html_safe}
+
+- @fb_filtrado = @feedbacks.select { |fb|  fb.group['name'].parameterize == 'desenvolvimento-profissional' }
+- @fb_filtrado.each_with_index do |fb, index|
+  - if index % 2 == 0
+    - fb_left = fb
+    - fb_right = @fb_filtrado[index + 1]
+    .competencia.container-fluid.with-padding.page-break{class: "#{fb.group['name'].parameterize}"}
+      .row
+        .col-xs-12
+          %h1 #{@devolutiveT['label.results_by_competence']} - #{fb_left.title}
+        .col-xs-8
+          -# .item
+            .icone
+              =wicked_pdf_image_tag("devolutive/pin.svg")
+            .conteudo
+              %h2 #{@devolutiveT['label.div.txt1']}
+              %p.detalhamento #{fb_left.body.to_a[0][1].to_s.html_safe}
+          -# .clear
+          -# .item
+            .icone
+              =wicked_pdf_image_tag("devolutive/lampada.svg")
+            .conteudo
+              %h2 #{@devolutiveT['label.div.txt2']}
+              %p.detalhamento #{fb_left.body.to_a[1][1].to_s.html_safe}
+          -# .clear
+          .item
+            .icone
+              =wicked_pdf_image_tag("devolutive/grafico.svg")
+            .conteudo
+              %h2 #{@devolutiveT['label.div.txt3']}
+              %p.detalhamento #{fb_left.body.to_a[0][1].to_s.html_safe}
+          .clear
+        .col-xs-4
+          %p.descricao #{fb_left.survey_section.description.to_s.html_safe}
+          .imagem-velocimentro
+            =wicked_pdf_image_tag("devolutive/vel-#{fb.group['name'].parameterize.first(3)}-#{fb_left.page}.svg")
+          .nivel
+            %span #{desc_nivel[fb_left.page - 1]}
+        .col-xs-12
+          %hr.divisor
+        .col-xs-12
+          %h1 #{@devolutiveT['label.results_by_competence']} - #{fb_right.title}
+        .col-xs-4
+          %p.descricao #{fb_right.survey_section.description.to_s.html_safe}
+          .imagem-velocimentro
+            =wicked_pdf_image_tag("devolutive/vel-#{fb.group['name'].parameterize.first(3)}-#{fb_right.page}.svg")
+          .nivel
+            %span #{desc_nivel[fb_right.page - 1]}
+        .col-xs-8
+          -# .item
+            .icone
+              =wicked_pdf_image_tag("devolutive/pin.svg")
+            .conteudo
+              %h2 #{@devolutiveT['label.div.txt1']}
+              %p.detalhamento #{fb_right.body.to_a[0][1].to_s.html_safe}
+          -# .item
+            .icone
+              =wicked_pdf_image_tag("devolutive/lampada.svg")
+            .conteudo
+              %h2 #{@devolutiveT['label.div.txt2']}
+              %p.detalhamento #{fb_right.body.to_a[1][1].to_s.html_safe}
+          .item.right
+            .icone
+              =wicked_pdf_image_tag("devolutive/grafico.svg")
+            .conteudo
+              %h2 #{@devolutiveT['label.div.txt3']}
+              %p.detalhamento #{fb_right.body.to_a[0][1].to_s.html_safe}
+
+.final.container-fluid.with-padding.page-break(style = 'background-color: #{@colorPrimary};')
+  .row.text-center
+    .col-xs-6
+      .logo-fod
+        =wicked_pdf_image_tag("devolutive/imgLogoFooter.png",  :width => "394")
+    .col-xs-6
+      .logo-mep
+        =image_tag @logoHeaderSecondary, :width => "394"
+    .col-xs-6.assinaturas(style = 'background-color: #{@colorPrimary};')
+      %div
+        %div.assinatura(style = 'background-color: #{@colorPrimary};') #{@devolutiveT['footer.div.txt1']}
+      %div
+        %div.assinatura(style = 'background-color: #{@colorPrimary};') #{@devolutiveT['footer.div.txt2']}
+      %div
+        %div.assinatura(style = 'background-color: #{@colorPrimary};') #{@devolutiveT['footer.div.txt3']}
+    .contatos.col-xs-12.text-center
+      .row
+        .chamada.col-xs-12
+          %p #{@devolutiveT['footer.contact1']}
+        .col-xs-12
+          %h2 #{@devolutiveT['footer.contact2']}
+          %p.dado #{@devolutiveT['footer.contact3']} / #{@devolutiveT['footer.email']}

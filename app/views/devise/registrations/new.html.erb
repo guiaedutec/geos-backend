@@ -1,0 +1,19 @@
+<h2>Sign up</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, required: true, label: 'Nome' %>
+    <%= f.input :email, required: true %>
+    <%= f.input :password, label: "Senha", required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+    <%= f.input :password_confirmation, label: "Confirmação de senha", required: true %>
+    <%= f.association :state, label: "Estado" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Cadastrar" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

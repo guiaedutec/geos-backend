@@ -1,0 +1,762 @@
+html {
+    font-size: 100%;
+}
+
+body {
+    font-size: 18px;
+    font-family: 'Lato', Arial, sans-serif;
+    color: #14243d;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #141e3b !important;
+    text-decoration: none;
+}
+
+hr.green {
+    border-color: #85c440;
+}
+
+div.page-break {
+    page-break-before: always;
+    min-height: 990px;
+}
+
+div.nobreak:before {
+    clear: both;
+}
+
+div.nobreak {
+    page-break-inside: avoid;
+}
+
+h1 {
+    position: relative;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+h1:after {
+    content: '';
+    position: absolute;
+    border-bottom: 7px solid #ffffff;
+    width: 205px;
+    bottom: -20px;
+    left: 0;
+}
+
+h2 {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.with-padding {
+    padding: 50px;
+}
+
+.clear {
+    clear: both;
+}
+
+
+/* TEMP */
+.imagem {
+    /* border: 1px solid red; */
+}
+
+
+
+.page2 .row .instruction {
+    background: #cfd0d5;
+}
+
+.page2 .row .instruction .col-xs-4 {
+    background: #cfd0d5;
+    color: black;
+    width: 34%;
+    height: 488px;
+}
+
+.page2 .row .instruction .col-xs-8 {
+    background: #cfd0d5;
+    color: black;
+    width: 66%;
+    height: 100%;
+}
+
+.page2 .row .instruction .col-xs-4 .description {
+    height: 100%;
+    width: 100%;
+    font-size: 22px;
+    background: #cfd0d5;
+}
+
+.page2 .row .instruction .col-xs-4 .description>p {
+    height: 100%;
+    padding: 130px 0px 130px 40px;
+    font-size: 22px;
+    background: #cfd0d5;
+    color: black;
+}
+
+
+.page2 .row .instruction .items {
+    background: #cfd0d5;
+    margin: auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    position: relative;
+    padding-left: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.page2 .row .instruction .items .image {
+    height: 200px;
+    width: 200px;
+}
+
+.page2 .row .instruction .items .image,
+.page2 .row .instruction .items .meta {
+    position: relative;
+
+}
+
+.page2 .row .instruction .items .image .label,
+.page2 .row .instruction .items .meta .label {
+    position: absolute;
+    height: 100%;
+    left: -50px;
+    top: 0;
+    width: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.page2 .row .instruction .items .image .label>strong,
+.page2 .row .instruction .items .meta .label>strong {
+    color: black;
+    position: absolute;
+    -webkit-font-smoothing: antialiased;
+    top: 0;
+    bottom: 0;
+    height: 2em;
+    margin: auto;
+    font-size: 20px;
+    font-weight: bold;
+    -webkit-transform-origin: 0 50%;
+    -webkit-transform: rotate(-90deg) translate(-50%, 50%);
+}
+
+.page2 .row .instruction .items .item {
+    flex: 1;
+    padding: 30px;
+    position: relative;
+}
+
+.page2 .row .instruction .items .item .title {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 20px;
+    line-height: 20px;
+}
+
+.page2 .row .instruction .items .item.item-1 ul li {
+    border-color: #7c2558;
+}
+
+.page2 .row .instruction .items .item.item-1 .title {
+    color: #7c2558;
+}
+
+.page2 .row .instruction .items .item.item-2 ul li {
+    border-color: #0b7b7d;
+}
+
+.page2 .row .instruction .items .item.item-2 .title {
+    color: #0b7b7d;
+}
+
+.page2 .row .instruction .items .item.item-3 ul li {
+    border-color: #048fd2;
+}
+
+.page2 .row .instruction .items .item.item-3 .title {
+    color: #048fd2;
+}
+
+.page2 .row .instruction .items .item img {
+    width: 100%;
+}
+
+.page2 .row .instruction .items .item ul {
+    list-style: none;
+    margin-top: 30px;
+    padding: 0;
+}
+
+.page2 .row .instruction .items .item ul li {
+    padding: 10px 0;
+    text-align: center;
+    font-size: 20px;
+    border-bottom: 2px solid #000;
+}
+
+.levels {
+    padding: 50px;
+}
+
+.levels>strong {
+    display: block;
+    max-width: 500px;
+    margin-bottom: 30px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.levels>div {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.capa {
+    color: #14243d;
+    padding: 100px;
+    background-color: #ffffff;
+    /*background-image: url("devolutive/bg-capa.svg");*/
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.capa h1 {
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-size: 3em;
+    font-weight: bold;
+    line-height: 1.3em;
+}
+
+.capa h2 {
+    text-transform: uppercase;
+    font-size: 1.4em;
+    font-style: italic;
+    line-height: 1.5em;
+    margin-bottom: 45px;
+}
+
+.capa .dados {
+    margin-top: 45px;
+}
+
+.capa .dados .dado {
+    font-size: 1.2em;
+}
+
+.capa .dados .dado .label {
+    font-size: .7em;
+    padding: 0;
+    color: #14243d;
+}
+
+.capa h1:after {
+    /*border-bottom-color: #85c440;*/
+    width: 341px;
+    bottom: -30px;
+}
+
+.capa .explicacao .imagem {
+    width: 86px;
+    height: 86px;
+    margin-bottom: 10px;
+}
+
+.capa .explicacao .texto {
+    font-size: 1.4em;
+    padding-top: 25px;
+    margin-left: -30px;
+}
+
+.capa .professora {
+    width: 190px;
+    height: 250px;
+}
+
+
+.detalhamento a {
+    color: blue!important;
+}
+
+
+.area.resumo h1:after {
+    width: 230px;
+}
+
+.area.resumo .linha-diagonal {
+    margin-bottom: 80px;
+}
+
+.area.resumo .quadrante .imagem-velocimentro {
+    margin-left: 22px;
+}
+
+.area.resumo .quadrante.middle {
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+}
+
+.area.resumo .quadrante h2 {
+    margin-bottom: 20px;
+    margin-top: 0;
+    text-align: center;
+}
+
+.area.resumo .quadrante .nivel span {
+    font-size: 23px;
+}
+
+.area.resumo .detalhamento {
+    font-size: 20px;
+    text-align: center;
+}
+
+.area {
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: contain;
+}
+
+.area .cabecalho {
+    background-color: #85c440;
+    color: #ffffff;
+    padding: 30px 20px 10px;
+    font-weight: bold;
+    z-index: 10;
+    position: relative;
+}
+
+.area .cabecalho .imagem-titulo {
+    width: 96px;
+    height: 91px;
+}
+
+.area .linha-diagonal {
+    z-index: 0;
+    position: relative;
+}
+
+.area .linha-diagonal .primeira {
+    z-index: 3;
+    height: 20px;
+    top: -12px;
+    left: auto;
+    background-color: #9dc867;
+    transform: skewy(-1deg);
+    -webkit-transform: skewy(-1deg);
+    -o-transform: skewy(-1deg);
+}
+
+.area .linha-diagonal .segunda {
+    z-index: 2;
+    height: 20px;
+    top: -24px;
+    left: auto;
+    background-color: #c0da9e;
+    transform: skewy(-2deg);
+    -webkit-transform: skewy(-2deg);
+    -o-transform: skewy(-2deg);
+}
+
+.area .linha-diagonal .terceira {
+    z-index: 1;
+    height: 20px;
+    top: -36px;
+    left: auto;
+    background-color: #e6f0da;
+    transform: skewy(-3deg);
+    -webkit-transform: skewy(-3deg);
+    -o-transform: skewy(-3deg);
+}
+
+.area .quadrante {
+    min-height: 300px;
+}
+
+.area .quadrante .imagem-velocimentro {
+    width: 360px;
+    height: 180px;
+    margin: 20px 0 20px 75px;
+}
+
+.area .quadrante .nivel {
+    text-align: center;
+}
+
+.area .quadrante .nivel span {
+    font-size: 28px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: gray;
+    padding: 10px 30px;
+    font-weight: bold;
+}
+
+.area .quadrante .icone {
+    width: 80px;
+    height: 80px;
+    float: left;
+    margin-top: 40px;
+    margin-right: 30px;
+}
+
+.area .quadrante .conteudo {
+    width: 350px;
+    float: left;
+}
+
+.area .quadrante .conteudo h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.area .quadrante .conteudo h2:before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 2px;
+    bottom: -10px;
+    left: 0;
+    background-color: lightgray;
+    border-radius: 1px;
+}
+
+.area .quadrante .conteudo.o-que h2:before {
+    width: 205px;
+}
+
+.area .quadrante .conteudo.onde h2:before {
+    width: 127px;
+}
+
+.area .quadrante .conteudo.como h2:before {
+    width: 212px;
+}
+
+
+
+
+.competencia {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.competencia h1 {
+    margin-bottom: 40px;
+}
+
+.competencia .row .col-xs-6 {
+    min-height: 700px;
+}
+
+.competencia hr.divisor {
+    border-top-width: 2px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    opacity: 0.2;
+}
+
+.competencia .item {
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.competencia .item .icone {
+    width: 120px;
+    margin-right: 20px;
+    float: left;
+}
+
+.competencia .item .icone img {
+    margin-top: 40px;
+    width: 120px;
+    height: 120px
+}
+
+.competencia .item .conteudo {
+    width: 710px;
+    float: left;
+}
+
+.competencia .item .conteudo h2 {
+    margin: 0 0 15px;
+    font-size: 20px;
+}
+
+.competencia .item .conteudo .detalhamento {
+    margin-bottom: 0;
+}
+
+.competencia .imagem-velocimentro {
+    width: 300px;
+    height: 150px;
+    margin: 20px 0 15px 60px;
+}
+
+.competencia .descricao {
+    text-align: center;
+}
+
+.competencia .nivel {
+    text-align: center;
+}
+
+.competencia .nivel span {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: gray;
+    padding: 5px 15px;
+    font-weight: bold;
+}
+
+.competencia .item.right .conteudo {
+    text-align: right;
+    float: right;
+}
+
+.competencia .item.right .icone {
+    margin-left: 20px;
+    margin-right: 0;
+    float: right;
+}
+
+
+
+/*** CUSTOM: PEDAGÓGICA ***/
+.pedagogica.area {
+    background-image: url("devolutive/bg-pedagogica-area.png");
+}
+
+.pedagogica.area .cabecalho {
+    background-color: #6d0f59;
+}
+
+.pedagogica .linha-diagonal .primeira {
+    background-color: #b36292;
+}
+
+.pedagogica .linha-diagonal .segunda {
+    background-color: #ce9ab8;
+}
+
+.pedagogica .linha-diagonal .terceira {
+    background-color: #e7ccda;
+}
+
+.pedagogica .escala .nivel:before {
+    background-color: #6d0f59;
+}
+
+.pedagogica:not(.area) h1:after {
+    border-bottom-color: #6d0f59;
+}
+
+.pedagogica .escala .select {
+    border-color: #6d0f59;
+}
+
+.pedagogica .quadrante .nivel span {
+    background-color: #6d0f59;
+}
+
+.pedagogica.competencia .nivel span {
+    background-color: #6d0f59;
+}
+
+.pedagogica.competencia hr.divisor {
+    border-top-color: #6d0f59;
+}
+
+.area.resumo .quadrante.pedagogica h2 {
+    color: #6d0f59;
+}
+
+.area.resumo .quadrante.pedagogica .nivel span {
+    background-color: #6d0f59;
+}
+
+
+/*** CUSTOM: CIDADANIA DIGITAL ***/
+.cidadania-digital.area {
+    background-image: url("devolutive/bg-cidadania-area.png");
+}
+
+.cidadania-digital.area .cabecalho {
+    background-color: #068587;
+}
+
+.cidadania-digital .linha-diagonal .primeira {
+    background-color: #86c4c2;
+}
+
+.cidadania-digital .linha-diagonal .segunda {
+    background-color: #add6d6;
+}
+
+.cidadania-digital .linha-diagonal .terceira {
+    background-color: #d4eae9;
+}
+
+.cidadania-digital .escala .nivel:before {
+    background-color: #068587;
+}
+
+.cidadania-digital:not(.area) h1:after {
+    border-bottom-color: #068587;
+}
+
+.cidadania-digital .escala .select {
+    border-color: #068587;
+}
+
+.cidadania-digital .quadrante .nivel span {
+    background-color: #068587;
+}
+
+.cidadania-digital.competencia .nivel span {
+    background-color: #068587;
+}
+
+.cidadania-digital.competencia hr.divisor {
+    border-top-color: #068587;
+}
+
+.area.resumo .quadrante.cidadania-digital h2 {
+    color: #068587;
+}
+
+.area.resumo .quadrante.cidadania-digital .nivel span {
+    background-color: #068587;
+}
+
+
+/*** CUSTOM: DESENVOLVIMENTO PROFISSIONAL ***/
+.desenvolvimento-profissional.area {
+    background-image: url("devolutive/bg-desenvolvimento-area.png");
+}
+
+.desenvolvimento-profissional.area .cabecalho {
+    background-color: #4198df;
+}
+
+.desenvolvimento-profissional .linha-diagonal .primeira {
+    background-color: #5cb6e2;
+}
+
+.desenvolvimento-profissional .linha-diagonal .segunda {
+    background-color: #90cdeb;
+}
+
+.desenvolvimento-profissional .linha-diagonal .terceira {
+    background-color: #c7e6f4;
+}
+
+.desenvolvimento-profissional .escala .nivel:before {
+    background-color: #4198df;
+}
+
+.desenvolvimento-profissional:not(.area) h1:after {
+    border-bottom-color: #4198df;
+}
+
+.desenvolvimento-profissional .escala .select {
+    border-color: #4198df;
+}
+
+.desenvolvimento-profissional .quadrante .nivel span {
+    background-color: #4198df;
+}
+
+.desenvolvimento-profissional.competencia .nivel span {
+    background-color: #4198df;
+}
+
+.desenvolvimento-profissional.competencia hr.divisor {
+    border-top-color: #4198df;
+}
+
+.area.resumo .nivel.desenvolvimento-profissional {
+    color: #4198df;
+}
+
+.area.resumo .quadrante.desenvolvimento-profissional h2 {
+    color: #4198df;
+}
+
+.area.resumo .quadrante.desenvolvimento-profissional .nivel span {
+    background-color: #4198df;
+}
+
+
+
+.final {
+    color: #14243d;
+    padding: 160px 100px 0px;
+    /*background-color: <%= @colorPrimary %>;*/
+    background-image: url("bg_autoavaliacao_dark.png");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+
+.final .assinaturas {
+    margin-top: 50px;
+    margin-bottom: 130px;
+}
+
+.final .assinaturas .assinatura {
+    /*background-color: <%= @colorPrimary %>;*/
+    padding: 5px 20px;
+    text-transform: uppercase;
+    font-style: italic;
+    font-size: 1.5em;
+    display: inline-block;
+    margin-bottom: 10px;
+    white-space: nowrap;
+}
+
+.final .logo-fod {
+    margin-top: 40px;
+}
+
+.final .logo-mep {
+    margin-top: 40px;
+}
+
+.final .contatos {
+    margin-top: 40px;
+}
+
+.final .contatos .chamada {
+    font-size: 1.2em;
+}
+
+.final .contatos .chamada p {
+    margin-bottom: 0;
+}
+
+.final .contatos h2 {
+    margin: 20px 0 20px;
+}
+
+.final .contatos .dado {
+    font-size: 1.2em;
+}

@@ -1,0 +1,13 @@
+= simple_form_for @activity, :html => {:class => 'form-horizontal'} do |f|
+  = f.input :title
+  = f.input :description, as: 'text'
+  = error_span(@activity[:description])
+  = f.input :type, collection: activity_options, include_blank: false
+  = error_span(@activity[:type])
+  = f.input :is_state, as: :boolean
+  = error_span(@activity[:is_state])
+  = f.input :title_file_upload
+  = f.input :file_upload, :maxlength => 2
+  = error_span(@activity[:file_upload])
+  = f.button :submit, :class => 'btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), activities_path, :class => 'btn btn-default'

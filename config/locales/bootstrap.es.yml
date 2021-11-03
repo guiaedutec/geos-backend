@@ -1,0 +1,29 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+es:
+  breadcrumbs:
+    application:
+      root: "Índice"
+    pages:
+      pages: "Páginas"
+  helpers:
+    actions: "Comportamiento"
+    links:
+      back: "Vuelve"
+      cancel: "Cancelar"
+      confirm: "¿Está seguro?"
+      destroy: "Eliminar"
+      new: "Nuevo"
+      edit: "Para editar"
+      continue: "Seguir"
+    titles:
+      edit: "Para editar %{model}"
+      save: "Ahorrar %{model}"
+      new: "Nuevo %{model}"
+      delete: "Eliminar %{model}"
+    message:
+      msg_alert: 'La escuela seleccionada ya tiene un correo electrónico registrado, ¿quieres continuar?'
+      edit: "Para editar"
+      not_continue: "Cancelar"
+      continue: "Seguir"

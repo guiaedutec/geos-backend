@@ -1,0 +1,359 @@
+es:
+    survey:
+        personal:
+            description: "Herramienta para identificar el grado de apropiación de conocimientos y usos de tecnologías digitales."
+            name: "Autoevaluación docente"
+        school:
+            description: "Herramienta para identificar el nivel de apropiación del conocimiento y usos de las tecnologías digitales."
+            name: "Cuestionario de adopción de tecnología en la escuela"
+    survey_section:
+        personal:
+            ss1: #survey_section position 0
+                name: "Autoevaluación docente"
+                description: "<div class='padding_title_form h2_underscore'><strong>Instrucciones para realizar esta autoevaluación y recibir una realimentación útil:</strong></div><div class='padding_title_form h2'>Con esta autoevaluación usted podrá reflexionar sobre su experiencia con las tecnologías digitales. Al terminar recibirá una realimentación sobre su nivel de avance en el uso de las tecnologías en distintos aspectos de su trabajo, la cual incluye recursos digitales que le pueden ayudar a mejorar. Por ello es necesario que responda a todas las preguntas con total honestidad.<p>Por tratarse de una autoevaluación no hay respuestas incorrectas.<p>Antes de empezar, es importante que <strong>reflexione sobre lo que usted ha hecho con las tecnologías digitales en su práctica docente, cuando ha tenido las condiciones necesarias de equipamiento tecnológico y conexión a Internet (en el centro educativo y/o en su casa)</strong>. No se limite al momento actual o a las condiciones del centro en el que trabaja actualmente. Enfóquese en su práctica habitual con tecnologías, sea antes de la pandemia y/o durante la misma.<p>Sus respuestas serán confidenciales. Las autoridades educativas de su región y de oficinas centrales podrán visualizar los resultados de todos(as) los(as) participantes de forma agregada y anónima, con el fin de conocer los niveles de las competencias digitales de todos los docentes para diseñar estrategias de capacitación que les ayuden a mejorar.<p><strong>Duración</strong>:<p>El instrumento tiene 23 preguntas; en cada una debe seleccionar solamente la opción de respuesta que describe mejor lo que usted ha logrado hacer. Le tomará alrededor de 35 minutos completarlo. Trate de hacerlo de una sola vez. En caso de tener que suspender el llenado de la autoevaluación, podrá guardar sus respuestas y regresar después, usando su usuario y contraseña.</div>"
+            ss2: #survey_section position 1
+                name: "<H1>PEDAGOGÍA</H1>PRÁCTICA PEDAGÓGICA"
+                description: "Ser capaz de incorporar la tecnología a las experiencias de aprendizaje de los estudiantes y a las estrategias de enseñanza."
+                question_1: #survey_question 1
+                    name: "01: ¿En qué medida incorporo las tecnologías digitales en mi práctica pedagógica?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "Conozco poco y rara vez uso las tecnologías digitales en la planificación de mis clases y en mi práctica pedagógica. Cuando lo hago necesito ayuda de un colega."
+                        sqd1: #survey_question_description 1
+                            value: "De vez en cuando uso tecnologías digitales para hacer mis clases más interesantes, para investigar contenidos y hacer presentaciones." 
+                        sqd2: #survey_question_description 2
+                            value: "Selecciono e incorporo tecnologías digitales con frecuencia en mi práctica pedagógica, aunque no en todas las ocasiones que podría hacerlo."              
+                        sqd3: #survey_question_description 3
+                            value: "Conozco y uso tecnologías digitales con frecuencia en mi práctica pedagógica, siempre que aplica incorporo herramientas digitales en la planificación de las actividades de enseñanza-aprendizaje para mis estudiantes."              
+                        sqd4: #survey_question_description 4
+                            value: "Utilizo fluidamente las tecnologías digitales en mi práctica pedagógica, incluyéndolas todas las veces que aplica en la realización de proyectos integrados al currículo, incluso apoyo a otros colegas para que también lo hagan."    
+                question_2: #survey_question 2
+                    name: "02: ¿Cómo incorporo las tecnologías digitales en mis prácticas pedagógicas?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "Uso pocas tecnologías digitales, como correo electrónico, redes sociales y herramientas de edición de texto (p. ej. Word). Con ayuda de alguien más, logro reportar la información que me pide mi centro educativo (p. ej. en el PIAD)."
+                        sqd1: #survey_question_description 1
+                            value: "Uso tecnologías digitales como editores de textos (p.ej. Word) y de presentaciones (p.ej. PowerPoint), proyector multimedia y buscadores de Internet para descargar contenidos que me permitan desarrollar o ilustrar temas de la clase. Recomiendo sitios o contenidos complementarios (videos, imágenes) para los estudiantes." 
+                        sqd2: #survey_question_description 2
+                            value: "Además de editores de textos y presentaciones, uso recursos digitales como programas educativos, juegos, videos, e involucro a mis estudiantes en actividades/proyectos, individuales o de colaboración, que buscan complementar el aprendizaje en clase con investigaciones en Internet."              
+                        sqd3: #survey_question_description 3
+                            value: "Utilizo tecnologías digitales variadas en mi práctica pedagógica, y le doy protagonismo a mis estudiantes, involucrándolos en actividades en las que puedan asumir el rol de autores y así desarrollar y expresar sus conocimientos, usando múltiples lenguajes y recursos digitales en sus producciones (de texto, videos, infografías, etc.), incluso a partir de otros contenidos digitales buscados por ellos mismos."              
+                        sqd4: #survey_question_description 4
+                            value: "Además de usar recursos digitales variados en las actividades de enseñanza, involucro a mis estudiantes en proyectos colaborativos creados por ellos mismos, donde ponen en práctica sus conocimientos con el uso de tecnologías digitales, promoviendo su desarrollo y participación; incentivándolos a compartir sus producciones con la comunidad educativa, por medio de páginas virtuales."    
+            ss3: #survey_section position 2
+                name: "<H1>PEDAGOGÍA</H1>EVALUACIÓN"
+                description: "Ser capaz de usar tecnologías digitales para acompañar y orientar el proceso de aprendizaje y evaluar el desempeño de los estudiantes."        
+                question_1: #survey_question 1
+                    name: "03: ¿En qué medida utilizo las tecnologías digitales para evaluar a mis estudiantes?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "No uso tecnologías digitales en la evaluación de mis estudiantes, los conozco y uso poco o lo hago con la ayuda de un colega."
+                        sqd1: #survey_question_description 1
+                            value: "Algunas veces uso tecnologías digitales en las actividades evaluativas (ej:  el registro de las evaluaciones de mis estudiantes)." 
+                        sqd2: #survey_question_description 2
+                            value: "Uso tecnologías digitales con periodicidad (ej.: trimestralmente) en la evaluación de mis estudiantes."              
+                        sqd3: #survey_question_description 3
+                            value: "Planeo y uso tecnologías digitales frecuentemente (una o dos veces al mes) para la evaluación y el seguimiento de las actividades de mis estudiantes."              
+                        sqd4: #survey_question_description 4
+                            value: "Uso tecnologías digitales continuamente en mi práctica docente para evaluar, dar seguimiento y brindar realimentación a mis estudiantes."    
+                question_2: #survey_question 2
+                    name: "04: ¿Cómo uso las tecnologías digitales para evaluar y dar seguimiento al desempeño de mis estudiantes?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "No uso, conozco poco o necesito la ayuda de algún colega para apoyar la evaluación de mis estudiantes con tecnologías (ej.: para preparar e imprimir exámenes y actividades evaluativas)."
+                        sqd1: #survey_question_description 1
+                            value: "Investigo y uso preguntas, quices o plantillas (machotes) de portales educativos en Internet que ofrezcan ese tipo de material listo." 
+                        sqd2: #survey_question_description 2
+                            value: "A veces uso materiales evaluativos ya preparados que busco en Internet, pero también utilizo recursos como quices, juegos o herramientas que permitan crear exámenes y actividades para evaluar a mis estudiantes."              
+                        sqd3: #survey_question_description 3
+                            value: "Además de utilizar programas para crear y corregir actividades evaluativas diversificadas, mi planeamiento incluye evaluación y seguimiento del aprendizaje por medio de portafolios o diarios reflexivos en un entorno virtual."              
+                        sqd4: #survey_question_description 4
+                            value: "Siempre que aplica, hago las evaluaciones de mis estudiantes a través de actividades diversificadas con la ayuda de plataformas digitales que permiten la corrección automatizada o parcialmente automatizada y la visualización de las rutas de aprendizaje. También uso y evalúo portafolios y/o diarios reflexivos de mis estudiantes."
+                question_3: #survey_question 3
+                    name: "05: ¿De qué manera las tecnologías digitales me ayudan a orientar el proceso de aprendizaje de mis estudiantes?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "Uso poco o no utilizo tecnologías digitales y Tengo dificultades para usarlas en la orientación del proceso de aprendizaje de mis estudiantes."
+                        sqd1: #survey_question_description 1
+                            value: "Al finalizar cada año lectivo, analizo los resultados de las evaluaciones de mis estudiantes registradas en un sistema digital para dar realimentación de sus aprendizajes a los padres, madres o tutores legales y a la dirección educativa." 
+                        sqd2: #survey_question_description 2
+                            value: "Utilizo los registros digitales de los resultados de las evaluaciones periódicas de mis estudiantes para identificar las necesidades de aprendizaje, y a partir de ahí busco dar realimentación individual a algunos estudiantes."              
+                        sqd3: #survey_question_description 3
+                            value: "Uso herramientas tecnológicas que permitan analizar el resultado de diversas actividades evaluativas y, junto con su corrección, a veces doy realimentación individual a mis estudiantes."              
+                        sqd4: #survey_question_description 4
+                            value: "Uso herramientas tecnológicas que permitan el análisis del resultado de diversas actividades evaluativas y, junto con su corrección, siempre envío una realimentación individual a cada estudiante por medios digitales."
+            ss4: #survey_section position 3
+                name: "<H1>PEDAGOGÍA</H1>PERSONALIZACIÓN"
+                description: "Ser capaz de utilizar la tecnología para crear experiencias de aprendizaje que atiendan a las necesidades de cada estudiante."        
+                question_1: #survey_question 1
+                    name: "06: ¿Cómo empleo las tecnologías digitales para identificar las necesidades pedagógicas de mis estudiantes?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "Sé poco acerca de cómo las tecnologías digitales pueden ayudarme a visualizar las necesidades de cada estudiante, y utilizo muy poco o no tengo la costumbre de usar herramientas digitales para eso."
+                        sqd1: #survey_question_description 1
+                            value: "Utilizo ocasionalmente tecnologías digitales para el diagnóstico de mis estudiantes, identificando aquellos que necesitan de actividades diferenciadas." 
+                        sqd2: #survey_question_description 2
+                            value: "Uso tecnologías digitales periódicamente para hacer diagnóstico de aprendizaje y conocer las necesidades de mis estudiantes y, a partir de ahí, selecciono aquellos que necesitan contenidos y recursos complementarios."              
+                        sqd3: #survey_question_description 3
+                            value: "Realizo frecuentemente acciones para diagnosticar el aprendizaje de los estudiantes con apoyo de las tecnologías digitales y analizo los datos agregados del progreso, para dar seguimiento al desarrollo del aprendizaje de cada estudiante."              
+                        sqd4: #survey_question_description 4
+                            value: "Personalizo mis actividades pedagógicas empleando plataformas digitales que permitan hacer la evaluación de rutina y al menos parcialmente automatizada de los estudiantes, creando rutas de aprendizaje y empleando recursos diferenciados, según sus necesidades."    
+                question_2: #survey_question 2
+                    name: "07: ¿Cómo uso tecnologías digitales para personalizar el proceso de aprendizaje de mis estudiantes?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "No conozco, no uso o necesito ayuda de algún colega para emplear las tecnologías digitales en la adaptación de actividades pedagógicas a las necesidades de mis estudiantes con demandas específicas."
+                        sqd1: #survey_question_description 1
+                            value: "Uso tecnologías digitales como apoyo en la elaboración y oferta de actividades o proyectos específicos que demandan contenidos o actividades diferentes para uno o más de mis estudiantes." 
+                        sqd2: #survey_question_description 2
+                            value: "Utilizo tecnologías digitales para adaptar y aplicar actividades según mi materia, atendiendo a las necesidades educativas específicas de mis estudiantes."              
+                        sqd3: #survey_question_description 3
+                            value: "Uso tecnologías digitales para crear experiencias de aprendizaje, según mi planificación de enseñanza y el desarrollo del aprendizaje de cada estudiante, partiendo del contexto, interés y perfil de mis estudiantes."              
+                        sqd4: #survey_question_description 4
+                            value: "Elaboro planes de trabajo individuales y colectivos con mis estudiantes, definiendo de forma conjunta y con el apoyo de las tecnologías digitales diferentes rutas de aprendizaje, a partir de sus perfiles, ritmos, intereses y necesidades, estimulándolos a autoconocerse e identificar sus dificultades de aprendizaje."
+            ss5: #survey_section position 4
+                name: "<H1>PEDAGOGÍA</H1>SELECCIÓN Y CREACIÓN"
+                description: "Ser capaz de seleccionar y crear recursos digitales que contribuyan al proceso de enseñanza y aprendizaje, y a la gestión en el salón de clase." 
+                question_1: #survey_question 1
+                    name: "08: ¿Cómo selecciono y evalúo los recursos digitales que uso en mis prácticas pedagógicas?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "No acostumbro buscar contenidos o materiales digitales, y cuando lo hago uso buscadores de Internet (Google, Explorer, etc.) para seleccionar y bajar contenidos educativos, algunas veces con ayuda de un colega."
+                        sqd1: #survey_question_description 1
+                            value: "Ocasionalmente busco recursos digitales para apoyar una clase específica; seleccionando videos, imágenes y textos en la web, para trabajar un determinado contenido con los estudiantes." 
+                        sqd2: #survey_question_description 2
+                            value: "Conozco y uso periódicamente tecnologías digitales para preparar mis clases. Uso criterios de selección para buscar contenidos y recursos digitales en repositorios educativos o en otras fuentes en Internet."              
+                        sqd3: #survey_question_description 3
+                            value: "Con frecuencia selecciono y evalúo contenidos y recursos educativos en repositorios educativos u otras fuentes en Internet, utilizando criterios como los contenidos curriculares, el tipo de sistema operativo (ej.: Windows, Ubuntu, etc.), la posibilidad de su uso libre y de re-mezclar.."              
+                        sqd4: #survey_question_description 4
+                            value: "La selección de contenidos y recursos digitales es parte de mi rutina diaria para utilizarlos en mis prácticas pedagógicas; defino criterios de evaluación de los materiales, de los recursos y de las fuentes de información para orientar a otros colegas."    
+                question_2: #survey_question 2
+                    name: "09: ¿Cómo utilizo mis conocimientos para crear contenidos y recursos digitales?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "Tengo pocos conocimientos sobre la creación de recursos digitales; no sé cómo hacerlo o necesito ayuda para hacerlo."
+                        sqd1: #survey_question_description 1
+                            value: "Creo contenidos o recursos digitales como textos, presentaciones multimedia, entre otros, para hacer mis clases más interesantes." 
+                        sqd2: #survey_question_description 2
+                            value: "Busco y uso contenidos y recursos digitales que permitan la integración de la tecnología con los temas de mi materia."              
+                        sqd3: #survey_question_description 3
+                            value: "Creo y/o hago combinaciones (“remixes”) con contenidos y recursos digitales (textos, imágenes, videos, etc.) para mis clases, de acuerdo con mi planificación curricular, y el perfil y las necesidades de mis estudiantes."              
+                        sqd4: #survey_question_description 4
+                            value: "Como parte de mi rutina pedagógica, creo recursos digitales de forma colaborativa, con diferentes objetivos, en diversos formatos, respetando los derechos de autor, y busco compartir mis creaciones en repositorios educativos u otros sitios en Internet."
+                question_3: #survey_question 3
+                    name: "10: ¿De qué manera ayudo a mis estudiantes a seleccionar contenidos y recursos digitales adecuados?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "No involucro a mis estudiantes en el proceso de investigación y selección de contenidos y recursos digitales, no sé cómo hacerlo y necesito ayuda para hacerlo."
+                        sqd1: #survey_question_description 1
+                            value: "Motivo a mis estudiantes a buscar en Internet materiales de referencia y contenidos de apoyo para complementar sus trabajos académicos." 
+                        sqd2: #survey_question_description 2
+                            value: "Presento a mis estudiantes sitios, aplicaciones y repositorios educativos que ya he seleccionado con materiales para que ellos elijan los que contribuyan con sus estudios."              
+                        sqd3: #survey_question_description 3
+                            value: "Involucro a mis estudiantes en la selección y en la evaluación de contenidos y recursos digitales, enseñándolos a hacer búsquedas a partir de criterios específicos como tema, actualidad, autoría, posibilidad de uso y de hacer combinaciones (“remixes”)."              
+                        sqd4: #survey_question_description 4
+                            value: "Implemento prácticas pedagógicas basadas en proyectos donde muestro a los estudiantes cómo buscar y seleccionar contenidos y recursos digitales adecuados para complementar su aprendizaje, según sus propios intereses y necesidades educativas."            
+                question_4: #survey_question 4
+                    name: "11: ¿En qué medida trabajo con mis estudiantes la creación de contenidos y recursos digitales?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "Tengo pocos conocimientos para orientar a los estudiantes en la creación de contenidos y recursos digitales y necesito ayuda para hacer eso."
+                        sqd1: #survey_question_description 1
+                            value: "Motivo a mis estudiantes a usar tecnologías digitales como el paquete Office (Word, Excel, PowerPoint) o Google Drive para hacer trabajos académicos." 
+                        sqd2: #survey_question_description 2
+                            value: "A menudo propongo a mis estudiantes trabajos donde ellos pueden crear presentaciones, demostraciones, videos, con apoyo de tecnologías digitales para profundizar los contenidos de las clases."              
+                        sqd3: #survey_question_description 3
+                            value: "Involucro a los estudiantes en actividades colaborativas de edición y combinación de contenidos y recursos digitales en diversos medios (video, texto, etc.), de acuerdo con los objetivos didácticos, y sus intereses y necesidades educativas."              
+                        sqd4: #survey_question_description 4
+                            value: "Desarrollo con los estudiantes proyectos donde los incentivo a colaborar con sus pares en la creación y combinación (“remixes”) de contenidos y recursos digitales, considerando diferentes medios. También trabajo con producciones prácticas y/o actividades que involucren programación con mis estudiantes"
+            ss6: #survey_section position 5
+                name: "<H1>CIUDADANÍA DIGITAL</H1>USO RESPONSABLE"
+                description: "Ser capaz de hacer y promover el uso ético y responsable de la tecnología (<em>cyberbullying</em>, privacidad, identidad digital e implicaciones legales)." 
+                question_1: #survey_question 1
+                    name: "12: ¿Cómo uso mis conocimientos sobre el uso responsable y ético de las tecnologías digitales?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "Tengo poco o ningún conocimiento acerca de la privacidad en Internet, y desconozco criterios de seguridad para acceder a sitios o abrir correos electrónicos."
+                        sqd1: #survey_question_description 1
+                            value: "Tengo perfiles públicos en redes sociales y tengo cuidado con todo lo que acceso y comparto. Sin embargo, sé que debería proteger aún más mi privacidad." 
+                        sqd2: #survey_question_description 2
+                            value: "Cuido mi identidad digital poniendo atención a los aspectos éticos y legales de todo lo que acceso en Internet y comparto en redes sociales. Tengo cuidado al compartir información personal como mi dirección y teléfono."              
+                        sqd3: #survey_question_description 3
+                            value: "Actúo con cautela sobre con quién me conecto en las redes sociales y administro mis perfiles según los objetivos y públicos meta de cada entorno digital que uso. Sé cómo usar configuraciones que permiten controlar la privacidad de mi información personal y de los contenidos que comparto, teniendo siempre en cuenta los aspectos éticos, legales e interpersonales."              
+                        sqd4: #survey_question_description 4
+                            value: "Tengo dominio acerca de mi huella digital y mi privacidad en los entornos digitales y tomo las medidas necesarias para mi protección. Creo y comparto materiales que apoyan el uso ético y responsable de las tecnologías digitales."    
+                question_2: #survey_question 2
+                    name: "13: ¿En qué medida promuevo el uso responsable de las tecnologías digitales entre mis estudiantes?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "Tengo poco o ningún conocimiento para orientar a mis estudiantes sobre el uso responsable de las tecnologías digitales."
+                        sqd1: #survey_question_description 1
+                            value: "Busco contenidos en Internet para alertar a los estudiantes acerca de temas relacionados con el uso responsable de las tecnologías, presentando formas de interacción con el mundo virtual y los riesgos de intercambios de imágenes, audios y videos que no les gustaría que fueran compartidos y publicados." 
+                        sqd2: #survey_question_description 2
+                            value: "De vez en cuando desarrollo con los estudiantes proyectos de investigación, debates e interacciones donde pueden reflexionar acerca de cómo vivir y comunicarse de forma ética y responsable en diversos entornos digitales, incluyendo las redes sociales. También los oriento acerca de los cuidados al compartir datos personales en Internet."              
+                        sqd3: #survey_question_description 3
+                            value: "Frecuentemente integro en mi planificación actividades en las cuales los estudiantes desarrollan trabajos creados por ellos mismos, como videos, o textos en medios digitales, y hablo con ellos acerca de temas como ciberbullying, privacidad y presencia en las redes. Les motivo a compartir sus experiencias y a reflexionar sobre el proceso."              
+                        sqd4: #survey_question_description 4
+                            value: "Involucro a mis estudiantes, los padres, madres o tutores legales y a otras personas de la comunidad educativa en actividades del mundo virtual, promoviendo espacios online para intercambios de conocimientos y vivencias relacionadas con las implicaciones legales del uso de tecnologías, la identidad digital y la privacidad en Internet."
+            ss7: #survey_section position 6
+                name: "<H1>CIUDADANÍA DIGITAL</H1>USO SEGURO"
+                description: "Ser capaz de hacer y promover el uso seguro de las tecnologías (estrategias y herramientas de protección de datos)." 
+                question_1: #survey_question 1
+                    name: "14: ¿Cómo uso mis conocimientos para garantizar la seguridad de mis datos en el uso de las tecnologías digitales?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "Tengo poco o ningún conocimiento sobre la seguridad en el uso de las tecnologías digitales. Necesito ayuda para realizar los cuidados básicos."
+                        sqd1: #survey_question_description 1
+                            value: "Sé de la importancia de tener cuidados básicos para la utilización segura de Internet, pero no sé cómo tomar las medidas de seguridad necesarias, como identificar sitios y enlaces que no son seguros, crear claves complejas, tener diferentes claves para distintos sitios, mantener el sistema de seguridad actualizado, etc." 
+                        sqd2: #survey_question_description 2
+                            value: "Busco la seguridad de mis datos tomando algunas medidas concretas; por ejemplo, teniendo múltiples claves complejas que no son guardadas en el navegador y sé identificar cuando un sitio, correo electrónico o enlace no es confiable."              
+                        sqd3: #survey_question_description 3
+                            value: "Soy proactivo en adoptar las mejores prácticas de uso seguro, para garantizar mi privacidad; por ejemplo, cambio periódicamente mis claves, identifico engaños y situaciones de riesgo, uso configuraciones avanzadas de privacidad, mantengo el sistema de seguridad activado, etc. También sé realizar denuncias en caso de que mi privacidad sea violada."              
+                        sqd4: #survey_question_description 4
+                            value: "Utilizo y divulgo entre colegas y estudiantes medidas de uso seguro de los datos; como el uso de programas confiable, la administración de claves y la realización de respaldos constantes. Brindo apoyo para realizar denuncias cuando sienten violados sus derechos. También tengo cautela con los datos personales que puedan ser recopilados por los sitios que visito y las plataformas que utilizo."    
+                question_2: #survey_question 2
+                    name: "15: ¿En qué medida promuevo el uso seguro de las tecnologías digitales en mis prácticas pedagógicas?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "Tengo poco o ningún conocimiento acerca del uso seguro de Internet y necesito ayuda de algún colega para desarrollar actividades con mis estudiantes que involucren este tema."
+                        sqd1: #survey_question_description 1
+                            value: "Hablo con mis estudiantes acerca de la seguridad en Internet, orientándolos a tener cuidados básicos en el uso de tecnologías, como prestar atención a los sitios a los que ingresan y el tiempo de uso, para no comprometer su bienestar físico y psicológico." 
+                        sqd2: #survey_question_description 2
+                            value: "Busco contenidos y materiales de referencia sobre el uso seguro de las tecnologías digitales para enseñarles a mis estudiantes estrategias de seguridad al usar recursos tecnológicos dentro y fuera de mis clases; trabajo la importancia de los antivirus y el uso de contraseñas complejas."              
+                        sqd3: #survey_question_description 3
+                            value: "Siempre incluyo en la planificación de mis clases diversas actividades en las que los estudiantes puedan desarrollar trabajos por ellos mismos, como la elaboración de videos, textos en medios digitales, etc., acerca de sus propias reflexiones sobre estrategias y herramientas de protección de datos para el uso seguro de Internet."              
+                        sqd4: #survey_question_description 4
+                            value: "Involucro a mis estudiantes, a otros docentes y a la comunidad educativa en actividades sobre la importancia del cuidado en el uso de las tecnologías digitales. Propongo la incorporación del tema en los documentos orientadores del centro educativo, como forma de implementar políticas y estrategias de uso seguro de las tecnologías."
+            ss8: #survey_section position 7
+                name: "<H1>CIUDADANÍA DIGITAL</H1>USO CRÍTICO"
+                description: "Ser capaz de hacer y promover la interpretación crítica de la información disponible en medios digitales." 
+                question_1: #survey_question 1
+                    name: "16: ¿En qué medida logro usar las tecnologías digitales de modo crítico?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "Cuando recibo algún contenido enviado o publicado en redes sociales, usualmente confío en quien lo compartió y no hago juicio crítico de su contenido. Si tengo alguna duda, pido ayuda a algún colega."
+                        sqd1: #survey_question_description 1
+                            value: "Hago mis investigaciones en Internet por medio de buscadores como Google o Bing. Generalmente tengo dudas cuando recibo información en formato de imagen o videos con contenidos que parecen exagerados o sensacionalistas." 
+                        sqd2: #survey_question_description 2
+                            value: "Cuando uso las tecnologías digitales para buscar contenidos, doy prioridad a los resultados de sitios educativos, académicos o periodísticos."              
+                        sqd3: #survey_question_description 3
+                            value: "Siempre uso tecnologías digitales para buscar contenido en entornos confiables, contrastando múltiples fuentes. Analizo críticamente las noticias y la información que recibo, buscando sitios de verificación de hechos y varias fuentes confiables para no consumir o difundir noticias falsas."              
+                        sqd4: #survey_question_description 4
+                            value: "Cuando uso tecnologías digitales para buscar contenidos, evalúo la confiabilidad de las fuentes observando aspectos como la baja cantidad de anuncios, si el autor es acreditado y de prestigio. Busco contextualizar la información que encuentro; por ejemplo, revisando la fecha de publicación y la presencia de datos científicos y estadísticos."    
+                question_2: #survey_question 2
+                    name: "17: ¿De qué manera promuevo el uso crítico de las tecnologías digitales entre mis estudiantes?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "No tengo la costumbre de trabajar ese tema en clases y cuando lo hago, necesito ayuda de algún colega más experto."
+                        sqd1: #survey_question_description 1
+                            value: "Desarrollo actividades específicas con mis estudiantes a partir de noticias y contenidos que selecciono en Internet, orientándolos acerca de la importancia de seleccionar sitios, analizar publicaciones, noticias y verificar si son confiables y reales." 
+                        sqd2: #survey_question_description 2
+                            value: "Promuevo actividades donde mis estudiantes realizan lectura e interpretación crítica de información publicada en medios digitales para identificar contenidos prejuiciosos, ofensivos o falsos, como portales educativos, sitios, blogs, etc."              
+                        sqd3: #survey_question_description 3
+                            value: "Promuevo con mis estudiantes actividades que contribuyan a la lectura e interpretación crítica, estimulándolos a producir y compartir información y contenidos en medios digitales, prestando atención al contexto y al público meta y evitando difundir contenidos prejuiciosos, ofensivos o falsos."              
+                        sqd4: #survey_question_description 4
+                            value: "Desarrollo actividades que estimulen a mis estudiantes, a otros docentes y a la comunidad educativa para crear materiales y hacer lectura crítica en diversos formatos utilizando tecnologías digitales. Reviso e implemento políticas de uso crítico de las tecnologías en el centro educativo."
+            ss9: #survey_section position 8
+                name: "<H1>CIUDADANÍA DIGITAL</H1>INCLUSIÓN"
+                description: "Ser capaz de utilizar recursos tecnológicos para promover la inclusión y la equidad educativa."
+                question_1: #survey_question 1
+                    name: "18: ¿En qué medida uso las tecnologías digitales para promover la inclusión y la equidad en la educación?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "Tengo pocos conocimientos y no tengo la costumbre de usar tecnologías digitales para adaptar las actividades a aquellos estudiantes con dificultades diagnosticadas. Necesito ayuda para hacer eso."
+                        sqd1: #survey_question_description 1
+                            value: "Tengo algunos conocimientos acerca de las tecnologías digitales, y eso me ayuda a proponer actividades específicas en mis clases para la inclusión de los estudiantes en situación de discapacidad o con dificultades de aprendizaje. Por ejemplo, a veces uso programas de edición de textos (ej.: Word) para ampliar los tamaños de letra para los estudiantes con necesidades visuales especiales." 
+                        sqd2: #survey_question_description 2
+                            value: "Selecciono y uso tecnologías (con accesibilidad o no), para adaptar actividades y favorecer la inclusión de mis estudiantes en situación de discapacidad o con dificultades de aprendizaje. Utilizo recursos digitales para promover reflexiones en los estudiantes acerca de las diferencias entre las personas."              
+                        sqd3: #survey_question_description 3
+                            value: "Siempre que aplica, incluyo en mi planificación el uso de tecnologías digitales (con accesibilidad o no), que permitan la participación de cada estudiante en proyectos individuales o colectivos, según sus necesidades, promoviendo el desarrollo del aprendizaje y la participación social digital."              
+                        sqd4: #survey_question_description 4
+                            value: "Involucro a mis estudiantes en la búsqueda de soluciones y en la construcción de contenidos y herramientas inclusivas, promoviendo proyectos que contribuyan con la autonomía. También incentivo la integración de los estudiantes en debates sobre el tema, tanto en el centro educativo como en la comunidad, y colaboro con mis colegas en el uso de esos recursos digitales con sus estudiantes."
+            ss10: #survey_section position 9
+                name: "<H1>DESARROLLO PROFESIONAL</H1>AUTODESARROLLO"
+                description: "Ser capaz de usar tecnologías digitales en las actividades de formación continua y de desarrollo profesional."   
+                question_1: #survey_question 1
+                    name: "19: ¿En qué medida utilizo las tecnologías digitales para apoyar mi desarrollo profesional?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "Conozco la posibilidad de usar las tecnologías digitales para complementar mi formación, pero nunca he hecho un curso donde se usen estas herramientas. Necesito ayuda para realizar cursos en línea o usar ambientes virtuales de aprendizaje."
+                        sqd1: #survey_question_description 1
+                            value: "Uso tecnologías digitales para participar en oportunidades de capacitación continua y en actividades de autodesarrollo ofrecidas por mi centro educativo o el Ministerio de Educación Pública." 
+                        sqd2: #survey_question_description 2
+                            value: "Uso tecnologías digitales para participar en oportunidades de capacitación continua en línea o bimodales (virtual y presencial), para buscar información y cursos que promuevan mi actualización profesional. Selecciono los temas relacionados con mi especialidad y que me ofrece mi centro educativo o el Ministerio de Educación Pública."              
+                        sqd3: #survey_question_description 3
+                            value: "Uso tecnologías digitales para participar de cursos presenciales, en línea o bimodales (virtual y presencial) para perfeccionar mis conocimientos y estrategias pedagógicas, buscando integrar lo que aprendí a mi planificación. Interactúo con otros docentes para intercambiar ideas y para construir conocimiento colaborativamente."              
+                        sqd4: #survey_question_description 4
+                            value: "Uso tecnologías digitales para participar de cursos de formación personal y profesional; produzco y comparto contenidos y materiales formativos con el fin de apoyar la transformación de la práctica pedagógica de los demás docentes del centro educativo. Propongo la inclusión del tema de autodesarrollo en los documentos orientadores del centro educativo."
+            ss11: #survey_section position 10
+                name: "<H1>DESARROLLO PROFESIONAL</H1>AUTOEVALUACIÓN"
+                description: "Ser capaz de utilizar las tecnologías digitales para evaluar su práctica docente e implementar acciones para mejorar."   
+                question_1: #survey_question 1
+                    name: "20: ¿Cómo uso las tecnologías digitales para evaluar y perfeccionar mi práctica docente?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "No acostumbro hacer un registro digital de mi planeamiento para revisarlo y analizarlo después con el fin de evaluar mi práctica y planear nuevas actividades."
+                        sqd1: #survey_question_description 1
+                            value: "Registro mi planificación y la reviso trimestralmente para analizar lo realizado y planear cómo lograr los objetivos curriculares en el siguiente trimestre." 
+                        sqd2: #survey_question_description 2
+                            value: "Uso tecnologías digitales con frecuencia para registrar y revisar mi planificación de enseñanza y los resultados de mis estudiantes, y a partir de ello, evalúo y adapto mis prácticas pedagógicas."              
+                        sqd3: #survey_question_description 3
+                            value: "Planeo estrategias para perfeccionar mis prácticas pedagógicas a partir de la autoevaluación sistemática. Además, tomo en cuenta la evaluación de otros colegas en relación con mi desempeño docente para reflexionar acerca de mi desarrollo profesional y definir un plan de acción con el objetivo de perfeccionar mi trabajo."              
+                        sqd4: #survey_question_description 4
+                            value: "Uso tecnologías digitales para producir instrumentos de evaluación docente (como cuestionarios) y apoyar a otros docentes. Promuevo momentos de reflexión colectiva para evaluar las prácticas del equipo o para que los estudiantes evalúen las prácticas docentes, y a partir de esa información, propongo planes de acción conjuntos que mejoran los procesos de enseñanza."
+            ss12: #survey_section position 11
+                name: "<H1>DESARROLLO PROFESIONAL</H1>COMPARTIR"
+                description: "Ser capaz de usar la tecnología para participar y promover la participación en comunidades virtuales de aprendizaje e intercambios entre colegas."   
+                question_1: #survey_question 1
+                    name: "21: ¿De qué modo uso tecnologías digitales para participar en comunidades virtuales de aprendizaje?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "No participo o necesito ayuda de mis colegas para participar en comunidades virtuales de aprendizaje."
+                        sqd1: #survey_question_description 1
+                            value: "Esporádicamente ingreso a comunidades virtuales de aprendizaje que son ofrecidas por mi centro educativo o el Ministerio de Educación Pública." 
+                        sqd2: #survey_question_description 2
+                            value: "Conozco y uso comunidades virtuales de aprendizaje para buscar oportunidades, distintas a las que ofrece mi centro educativo o el Ministerio de Educación Pública."              
+                        sqd3: #survey_question_description 3
+                            value: "Participó activamente en diversas comunidades virtuales de aprendizaje para ampliar e intercambiar conocimientos y prácticas pedagógicas."              
+                        sqd4: #survey_question_description 4
+                            value: "Involucro a los estudiantes y a otros docentes en comunidades virtuales de aprendizaje."    
+                question_2: #survey_question 2
+                    name: "22: ¿Cómo uso las tecnologías digitales para compartir mis conocimientos asociados a la docencia?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "No uso o necesito ayuda para usar ambientes virtuales, sitios o portales para compartir contenidos o recursos digitales."
+                        sqd1: #survey_question_description 1
+                            value: "De vez en cuando comparto con otros docentes actividades, contenidos y noticias que considero relevantes por medio de redes sociales." 
+                        sqd2: #survey_question_description 2
+                            value: "Participo y motivo a mis colegas a participar de diálogos y debates virtuales para compartir sus producciones, ideas, y contenidos."              
+                        sqd3: #survey_question_description 3
+                            value: "Uso y busco con frecuencia tecnologías digitales para producir y compartir contenidos y materiales pedagógicos alineados al currículo, además de divulgar buenas prácticas en espacios virtuales."              
+                        sqd4: #survey_question_description 4
+                            value: "En conjunto con mis colegas, uso y creo páginas virtuales para compartir ideas e información con la comunidad educativa, incluyendo buenas prácticas individuales y colectivas realizadas en nuestro centro educativo."
+            ss13: #survey_section position 12
+                name: "<H1>DESARROLLO PROFESIONAL</H1>COMUNICACIÓN"
+                description: "Ser capaz de utilizar tecnologías digitales para mantener una comunicación activa, sistemática y eficiente con los actores de mi comunidad educativa."   
+                question_1: #survey_question 1
+                    name: "23: ¿De qué modo uso las tecnologías digitales para comunicarme con los actores de la comunidad educativa?"
+                    sqd: #survey_question_description
+                        sqd0: #survey_question_description 0
+                            value: "No uso tecnologías digitales para comunicarme ni uso redes sociales para conversar con otros docentes o con la dirección de mi centro educativo."
+                        sqd1: #survey_question_description 1
+                            value: "Uso tecnologías digitales para comunicarme con docentes y otros actores de mi comunidad educativa como estudiantes y sus encargados (padres, madres o tutores legales), transmitiendo orientaciones e información." 
+                        sqd2: #survey_question_description 2
+                            value: "Uso tecnologías digitales para comunicarme y compartir conocimientos e información con otros docentes e interactuar con mis estudiantes, enviando y recibiendo información sobre actividades y proyectos."              
+                        sqd3: #survey_question_description 3
+                            value: "Utilizo tecnologías digitales con frecuencia para mantener una comunicación activa con toda la comunidad educativa, buscando integrar medios y herramientas digitales para compartir información, contenidos y conocimientos de forma alineada al currículo."              
+                        sqd4: #survey_question_description 4
+                            value: "Utilizo tecnologías digitales en mi día a día y construyo experiencias alineadas al currículo, que involucren la comunicación activa y el intercambio de información con los estudiantes, los colegas, la dirección y la comunidad educativa. Además, enseño a mis colegas a comunicarse por medio de las tecnologías digitales de manera eficiente, ética y legal."
+            ss14: #survey_section position 13
+                name: "RESULTADO - PEDAGÓGICA"
+                description: "Tus respuestas indican que estás en el nivel:"
+            ss15: #survey_section position 14
+                name: "RESULTADO - CIUDADANÍA DIGITAL"
+                description: "Tus respuestas indican que estás en el nivel:" 
+            ss16: #survey_section position 15
+                name: "RESULTADO - DESARROLLO PROFESIONAL"
+                description: "Tus respuestas indican que estás en el nivel:"   
+
+        #school:

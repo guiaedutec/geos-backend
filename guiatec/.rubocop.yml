@@ -1,0 +1,30 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'lib/templates/**/*'
+    - 'spec/factories/**/*'
+    - 'spec/requests/**/*'
+Rails:
+  Enabled: True
+Rails/HasAndBelongsToMany:
+  Enabled: false
+Style/AccessModifierIndentation:
+  EnforcedStyle: outdent
+Style/Documentation:
+  Enabled: false
+Style/EmptyLinesAroundAccessModifier:
+  Enabled: false
+Style/WordArray:
+  Enabled: false
+Style/PredicateName:
+  Enabled: false
+Metrics/LineLength:
+  Max: 100
+
+require: rubocop-rspec
+RSpec/FilePath:
+  Exclude:
+    - 'spec/routing/**/*'

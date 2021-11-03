@@ -1,0 +1,63 @@
+# encoding: UTF-8
+# es translations for Devise
+es:
+  devise:
+    confirmations:
+      confirmed: 'Tu cuenta ha sido confirmada satisfactoriamente.'
+      send_instructions: 'Vas a recibir un correo con instrucciones sobre cómo confirmar tu cuenta en unos minutos.'
+      send_paranoid_instructions: 'Si tu correo existe en nuestra base de datos, en unos minutos recibirás un correo con instrucciones sobre cómo confirmar tu cuenta.'
+    failure:
+      already_authenticated: 'Ya has iniciado sesión.'
+      inactive: 'Tu cuenta aún no ha sido activada.'
+      invalid: 'E-mail o contraseña inválidos.'
+      invalid_token: 'O token de autenticação não é válido.'
+      locked: 'Tu cuenta está bloqueada.'
+      not_found_in_database: 'E-mail o contraseña inválidos.'
+      timeout: 'Tu sesión expiró. Por favor, inicia sesión nuevamente para continuar.'
+      unauthenticated: 'Tienes que iniciar sesión o registrarte para poder continuar.'
+      unconfirmed: 'Tienes que confirmar tu cuenta para poder continuar.'
+      user:
+        last_attempt: 'Tienes un intento más antes de que tu cuenta sea bloqueada.'
+    mailer:
+      confirmation_instructions:
+        subject: 'Instrucciones de confirmación - Escuela digital'
+      reset_password_instructions:
+        subject: 'Instrucciones de cambio de contraseña - Escola Digital'
+      unlock_instructions:
+        subject: 'Instrucciones de desbloqueo - Escuela digital'
+    omniauth_callbacks:
+      failure: 'Não foi possível autenticá-lo como %{kind} porque "%{reason}".'
+      success: 'Autenticado com sucesso com uma conta de %{kind}.'
+    passwords:
+      no_token: "Você só pode acessar essa página através de um e-mail de troca de senha. Se já estiver acessando por um e-mail, verifique se a URL fornecida está completa."
+      send_instructions: 'Dentro de minutos, você receberá um e-mail com instruções para a troca da sua senha.'
+      send_paranoid_instructions: 'Se o seu endereço de e-mail estiver cadastrado, você receberá um link de recuperação da senha via e-mail.'
+      updated: 'Sua senha foi alterada com sucesso. Você está logado.'
+      updated_not_active: 'Sua senha foi alterada com sucesso.'
+    registrations:
+      destroyed: 'Tchau! Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.'
+      signed_up: 'Login efetuado com sucesso. Se não foi autorizado, a confirmação será enviada por e-mail.'
+      signed_up_but_inactive: 'Você foi cadastrado com sucesso. No entanto, não foi possível efetuar login, pois sua conta não foi ativada.'
+      signed_up_but_locked: 'Você foi cadastrado com sucesso. No entanto, não foi possível efetuar login, pois sua conta está bloqueada.'
+      signed_up_but_unconfirmed: 'Uma mensagem com um link de confirmação foi enviada para o seu endereço de e-mail. Por favor, abra o link para confirmar a sua conta.'
+      update_needs_confirmation: 'Você atualizou a sua conta com sucesso, mas o seu novo endereço de e-mail precisa ser confirmado. Por favor, acesse-o e clique no link de confirmação que enviamos.'
+      updated: 'Sua conta foi atualizada com sucesso.'
+    sessions:
+      signed_in: 'Login efetuado com sucesso.'
+      signed_out: 'Logout efetuado com sucesso.'
+      already_signed_out: 'Usuário já estava deslogado.'
+    unlocks:
+      send_instructions: 'Dentro de minutos, você receberá um email com instruções para o desbloqueio da sua conta.'
+      send_paranoid_instructions: 'Se sua conta existir, você receberá um e-mail com instruções para desbloqueá-la em alguns minutos.'
+      unlocked: 'Sua conta foi desbloqueada com sucesso. Efetue login para continuar.'
+
+  errors:
+    messages:
+      already_confirmed: "já foi confirmado"
+      confirmation_period_expired: "precisa ser confirmada em até %{period}, por favor, solicite uma nova"
+      expired: "expirou, por favor, solicite uma nova"
+      not_found: "não encontrado"
+      not_locked: "não foi bloqueado"
+      not_saved:
+        one: "Não foi possível salvar %{resource}: 1 erro"
+        other: "Não foi possível salvar %{resource}: %{count} erros."

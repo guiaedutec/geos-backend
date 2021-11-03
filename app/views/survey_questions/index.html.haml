@@ -1,0 +1,36 @@
+- model_class = SurveyQuestion
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+.col-xs-12
+  .row= paginate @survey_questions
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:position)
+      %th= model_class.human_attribute_name(:type)
+      %th= model_class.human_attribute_name(:main_question)
+      %th= model_class.human_attribute_name(:survey_section)
+      %th= model_class.human_attribute_name(:survey)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @survey_questions.each do |survey_question|
+      %tr
+        %td= link_to survey_question.id, survey_question_path(survey_question)
+        %td= survey_question.name
+        %td= survey_question.position
+        %td= survey_question.type
+        %td= link_to(survey_question.main_question.name, survey_question.main_question) if survey_question.main_question
+        %td= link_to survey_question.survey_section.name, survey_question.survey_section
+        %td= survey_question.survey
+        %td=l survey_question.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_survey_question_path(survey_question), :class => 'btn btn-default btn-xs'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), survey_question_path(survey_question), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_survey_question_path, :class => 'btn btn-primary'
+.col-xs-12
+  .row= paginate @survey_questions

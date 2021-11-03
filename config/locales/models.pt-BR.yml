@@ -1,0 +1,121 @@
+pt-BR:
+  mongoid:
+    attributes:
+      timestamps: &timestamps
+        created_at: 'data de criação'
+        updated_at: 'data de atualização'
+      city:
+        <<: *timestamps
+        name: 'Nome'
+        capital: 'capital?'
+        ibge_code: 'código ibge'
+        state: 'estado'
+      state:
+        <<: *timestamps
+        acronym: 'sigla'
+        name: 'nome'
+        region: 'região'
+      region:
+        <<: *timestamps
+        name: 'nome'
+      user:
+        <<: *timestamps
+        name: 'nome'
+        email: 'email'
+        authenticity_token: 'código de acesso'
+        _profile: 'perfil'
+        role: 'cargo'
+        institution: 'instituição'
+        state: 'estado'
+        city: 'cidade'
+        regional: 'regional'
+        school: 'escola'
+      school:
+        <<: *timestamps
+        name: 'nome'
+        city: 'cidade'
+        manager: 'gerente'
+        inep_code: 'código inep'
+        staff_observations: 'obs. sobre qte de professores'
+        student_observations: 'obs. sobre qte de alunos'
+        student_diurnal_count: 'no. de alunos diurno'
+        student_vespertine_count: 'no. de alunos verspertino'
+        student_nocturnal_count: 'no. de alunos noturno'
+        student_full_count: 'no. de alunos integral'
+        student_count: 'no. total de alunos'
+        staff_count: 'no. de docentes'
+        kindergarten: 'infantil?'
+        elementary_1: 'fundamental 1?'
+        elementary_2: 'fundamental 2?'
+        highschool: 'ensino médio?'
+        technical: 'técnico?'
+        adult: 'eja?'
+        regional: 'regional'
+        private: 'privada?'
+        type: 'tipo'
+        location_type: 'localização'
+        sample: 'amostra'
+        observations: 'observações'
+        vision_level: 'nível visão'
+        competence_level: 'nível competência'
+        resource_level: 'nível recurso'
+        infrastructure_level: 'nível infraestrutura'
+        answered: 'respondeu?'
+        city: 'cidade'
+        manager_name: 'nome do diretor'
+        manager_phone: 'telefone do diretor'
+        manager_email: 'email do diretor'
+      survey:
+        <<: *timestamps
+        name: nome
+        state_id: estado
+        created_at: criado em
+      survey_response:
+        <<: *timestamps
+        competence_level: 'competência'
+        resource_level: 'recursos'
+        infrastructure_level: 'infraestrutura'
+        vision_level: 'visão'
+        school: 'escola'
+        survey: 'questionário'
+        response_answers: 'respostas'
+        status: 'status'
+        user: 'usuário'
+      survey_section:
+        <<: *timestamps
+        name: nome
+        position: posição
+        description: descrição
+        survey: 'questionário'
+        survey_questions: 'questões do questionário'
+      survey_question:
+        <<: *timestamps
+        name: nome
+        position: posição
+        type: tipo
+        main_question: 'pergunta principal'
+        survey_section: 'seção'
+        survey: 'questionário'
+      activity:
+        <<: *timestamps
+        created_at: Criado em
+        title: Título
+        description: Descrição
+        title_file_upload: Título do Upload
+        file_upload: Arquivo de Upload
+        is_state: Estadual ?
+        type: Tipo
+
+    models:
+      city: 'cidade'
+      manager: 'gerente'
+      region: 'região'
+      school: 'escola'
+      state: 'estado'
+      survey: 'questionário'
+      survey_section: 'seção'
+      survey_question: 'questão'
+      survey_answer: 'resposta'
+      survey_response: 'devolutiva'
+      user: 'usuário'
+      activity: 'atividade'

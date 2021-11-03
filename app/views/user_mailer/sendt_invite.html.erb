@@ -1,0 +1,53 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+    p {
+      font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+      font-size: 16px;
+      padding: 0px 50px
+    }
+  </style>
+</head>
+<body>
+<table bgcolor="#e3e3e3" border="0" cellpadding="0" cellspacing="0" style="padding:0px;" width="800px">
+  <tbody>
+  <tr>
+    <td align="center">
+      <br />
+      <br />
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody>
+        <tr>
+          <td align="left">
+            <p><em><%= @translation['body1'] %> <strong><%= @user.name.to_s %>,</em></p>
+            <p><%= @translation['body2'] %></p>
+            <p><%= @translation['body3'] %> <strong><%= @manager.name.to_s %></strong></p>
+            <% if @isNewUser %>
+              <p><%= @translation['body4'] %></p>
+              <p><a href="<%= "{ENV['FRONTEND_URL']}/educador"%>"><%= @translation['body5'] %></a></p>
+              <p><%= @translation['body6'] %></p>
+              <p><%= @translation['body7'] %> <strong><%= @user.email.to_s %></strong></p>
+              <p><%= @translation['body8'] %> <strong><%= @user.password.to_s %></strong></p>
+            <% else %>
+              <p><%= @translation['body9'] %></p>
+              <p><a href="<%= "{ENV['FRONTEND_URL']}/educador"%>"><%= @translation['body10'] %></a></p>
+              <p><%= @translation['body11'] %> <strong><%= @user.email.to_s %></strong> <%= @translation['body12'] %> <strong><%= @translation['body13'] %></strong>.</p>
+              <p><strong><%= @translation['body14'] %></strong> <%= @translation['body15'] %></p>
+              <p><%= @translation['body16'] %> <a href="<%= "#{ENV['FRONTEND_URL']}/recuperar-senha"%>"><%= @translation['body17'] %></a> <%= @translation['body18'] %></p>
+            <% end %>
+            <p><%= @translation['body19'] %></p>
+            <p><em><%= @translation['body20'] %><br /><%= @translation['body21'] %></em></p>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <br />
+      <br />
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

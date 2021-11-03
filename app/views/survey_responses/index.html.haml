@@ -1,0 +1,43 @@
+- model_class = SurveyResponse
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+.col-xs-12
+  .row= paginate @survey_responses
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:user)
+      %th= model_class.human_attribute_name(:status)
+      %th= model_class.human_attribute_name(:vision_level)
+      %th= model_class.human_attribute_name(:competence_level)
+      %th= model_class.human_attribute_name(:resource_level)
+      %th= model_class.human_attribute_name(:infrastructure_level)
+      %th= model_class.human_attribute_name(:survey)
+      %th= model_class.human_attribute_name(:school)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @survey_responses.each do |survey_response|
+      %tr
+        %td= link_to survey_response.id, survey_response_path(survey_response)
+        %td= survey_response.user.name if survey_response.user
+        %td= survey_response.status
+        %td= survey_response.vision_level
+        %td= survey_response.competence_level
+        %td= survey_response.resource_level
+        %td= survey_response.infrastructure_level
+        - survey = survey_response.try(:school).try(:state).try(:survey)
+        %td= link_to survey, survey if survey
+        %td= link_to survey_response.school, survey_response.school if survey_response.school
+        %td=l survey_response.created_at
+        %td
+          = link_to t('.print', :default => t("helpers.links.print")), survey_response_api_v1_school_path(survey_response.school, format: :pdf), :class => 'btn btn-default btn-xs' if survey_response.school
+          = link_to 'sincronizar', refetch_survey_response_path(survey_response), method: :post, class: 'btn btn-default btn-xs'
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_survey_response_path(survey_response), :class => 'btn btn-default btn-xs'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), survey_response_path(survey_response), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_survey_response_path, :class => 'btn btn-primary'
+.col-xs-12
+  .row= paginate @survey_responses

@@ -1,0 +1,2 @@
+development: <%= ENV['REDIS_URL'] %>
+production: <%= ENV['REDIS_URL'] %>

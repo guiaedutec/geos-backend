@@ -1,0 +1,11 @@
+= simple_form_for @city, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :name
+  = error_span(@city[:name])
+  = f.input :capital, as: :boolean
+  = error_span(@city[:capital])
+  = f.input :ibge_code
+  = error_span(@city[:ibge_code])
+  = f.association :state
+  = error_span(@city[:state])
+  = f.button :submit, :class => 'btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), cities_path, :class => 'btn btn-default'

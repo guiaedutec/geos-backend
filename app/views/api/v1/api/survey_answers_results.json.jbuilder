@@ -1,0 +1,4 @@
+json.answered_sample @school_answer_search.answered_sample_count
+json.total_sample @school_answer_search.total_sample_count
+json.answered_count @school_answer_search.answered_count
+json.total_count @school_answer_search.total_count

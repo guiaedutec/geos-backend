@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Api::V1::ApiController
+  
+    &mdash; Documentation by YARD 0.9.25
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Api::V1::ApiController";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (A)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Api.html" title="Api (module)">Api</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../V1.html" title="Api::V1 (module)">V1</a></span></span>
+     &raquo; 
+    <span class="title">ApiController</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Api::V1::ApiController
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">ApplicationController</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">ApplicationController</li>
+          
+            <li class="next">Api::V1::ApiController</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>api_controller.rb</dd>
+  </dl>
+  
+</div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cities-instance_method" title="#cities (instance method)">#<strong>cities</strong>  &#x21d2; JSON </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Search the cities of a specific country, province and state (if the country id, province id and state id is provided), otherwise, it returns a list of all cities @param: country id, province id and state id, or none parameter.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#countries-instance_method" title="#countries (instance method)">#<strong>countries</strong>  &#x21d2; JSON </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Search for a list of registered countries @param: none parameter.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_schools-instance_method" title="#get_schools (instance method)">#<strong>get_schools</strong>  &#x21d2; JSON </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Search for a list of registered schools @param: none parameter.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#institutions-instance_method" title="#institutions (instance method)">#<strong>institutions</strong>  &#x21d2; JSON </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Search for a list of registered institutions @param: none parameter.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#provincies-instance_method" title="#provincies (instance method)">#<strong>provincies</strong>  &#x21d2; JSON </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Searches the provinces of a specific country (if the country id is provided), otherwise, it returns a list of all provinces @param: country id, or none parameter.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#schools-instance_method" title="#schools (instance method)">#<strong>schools</strong>  &#x21d2; JSON </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Search the schools of a specific country, province, state and city (if the country id, province id, state id and city id is provided), otherwise, it returns a list of all schools @param: country id, province id, state id and city id, or none parameter.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#states-instance_method" title="#states (instance method)">#<strong>states</strong>  &#x21d2; JSON </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Search the states of a specific country and province (if the country id and province id is provided), otherwise, it returns a list of all states @param: country id and province id, or none parameter.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="cities-instance_method">
+  
+    #<strong>cities</strong>  &#x21d2; <tt>JSON</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Search the cities of a specific country, province and state (if the country id, province id and state id is provided), otherwise, it returns a list of all cities @param: country id, province id and state id, or none parameter</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>JSON</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>: status, message, data (city id and name, state id and name, province id and name, country id and name)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'api_controller.rb', line 82</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_cities'>cities</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:country_id</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:province_id</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:state_id</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_cities'>cities</span> <span class='op'>=</span> <span class='const'>City</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:country_id</span> <span class='op'>=&gt;</span> <span class='const'>BSON</span><span class='op'>::</span><span class='const'>ObjectId</span><span class='period'>.</span><span class='id identifier rubyid_from_string'>from_string</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:country_id</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='comma'>,</span>
+                        <span class='symbol'>:province_id</span> <span class='op'>=&gt;</span> <span class='const'>BSON</span><span class='op'>::</span><span class='const'>ObjectId</span><span class='period'>.</span><span class='id identifier rubyid_from_string'>from_string</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:province_id</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='comma'>,</span>
+                        <span class='symbol'>:state_id</span> <span class='op'>=&gt;</span> <span class='const'>BSON</span><span class='op'>::</span><span class='const'>ObjectId</span><span class='period'>.</span><span class='id identifier rubyid_from_string'>from_string</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:state_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+                        <span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_cities'>cities</span> <span class='op'>=</span> <span class='const'>City</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='lparen'>(</span><span class='op'>!</span><span class='id identifier rubyid_cities'>cities</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='lbrace'>{</span><span class='label'>status:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SUCCESS</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>message:</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Cities found</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>data:</span><span class='id identifier rubyid_cities'>cities</span><span class='rbrace'>}</span><span class='comma'>,</span><span class='label'>status:</span> <span class='symbol'>:ok</span>
+  <span class='kw'>else</span>
+      <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='lbrace'>{</span><span class='label'>status:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ERROR</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>message:</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Cities not found</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span><span class='comma'>,</span><span class='label'>status:</span> <span class='symbol'>:not_found</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="countries-instance_method">
+  
+    #<strong>countries</strong>  &#x21d2; <tt>JSON</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Search for a list of registered countries @param: none parameter</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>JSON</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>: status, message, data (country id and name, geo structure levels 1, 2, 3, and 4 name)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26
+27
+28
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'api_controller.rb', line 24</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_countries'>countries</span>
+  <span class='id identifier rubyid_countries'>countries</span> <span class='op'>=</span> <span class='const'>Country</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='lparen'>(</span><span class='op'>!</span><span class='id identifier rubyid_countries'>countries</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='lbrace'>{</span><span class='label'>status:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SUCCESS</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>message:</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Countries found</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>data:</span><span class='id identifier rubyid_countries'>countries</span><span class='rbrace'>}</span><span class='comma'>,</span><span class='label'>status:</span> <span class='symbol'>:ok</span>
+  <span class='kw'>else</span>
+      <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='lbrace'>{</span><span class='label'>status:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ERROR</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>message:</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Countries not found</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span><span class='comma'>,</span><span class='label'>status:</span> <span class='symbol'>:not_found</span>
+  <span class='kw'>end</span> 
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_schools-instance_method">
+  
+    #<strong>get_schools</strong>  &#x21d2; <tt>JSON</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Search for a list of registered schools @param: none parameter</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>JSON</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>: status, message, data (school id and name, keywords, affiliation id and name, type institution, country id and name, province id and name, state id and name, city id and name, levels 1, 2, 3, and 4 name)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14
+15
+16
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'api_controller.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_schools'>get_schools</span>
+  <span class='id identifier rubyid_schools'>schools</span> <span class='op'>=</span> <span class='const'>School</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='lparen'>(</span><span class='op'>!</span><span class='id identifier rubyid_schools'>schools</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='lbrace'>{</span><span class='label'>status:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SUCCESS</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>message:</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Schools found</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>data:</span><span class='id identifier rubyid_schools'>schools</span><span class='rbrace'>}</span><span class='comma'>,</span><span class='label'>status:</span> <span class='symbol'>:ok</span>
+  <span class='kw'>else</span>
+      <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='lbrace'>{</span><span class='label'>status:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ERROR</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>message:</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Schools not found</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span><span class='comma'>,</span><span class='label'>status:</span> <span class='symbol'>:not_found</span>
+  <span class='kw'>end</span> 
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="institutions-instance_method">
+  
+    #<strong>institutions</strong>  &#x21d2; <tt>JSON</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Search for a list of registered institutions @param: none parameter</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>JSON</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>: status, message, data (institution id and name, type institution, country id and name, province id and name, state id and name, city id and name)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38
+39
+40
+41
+42
+43</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'api_controller.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_institutions'>institutions</span>
+  <span class='id identifier rubyid_institutions'>institutions</span> <span class='op'>=</span> <span class='const'>Institution</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='lparen'>(</span><span class='op'>!</span><span class='id identifier rubyid_institutions'>institutions</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='lbrace'>{</span><span class='label'>status:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SUCCESS</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>message:</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Institutions found</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>data:</span><span class='id identifier rubyid_institutions'>institutions</span><span class='rbrace'>}</span><span class='comma'>,</span><span class='label'>status:</span> <span class='symbol'>:ok</span>
+  <span class='kw'>else</span>
+      <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='lbrace'>{</span><span class='label'>status:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ERROR</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>message:</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Institutions not found</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span><span class='comma'>,</span><span class='label'>status:</span> <span class='symbol'>:not_found</span>
+  <span class='kw'>end</span> 
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="provincies-instance_method">
+  
+    #<strong>provincies</strong>  &#x21d2; <tt>JSON</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Searches the provinces of a specific country (if the country id is provided), otherwise, it returns a list of all provinces @param: country id, or none parameter</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>JSON</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>: status, message, data (province id and name, country id and name)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'api_controller.rb', line 48</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_provincies'>provincies</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:country_id</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_provincies'>provincies</span> <span class='op'>=</span> <span class='const'>Province</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:country_id</span> <span class='op'>=&gt;</span> <span class='const'>BSON</span><span class='op'>::</span><span class='const'>ObjectId</span><span class='period'>.</span><span class='id identifier rubyid_from_string'>from_string</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:country_id</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_provincies'>provincies</span> <span class='op'>=</span> <span class='const'>Province</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='lparen'>(</span><span class='op'>!</span><span class='id identifier rubyid_provincies'>provincies</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='lbrace'>{</span><span class='label'>status:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SUCCESS</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>message:</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Provincies found</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>data:</span><span class='id identifier rubyid_provincies'>provincies</span><span class='rbrace'>}</span><span class='comma'>,</span><span class='label'>status:</span> <span class='symbol'>:ok</span>
+  <span class='kw'>else</span>
+      <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='lbrace'>{</span><span class='label'>status:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ERROR</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>message:</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Provincies not found</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span><span class='comma'>,</span><span class='label'>status:</span> <span class='symbol'>:not_found</span>
+  <span class='kw'>end</span> 
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="schools-instance_method">
+  
+    #<strong>schools</strong>  &#x21d2; <tt>JSON</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Search the schools of a specific country, province, state and city (if the country id, province id, state id and city id is provided), otherwise, it returns a list of all schools @param: country id, province id, state id and city id, or none parameter</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>JSON</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>: status, message, data (affiliation id and name, type institution, school id and name, city id and name, state id and name, province id and name, country id and name)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'api_controller.rb', line 102</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_schools'>schools</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:country_id</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:province_id</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:state_id</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:city_id</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_schools'>schools</span> <span class='op'>=</span> <span class='const'>School</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='symbol'>:city_id</span> <span class='op'>=&gt;</span> <span class='const'>BSON</span><span class='op'>::</span><span class='const'>ObjectId</span><span class='period'>.</span><span class='id identifier rubyid_from_string'>from_string</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:city_id</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='comma'>,</span>
+                            <span class='symbol'>:state_id</span> <span class='op'>=&gt;</span> <span class='const'>BSON</span><span class='op'>::</span><span class='const'>ObjectId</span><span class='period'>.</span><span class='id identifier rubyid_from_string'>from_string</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:state_id</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='comma'>,</span>
+                            <span class='symbol'>:province_id</span> <span class='op'>=&gt;</span> <span class='const'>BSON</span><span class='op'>::</span><span class='const'>ObjectId</span><span class='period'>.</span><span class='id identifier rubyid_from_string'>from_string</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:province_id</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='comma'>,</span>
+                            <span class='symbol'>:country_id</span> <span class='op'>=&gt;</span> <span class='const'>BSON</span><span class='op'>::</span><span class='const'>ObjectId</span><span class='period'>.</span><span class='id identifier rubyid_from_string'>from_string</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:country_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+                          <span class='rbrace'>}</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='const'>School</span><span class='period'>.</span><span class='id identifier rubyid_ordered'>ordered</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='lparen'>(</span><span class='op'>!</span><span class='id identifier rubyid_schools'>schools</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='lbrace'>{</span><span class='label'>status:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SUCCESS</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>message:</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Schools found</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>data:</span><span class='id identifier rubyid_schools'>schools</span><span class='rbrace'>}</span><span class='comma'>,</span><span class='label'>status:</span> <span class='symbol'>:ok</span>
+  <span class='kw'>else</span>
+      <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='lbrace'>{</span><span class='label'>status:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ERROR</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>message:</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Schools not found</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span><span class='comma'>,</span><span class='label'>status:</span> <span class='symbol'>:not_found</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="states-instance_method">
+  
+    #<strong>states</strong>  &#x21d2; <tt>JSON</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Search the states of a specific country and province (if the country id and province id is provided), otherwise, it returns a list of all states @param: country id and province id, or none parameter</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>JSON</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>: status, message, data (state id and name, province id and name, country id and name)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'api_controller.rb', line 64</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_states'>states</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:country_id</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:province_id</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_states'>states</span> <span class='op'>=</span> <span class='const'>State</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='symbol'>:country_id</span> <span class='op'>=&gt;</span> <span class='const'>BSON</span><span class='op'>::</span><span class='const'>ObjectId</span><span class='period'>.</span><span class='id identifier rubyid_from_string'>from_string</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:country_id</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='comma'>,</span>
+                          <span class='symbol'>:province_id</span> <span class='op'>=&gt;</span> <span class='const'>BSON</span><span class='op'>::</span><span class='const'>ObjectId</span><span class='period'>.</span><span class='id identifier rubyid_from_string'>from_string</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:province_id</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_states'>states</span> <span class='op'>=</span> <span class='const'>State</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='lparen'>(</span><span class='op'>!</span><span class='id identifier rubyid_states'>states</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='lbrace'>{</span><span class='label'>status:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SUCCESS</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>message:</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>States found</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>data:</span><span class='id identifier rubyid_states'>states</span><span class='rbrace'>}</span><span class='comma'>,</span><span class='label'>status:</span> <span class='symbol'>:ok</span>
+  <span class='kw'>else</span>
+      <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='lbrace'>{</span><span class='label'>status:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ERROR</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>message:</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>States not found</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span><span class='comma'>,</span><span class='label'>status:</span> <span class='symbol'>:not_found</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Fri Dec  4 03:00:20 2020 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.25 (ruby-2.7.2).
+</div>
+
+    </div>
+  </body>
+</html>

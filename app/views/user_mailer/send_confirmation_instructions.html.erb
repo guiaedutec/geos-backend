@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    <style>
+      p {
+        font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+        font-size: 16px;
+        padding: 0px 50px
+      }
+    </style>
+    </head>
+    <body>
+    <table bgcolor="#e3e3e3" border="0" cellpadding="0" cellspacing="0" style="padding:0px;" width="800px">
+      <tbody>
+        <tr>
+          <td align="center">
+            <br />
+            <br />
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tbody>
+                <tr>
+                  <td align="left">
+                  <p><em><%= @translation['body1'] @user.name %></em></p>
+                  <p><em><%= @translation['body2'] %></em></p>
+                  <br>
+                  <p><em><b><%= link_to @translation['body3'], confirmation_url(@resource, confirmation_token: @token) %></b></em></p>
+                  <br>
+                  <p><em><%= @translation['body4'] %>.</em></p>
+                  <p><em><%= @translation['body5'] %>,<br />
+                  <%= @translation['body6'] %></em></p>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <br />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </body>
+</html>

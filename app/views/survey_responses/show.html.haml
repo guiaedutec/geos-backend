@@ -1,0 +1,55 @@
+- model_class = SurveyResponse
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
+
+%p
+  %strong= model_class.human_attribute_name(:user) + ':'
+  %br
+  = @survey_response.user.name if @survey_response.user
+%p
+  %strong= model_class.human_attribute_name(:status) + ':'
+  %br
+  = @survey_response.status
+%p
+  %strong= model_class.human_attribute_name(:vision_level) + ':'
+  %br
+  = @survey_response.vision_level
+%p
+  %strong= model_class.human_attribute_name(:competence_level) + ':'
+  %br
+  = @survey_response.competence_level
+%p
+  %strong= model_class.human_attribute_name(:resource_level) + ':'
+  %br
+  = @survey_response.resource_level
+%p
+  %strong= model_class.human_attribute_name(:infrastructure_level) + ':'
+  %br
+  = @survey_response.infrastructure_level
+%p
+  %strong= model_class.human_attribute_name(:school) + ':'
+  %br
+  = link_to @survey_response.school, @survey_response.school if @survey_response.school
+%p
+  %strong= model_class.human_attribute_name(:response_answers) + ':'
+%table.table.table-striped
+  %thead
+    %tr
+      %th Seção
+      %th Posição
+      %th Resposta
+      %th Nota
+  %tbody
+    - @survey_response.response_answers.each do |answer|
+      %tr
+        %td= answer.survey_question.survey_section.name
+        %td= answer.survey_question.position
+        %td= answer.answer.inspect
+        %td= answer.score
+
+
+= link_to t('.print', :default => t("helpers.links.print")), survey_response_api_v1_school_path(@survey_response.school, format: :pdf), :class => 'btn btn-default'
+= link_to 'sincronizar', refetch_survey_response_path(survey_response), method: :post, class: 'btn btn-default'
+= link_to t('.back', :default => t("helpers.links.back")), survey_responses_path, :class => 'btn btn-default'
+= link_to t('.edit', :default => t("helpers.links.edit")), edit_survey_response_path(@survey_response), :class => 'btn btn-default'
+= link_to t('.destroy', :default => t("helpers.links.destroy")), survey_response_path(@survey_response), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

@@ -1,0 +1,207 @@
+= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :_profile, collection: profile_options, include_blank: false
+  = error_span(@user[:_profile])
+
+  = f.input :name
+  = error_span(@user[:name])
+
+  = f.input :password
+  = error_span(@user[:password])
+
+  = f.input :role
+  = error_span(@user[:role])
+
+  = f.input :institution
+  = error_span(@user[:institution])
+
+  = f.input :email, :input_html => {:onblur => "checkEmail(this);"}
+  = error_span(@user[:email])
+  %div.alert.alert-danger.visibility.hidden#div-alert{:role => "alert"}
+    %p= t("helpers.message.msg_alert")
+    = link_to t('.not_continue', :default => t("helpers.message.not_continue")), users_path, :class => 'btn btn-default btn-danger', :id => 'not-continue'
+    = link_to t('.continue', :default => t("helpers.message.continue")), "#", :class => 'btn btn-default btn-primary', :id => 'continue', :onclick => 'abilityBtn(this);'
+      
+  = f.association :state, :input_html => {id:"state" }
+  = error_span(@user[:state])
+
+  = f.input :city, collection: 0..1, prompt: "Select your City", :input_html => {id:"city" }
+  = error_span(@user[:city])
+
+  = f.input :school, collection: 0..1, prompt: "Select your school",:input_html => {id:"school"}
+  = error_span(@user[:school])
+
+  = f.hidden_field :id, value: @user[:id]
+
+  = f.button :submit, :class => 'btn-primary', :id => 'submit'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn btn-default'
+
+  
+  
+  :javascript
+    var notContinue = $('#not-continue');
+    var notContinue = $('#continue');
+    var btnSubmit = $('#submit');
+    var divAlert = $("#div-alert");
+
+    function checkEmail(elem){
+        var idSchool = $('#user_school_id').val();
+        var emailDirector = $('#user_email').val();
+        var principal = $("#user__profile option:selected").val();
+        
+        if(principal == 'principal' && idSchool && emailDirector){
+          var obj = new Object();
+          obj.schoolId = idSchool;
+          obj.email = emailDirector;
+
+          $.ajax({
+              type: "GET",
+              url: "#{Rails.configuration.admin_url}/admin/valid_principal",
+              data: obj,
+              success: function (data) {
+                if(!data.valid){
+                  divAlert.removeClass('hidden');
+                  btnSubmit.attr('disabled','disabled');
+                }else{
+                  btnSubmit.removeAttr('disabled');
+                  divAlert.addClass('hidden');
+                }
+
+              },
+              error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log(errorThrown);
+              }
+          });
+        }
+      }
+
+      $( document ).ready(function() {
+        $("#school").empty();
+        $("#city").empty();
+        //onEdit()
+
+        $.ajax({
+              type: "GET",
+              url: "#{Rails.configuration.admin_url}/admin/getuserinfo/",
+              data: {id:$("#user_id").val()},
+              success: function (data) {
+              if($.trim(data)){
+                  onEdit()
+                  }
+              },
+              error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log(errorThrown);
+
+              }
+          });
+
+       });
+
+     $('#state' ).on('change',function() {
+            $("#city").empty();
+            $.ajax({
+              type: "GET",
+              url: "#{Rails.configuration.admin_url}/admin/citiesbystate",
+              data: {id:$("#state").val()},
+              success: function (data) {
+                $.each(data, function(key, value) {
+                       $('#city')
+                         .append($("<option></option>")
+                                    .attr("value",value._id.$oid)
+                                    .text(value.name));
+
+                });
+              },
+              error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log(errorThrown);
+              }
+          });
+       });
+
+     $( '#city' ).on('change',function() {
+           $.ajax({
+              type: "GET",
+              url: "#{Rails.configuration.admin_url}/admin/getschools",
+              data: {state:$("#state").val(),city:$("#city").val()},
+              success: function (data) {
+                 $.each(data, function(key, value) {
+                       $('#school')
+                         .append($("<option></option>")
+                                    .attr("value",value._id.$oid)
+                                    .text(value.name));
+
+                });
+              },
+              error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log(errorThrown);
+              }
+          });
+       });
+
+     function onEdit(){
+          var obj = new Object()
+           $.ajax({
+              type: "GET",
+              url: "#{Rails.configuration.admin_url}/admin/getuserinfo/",
+              data: {id:$("#user_id").val()},
+              success: function (data) {
+              console.log(data)
+                  $.ajax({
+                      type: "GET",
+                      url: "#{Rails.configuration.admin_url}/admin/citiesbystate",
+                      data: {id:$("#state").val()},
+                      success: function (data2) {
+                        $.each(data2, function(key, value) {
+                            if(value._id.$oid == data.city_id.$oid){
+                               $('#city')
+                                 .append('<option value="'+ value._id.$oid+'" selected>' + value.name+'</option>')
+
+                            }else{
+                               $('#city')
+                                 .append($("<option></option>")
+                                            .attr("value",value._id.$oid)
+                                            .text(value.name));
+                               }
+
+                        });
+                      },
+                      error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        console.log(errorThrown);
+                      }
+                  });
+
+                 $.ajax({
+                    type: "GET",
+                    url: "#{Rails.configuration.admin_url}/admin/getschools",
+                    data: {state:$("#state").val(),city:data.city_id.$oid},
+                    success: function (data3) {
+                       $.each(data3, function(key, value) {
+                          if(value._id.$oid == data.school_id.$oid ){
+                               $('#school')
+                                 .append('<option value="'+ value._id.$oid+'" selected>' + value.name+'</option>')
+                          }else{
+
+                             $('#school')
+                               .append($("<option></option>")
+                                          .attr("value",value._id.$oid)
+                                          .text(value.name));
+                           }
+
+                      });
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                      console.log(errorThrown);
+                    }
+                });
+              },
+              error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log(errorThrown);
+              }
+          });
+
+     }
+      function abilityBtn(){          
+        btnSubmit.removeAttr('disabled');
+        divAlert.addClass('hidden');  
+      }
+
+   

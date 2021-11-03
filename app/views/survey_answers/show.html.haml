@@ -1,0 +1,25 @@
+- model_class = SurveyAnswer
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
+
+%p
+  %strong= model_class.human_attribute_name(:value) + ':'
+  %br
+  = @survey_answer.value
+%p
+  %strong= model_class.human_attribute_name(:position) + ':'
+  %br
+  = @survey_answer.position
+%p
+  %strong= model_class.human_attribute_name(:survey_answer_id) + ':'
+  %br
+  = @survey_answer.survey_answer_id
+%p
+  %strong= model_class.human_attribute_name(:survey_question_id) + ':'
+  %br
+  = @survey_answer.survey_question_id
+
+
+= link_to t('.back', :default => t("helpers.links.back")), survey_answers_path, :class => 'btn btn-default'
+= link_to t('.edit', :default => t("helpers.links.edit")), edit_survey_answer_path(@survey_answer), :class => 'btn btn-default'
+= link_to t('.destroy', :default => t("helpers.links.destroy")), survey_answer_path(@survey_answer), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

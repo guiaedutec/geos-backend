@@ -1,0 +1,2 @@
+class ResponsePdfUploader < BaseUploader
+end
