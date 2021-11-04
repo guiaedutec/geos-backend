@@ -210,12 +210,10 @@ class SchoolAnswerSearch
   end
 
   def pages_count
-    @page_answers.total_pages
     1
   end
 
   def pages_details_count
-    @page_details.total_pages
     1
   end
 
@@ -242,7 +240,6 @@ class SchoolAnswerSearch
    end
 
    def answered_sample_count
-     @answers.where(:"results.#{@survey_schedule_id}.answered" => true, :"results.#{@survey_schedule_id}.sample" => true).count
      count = 0
      @answers.each { |answer| count += 1 if !answer.results.nil? and !answer.results["#{@survey_schedule_id}".to_sym].nil? and answer.results["#{@survey_schedule_id}".to_sym]['sample'] and answer.results["#{@survey_schedule_id}".to_sym]['answered'] }
      count

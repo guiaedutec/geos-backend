@@ -4,6 +4,8 @@ module Api
         before_action :authenticate_user!, only: [:save_country, :delete_country, :edit_country]
         
         # Search for a country
+        # @param: country id 
+        # @return [JSON]: country id and name found
         def get_country_by_id
           countries = (!params['id'].nil?) ? Country.find_by(id: params['id']) : nil
           if (!countries.nil?)
@@ -14,6 +16,8 @@ module Api
         end 
 
         # Insert a non-existent country
+        # @param: access_token (user admin) and name (from the country)
+        # @return [JSON]: country id and name added
         def save_country
           user = current_user
           if user.admin?
@@ -36,6 +40,8 @@ module Api
         end
 
         # Delete an existing country
+        # @param: access_token (user admin) and country id
+        # @return [JSON]: country id and name excluded
         def delete_country
           user = current_user
           if user.admin?
@@ -50,6 +56,8 @@ module Api
         end
 
         # Edit the name of an existing country
+        # @param: access_token (user admin), country id and name 
+        # @return [JSON]: country id and name updated
         def edit_country
           user = current_user
           if user.admin?

@@ -4,6 +4,8 @@ module Api
       before_action :authenticate_user!, only: [:save_state, :delete_state, :edit_state]
       
       # Search for a state
+      # @param: state id 
+      # @return [JSON]: country id and name, province id and name, state id and name found
       def get_state_by_id
         state = (!params['id'].nil?) ? State.find_by(id: params['id']) : nil
         if (!state.nil?)
@@ -14,6 +16,8 @@ module Api
       end 
 
       # Insert a non-existent state
+      # @param: access_token (user admin), country id and name, province id and name, and name (from the state) 
+      # @return [JSON]: country id and name, province id and name, state id and name added
       def save_state
         user = current_user
         params.permit(:name, :country_name, :province_name, :country_id, :province_id, :id, :access_token, :state)
@@ -69,6 +73,8 @@ module Api
       end 
 
       # Delete an existing state
+      # @param: access_token (user admin) and state id
+      # @return [JSON]: country id and name, province id and name, state id and name excluded
       def delete_state
         user = current_user
         if user.admin?
@@ -83,6 +89,8 @@ module Api
       end
 
       # Edit the name of an existing state
+      # @param: access_token (user admin), country id and name, province id and name, state id and name
+      # @return [JSON]: country id and name, province id and name, state id and name updated
       def edit_state
         user = current_user
         if user.admin?

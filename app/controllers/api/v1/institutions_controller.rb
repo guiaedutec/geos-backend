@@ -4,6 +4,8 @@ module Api
       before_action :authenticate_user!, only: [:save_institution, :delete_institution, :edit_institution]
       
       # Search for a institution
+      # @param: institution id 
+      # @return [JSON]: country id and name, province id and name, state id and name, city id and name, type institution, institution id and name found
       def get_institution_by_id
         institution = (!params['id'].nil?) ? Institution.find_by(id: params['id']) : nil
         if (!institution.nil?)
@@ -14,6 +16,8 @@ module Api
       end
 
       # Insert a non-existent institution
+      # @param: access_token (user admin), country id and name, province id and name, state id and name, city id and name, type institution and name (from the institution)
+      # @return [JSON]: country id and name, province id and name, state id and name, city id and name, type institution, institution id and name added
       def save_institution
         user = current_user
         params.permit(:name, :country_name, :province_name, :state_name, :country_id, :province_id, :state_id, :city_id, :city_name, :type_institution, :access_token)
@@ -82,6 +86,8 @@ module Api
       end 
 
       # Delete an existing institution
+      # @param: access_token (user admin) and institution id
+      # @return [JSON]: country id and name, province id and name, state id and name, city id and name, type institution, institution id and name excluded
       def delete_institution
         user = current_user
         if user.admin?
@@ -112,6 +118,9 @@ module Api
         end 
       end 
 
+      # Edit the name of an existing institution
+      # @param: access_token (user admin), country id and name, province id and name, state id and name, city id and name, type institution, institution id and name
+      # @return [JSON]: country id and name, province id and name, state id and name, city id and name, type institution, institution id and name updated
       def edit_institution
         user = current_user
         if user.admin?

@@ -39,6 +39,8 @@ module Api
       end
 
       # List all admin_country users
+      # @param user Current user
+      # @return list of user with profile of admin_country
       def admin_country_list
         if current_user.admin?
           users = User.where(_profile: 'admin_country') 
@@ -53,6 +55,9 @@ module Api
       end
 
       # Get admin_country user
+      # @param user Current user
+      # @param admin_country user ID
+      # @return user with profile of admin_country
       def get_admin_country_by_id
         if current_user.admin?
           user = User.where(_profile: 'admin_country', id: BSON::ObjectId.from_string(params[:id])).first 
@@ -67,6 +72,9 @@ module Api
       end
 
       # Get admin_country user
+      # @param user Current user
+      # @param admin_country user ID
+      # @return user with profile of admin_country
       def delete_admin_country
         if current_user.admin?
           user = User.where(_profile: 'admin_country', id: BSON::ObjectId.from_string(params[:id])).first 
@@ -81,8 +89,8 @@ module Api
         end
       end
       
+      # Treat translation for the newUserPassword object.
       def get_translation_newUserPassword
-        # Treat translation for the newUserPassword object.
         translation = Translation.where(lang: params['lang']).first
         newUserPassword = nil
         if (!translation.nil?)
@@ -98,6 +106,8 @@ module Api
       end
 
       # Insert a non-existent save_admin_country user
+      # @param: access_token (user admin), country id and name, province id and name, state id and name, city id and name, type institution and name (from the institution)
+      # @return [JSON]: country id and name, province id and name, state id and name, city id and name, type institution, institution id and name added
       def save_admin_country
         user = current_user
         params.permit(:name, :email, :country_name, :country_id, :phone_number, :lang)
@@ -158,6 +168,8 @@ module Api
       end
 
       # Edit the name of an existing admin_country user
+      # @param: access_token (user admin) 
+      # @return [JSON]: user updated
       def edit_admin_country
         if current_user.admin?
           if !(params[:name].nil? || params[:email].nil? || params[:country_name].nil? || params[:country_id].nil? || params[:phone_number].nil?)
@@ -181,6 +193,10 @@ module Api
       end
       
       # List all managers of a country, only country admin can do this
+      # @param user Current user
+      # @param country_id The country ID
+      # @param locked Lock status to filter
+      # @return list of user with profile of admin_state
       def list_managers
         user = current_user
         if user.admin_country?
@@ -212,6 +228,10 @@ module Api
       end
 
       # Change locked field of a user, if user is locked then change to false and remove suffix from email field, otherwise locked true and add suffix
+      # @param user Current user
+      # @param id ID of user to change lock mode
+      # @param locked
+      # @return The user updated
       def change_lock
         if current_user.super_admin?
           if !params[:id].present?

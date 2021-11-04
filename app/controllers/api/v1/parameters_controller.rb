@@ -2,6 +2,7 @@ module Api
   module V1
     class ParametersController < ApiController      
       # Search for the setup parameters
+      # @return [JSON]: all defined parameters
       def get_parameters
         parameter = Parameter.first
         if (!parameter.nil?)
@@ -12,6 +13,7 @@ module Api
       end #def
 
       # Update default parameters, this work only one time
+      # @return [JSON]: all defined parameters
       def save_parameters
         parameter = Parameter.first
         if (parameter.nil?) # Insert

@@ -71,12 +71,10 @@ class SchoolSearch
     if @limit
       lim = @limit
     end
-    @page_answers = @schools.page(@page).per(lim)
     @page_answers = @schools
   end
 
   def pages_count
-    @page_answers.total_pages
     1
   end
 

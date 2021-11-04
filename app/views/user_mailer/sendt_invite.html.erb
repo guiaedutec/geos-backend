@@ -26,13 +26,13 @@
             <p><%= @translation['body3'] %> <strong><%= @manager.name.to_s %></strong></p>
             <% if @isNewUser %>
               <p><%= @translation['body4'] %></p>
-              <p><a href="<%= "{ENV['FRONTEND_URL']}/educador"%>"><%= @translation['body5'] %></a></p>
+              <p><a href="<%= "#{ENV['FRONTEND_URL']}/educador"%>"><%= @translation['body5'] %></a></p>
               <p><%= @translation['body6'] %></p>
               <p><%= @translation['body7'] %> <strong><%= @user.email.to_s %></strong></p>
               <p><%= @translation['body8'] %> <strong><%= @user.password.to_s %></strong></p>
             <% else %>
               <p><%= @translation['body9'] %></p>
-              <p><a href="<%= "{ENV['FRONTEND_URL']}/educador"%>"><%= @translation['body10'] %></a></p>
+              <p><a href="<%= "#{ENV['FRONTEND_URL']}/educador"%>"><%= @translation['body10'] %></a></p>
               <p><%= @translation['body11'] %> <strong><%= @user.email.to_s %></strong> <%= @translation['body12'] %> <strong><%= @translation['body13'] %></strong>.</p>
               <p><strong><%= @translation['body14'] %></strong> <%= @translation['body15'] %></p>
               <p><%= @translation['body16'] %> <a href="<%= "#{ENV['FRONTEND_URL']}/recuperar-senha"%>"><%= @translation['body17'] %></a> <%= @translation['body18'] %></p>

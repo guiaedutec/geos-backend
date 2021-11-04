@@ -4,6 +4,8 @@ module Api
       before_action :authenticate_user!, only: [:save_province, :delete_province, :edit_province]
       
       # Search for a province
+      # @param: province id 
+      # @return [JSON]: country id and name, province id and name found
       def get_province_by_id
         province = (!params['id'].nil?) ? Province.find_by(id: params['id']) : nil
         if (!province.nil?)
@@ -14,6 +16,8 @@ module Api
       end #def
 
       # Insert a non-existent province
+      # @param: access_token (user admin), country id and name, and name (from the province) 
+      # @return [JSON]: country id and name, province id and name added
       def save_province
         user = current_user
         params.permit(:name, :country_name, :country_id, :id, :province_id, :province_name, :access_token, :state)
@@ -63,6 +67,8 @@ module Api
       end 
 
       # Delete an existing province
+      # @param: access_token (user admin) and province id
+      # @return [JSON]: country id and name, province id and name excluded
       def delete_province
         user = current_user
         if user.admin?
@@ -77,6 +83,8 @@ module Api
       end 
 
       # Edit the name of an existing province
+      # @param: access_token (user admin), country id and name, province id and name
+      # @return [JSON]: country id and name, province id and name updated
       def edit_province
         user = current_user
         if user.admin?

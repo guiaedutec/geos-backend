@@ -4,6 +4,8 @@ module Api
       before_action :authenticate_user!, only: [:save_translation]
       
       # Search for the translated attributes of a language
+      # @param: lang
+      # @return [JSON]: status, message and data (with all the attributes translated)
       def get_translation_by_lang
         translation = Translation.where(lang: params['lang'])
         if (!translation.nil?)
@@ -14,6 +16,8 @@ module Api
       end
 
       # Insert a new language or edit an existing language
+      # @param: access_token (user admin) and lang
+      # @return [JSON]: status, message and data (with all attributes translated)
       def save_translation
         user = current_user
         if user.admin?

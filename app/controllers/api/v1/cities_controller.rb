@@ -4,6 +4,8 @@ module Api
       before_action :authenticate_user!, only: [:save_city, :delete_city, :edit_city]
       
       # Search for a city
+      # @param: city id 
+      # @return [JSON]: country id and name, province id and name, state id and name, city id and name found
       def get_city_by_id
         city = (!params['id'].nil?) ? City.find_by(id: params['id']) : nil
         if (!city.nil?)
@@ -14,6 +16,8 @@ module Api
       end 
 
       # Insert a non-existent city
+      # @param: access_token (user admin), country id and name, province id and name, state id and name, and name (from the city) 
+      # @return [JSON]: country id and name, province id and name, state id and name, city id and name added
       def save_city
         user = current_user
         params.permit(:name, :country_name, :province_name, :state_name, :country_id, :province_id, :state_id, :id, :name, :access_token, :state)
@@ -75,6 +79,8 @@ module Api
       end 
 
       # Delete an existing city
+      # @param: access_token (user admin) and city id
+      # @return [JSON]: country id and name, province id and name, state id and name, city id and name excluded
       def delete_city
         user = current_user
         if user.admin?
@@ -89,6 +95,8 @@ module Api
       end #def
 
       # Edit the name of an existing city
+      # @param: access_token (user admin), country id and name, province id and name, state id and name, city id and name 
+      # @return [JSON]: country id and name, province id and name, state id and name, city id and name updated
       def edit_city
         user = current_user
         if user.admin?

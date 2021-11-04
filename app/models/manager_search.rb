@@ -80,7 +80,6 @@ class ManagerSearch
   end
 
   def pages_count
-    @page_answers.total_pages
     1
   end
 

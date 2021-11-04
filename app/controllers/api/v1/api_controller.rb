@@ -140,7 +140,10 @@ module Api
             render json: {status: 'ERROR', message:'Schools not found', data:schools},status: :not_found
         end 
       end 
-
+      
+      # Search for a list of registered schools
+      # @param: none parameter
+      # @return [JSON]: status, message, data (school id and name, keywords, affiliation id and name, type institution, country id and name, province id and name, state id and name, city id and name, levels 1, 2, 3, and 4 name)
       def get_schools
         schools = School.all.order(:name => 1)
         if (!schools.nil?)
@@ -149,8 +152,11 @@ module Api
             render json: {status: 'ERROR', message:'Schools not found', data:schools},status: :not_found
         end 
       end 
-      def countries
 
+      # Search for a list of registered countries
+      # @param: none parameter
+      # @return [JSON]: status, message, data (country id and name, geo structure levels 1, 2, 3, and 4 name)
+      def countries
         dummyname = 'Dummy Country For Unaffiliated Users'
 
         if(params['access_token'].present?)
@@ -171,8 +177,10 @@ module Api
         end 
       end  
 
+      # Search for a list of registered institutions
+      # @param: none parameter
+      # @return [JSON]: status, message, data (institution id and name, type institution, country id and name, province id and name, state id and name, city id and name)
       def institutions
-
         dummyname = 'Dummy Affiliation For Unaffiliated Users'
 
         if(params['access_token'].present?)
@@ -199,8 +207,10 @@ module Api
         end 
       end 
 
+      # Searches the provinces of a specific country (if the country id is provided), otherwise, it returns a list of all provinces
+      # @param: country id, or none parameter
+      # @return [JSON]: status, message, data (province id and name, country id and name)
       def provincies
-
         dummyname = 'Dummy Province For Unaffiliated Users'
 
         provincies = []
@@ -228,8 +238,10 @@ module Api
         end 
       end
       
+      # Search the states of a specific country and province (if the country id and province id is provided), otherwise, it returns a list of all states
+      # @param: country id and province id, or none parameter
+      # @return [JSON]: status, message, data (state id and name, province id and name, country id and name)
       def states
-
         dummyname = 'Dummy State For Unaffiliated Users'
 
         states = []
@@ -263,8 +275,11 @@ module Api
         end
       end
     
-      def cities
 
+      # Search the cities of a specific country, province and state (if the country id, province id and state id is provided), otherwise, it returns a list of all cities
+      # @param: country id, province id and state id, or none parameter
+      # @return [JSON]: status, message, data (city id and name, state id and name, province id and name, country id and name)
+      def cities
         dummyname = 'Dummy City For Unaffiliated Users'
 
         cities = []
@@ -302,8 +317,10 @@ module Api
         end
       end
       
+      # Search the schools of a specific country, province, state and city (if the country id, province id, state id and city id is provided), otherwise, it returns a list of all schools
+      # @param: country id, province id, state id and city id, or none parameter
+      # @return [JSON]: status, message, data (affiliation id and name, type institution, school id and name, city id and name, state id and name, province id and name, country id and name)
       def schools
-
         dummyname = 'Dummy School For Unaffiliated Users'
 
         schools = []

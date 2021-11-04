@@ -150,20 +150,8 @@ class User
   end
 
   def institution_type
-   if %w(principal other teacher).include? profile.to_s
-     self.school.type
-   elsif %w(admin_state monitor_state monitor_state_regional admin_city monitor_city monitor_city_regional).include? profile.to_s
-      self.institution.type
-   end
+    self.institution.type
   end
-
-  # def as_json(params)
-  #   if persisted?
-  #     super(params.merge(methods: [:has_answered_survey, :inep_code]))
-  #   else
-  #     { email: email, password: password }
-  #   end
-  # end
 
   def has_answered_survey
     school.present? && school.answered?
