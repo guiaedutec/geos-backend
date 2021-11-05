@@ -23,7 +23,7 @@ class Job
     if(user.admin_country? || user.admin?)
       survey = Survey.where(type: "school").where(active: true).first
       resp = SurveyResponse.where(:status => "Complete").where(survey_id: survey['id']).first
-      fields = resp['results'].to_a
+      fields = !resp.nil? ? resp['results'].to_a : []
       names = []
       survSecIds = []
      

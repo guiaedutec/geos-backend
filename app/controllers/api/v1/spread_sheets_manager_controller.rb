@@ -175,26 +175,27 @@ module Api
         FileUtils.mkdir_p(dirTmp) unless File.directory?(dirTmp)
 
         fileCompletePath = File.join(dirTmp, params[:file].original_filename)
+        allowed_partial fileCompletePath
 
-        File.open(fileCompletePath, "wb") do |f|
+        File.open(@address, "wb") do |f|
           f.write(params[:file].read)
         end
         populateIt = false
         case File.extname(params[:file].original_filename)
           when '.xls' then
-            file = Roo::Excel.new(fileCompletePath)
+            file = Roo::Excel.new(@address)
             populateIt = true
           when '.xlsx' then
-            file = Roo::Excelx.new(fileCompletePath)
+            file = Roo::Excelx.new(@address)
             populateIt = true
           when '.csv' then
-            file = Roo::CSV.new(fileCompletePath)
+            file = Roo::CSV.new(@address)
             populateIt = true
           else
             logger.error("Formato de arquivo #{File.extname(fileName)} não permitido, arquivo #{fileName}. Os tipos permitidos são xls, xlsx e csv.")
             populateIt = false
         end
-        File.delete(fileCompletePath) if File.exist?(fileCompletePath)
+        File.delete(@address) if File.exist?(@address)
         if (populateIt) then
           rowFileIndex = file.last_row
           (1..rowFileIndex).each do |i|
@@ -204,6 +205,11 @@ module Api
 
         end
         render json: auxArray.to_json
+      end
+
+      def allowed_partial address
+        address = address[0] == "/" ? address[1..-1] : address
+        @address = address
       end
     end
   end

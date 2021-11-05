@@ -349,6 +349,7 @@ module Api
           header_error = []
           csv_file = params[:file]
           header = CSV.open(csv_file.path, &:readline)
+          header.each { |value| value.gsub!("﻿", "") }
           if header != ["type", "affiliation", "school_name", "level_1_name", "level_2_name", "level_3_name", "level_4_name", "unique_code"]
             header_error.push("The CSV structure must have: type,affiliation,school_name,level_1_name,level_2_name,level_3_name,level_4_name,unique_code")
           end
@@ -1013,7 +1014,8 @@ module Api
           if (!job.status)
             render json: {status: 'ERROR', message:'File not done', data: nil},status: :unprocessable_entity
           else
-            csv_file = File.open(job.link)
+            allowed_partial job.link
+            csv_file = File.open(@address)
             csv_content = csv_file.read
             respond_to do |format|
               format.html
@@ -1025,13 +1027,19 @@ module Api
         end
 
       end
+      
+      def allowed_partial address
+        address = address[0] == "/" ? address[1..-1] : address
+        @address = address
+      end
 
       def export_schools_microdata
         user = current_user
         jobSequential = Job.where(user_id: user.id).count
         jobSequential += 1
         filename = "Schools-#{Time.now.getutc.to_i}.csv"
-        job = Job.new(user_id: user.id, type: 'school', seq: jobSequential, status: false, finished_at: nil, filename: filename, link: "#{Rails.root}/public/uploads/#{filename}")
+        allowed_partial "#{Rails.root}/public/uploads/#{filename}"
+        job = Job.new(user_id: user.id, type: 'school', seq: jobSequential, status: false, finished_at: nil, filename: filename, link: @address)
         job.save
 
         job.perform(user)
@@ -1046,7 +1054,8 @@ module Api
         jobSequential = Job.where(user_id: user.id).count
         jobSequential += 1
         filename = "Teachers-#{Time.now.getutc.to_i}.csv"
-        job = Job.new(user_id: user.id, type: 'teacher', seq: jobSequential, status: false, finished_at: nil, filename: filename, link: "#{Rails.root}/public/uploads/#{filename}")
+        allowed_partial "#{Rails.root}/public/uploads/#{filename}"
+        job = Job.new(user_id: user.id, type: 'teacher', seq: jobSequential, status: false, finished_at: nil, filename: filename, link: @address)
         job.save
 
         job.perform(user)
