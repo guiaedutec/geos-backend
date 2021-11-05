@@ -153,7 +153,6 @@ Rails.application.routes.draw do
                                           defaults: {format: 'json'}
       get '/survey_responses_details', to: 'survey_responses#responses_details', as: 'details',
                                        defaults: {format: 'json'}
-      get '/download_activity/:id', to: 'activity_api#download_activity'
 
       get '/retrieve_seven_pages_common_devolutive', to: 'feedback#retrieve_seven_pages_common_devolutive',
                                                      defaults: {format: 'json'}

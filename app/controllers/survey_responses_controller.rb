@@ -79,6 +79,6 @@ class SurveyResponsesController < AdminController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def survey_response_params
-    params.require(:survey_response).permit!
+    params.require(:survey_response).permit(:id,:vision_level,:competence_level,:resource_level,:infrastructure_level,:status,:submitted_at,:number_of_tries_left,:number_of_tries,:in_use,:results,:guests,:type,:survey,:user,:invited_teacher,)
   end
 end

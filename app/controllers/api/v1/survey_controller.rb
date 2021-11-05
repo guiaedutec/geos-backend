@@ -213,7 +213,7 @@ module Api
 
           #Adjust locale to save
           I18n.locale =  (!params[:lang].nil?) ? params[:lang] :  I18n.default_locale
-          params.permit!
+          params.permit(:id, :lang, :survey_name, :survey_description)
           if @survey.update_attributes(
             name: params[:survey_name],
             description: params[:survey_description],

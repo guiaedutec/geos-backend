@@ -39,13 +39,6 @@ module Api
 
       end
 
-      def download_activity
-        if !params[:id].nil?
-          @activity = Activity.find(params[:id])
-          file_upload = @activity.file_upload
-          send_file(file_upload.file.file)
-        end
-      end
     end
   end
 end

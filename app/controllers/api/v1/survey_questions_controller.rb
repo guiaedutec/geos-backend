@@ -9,7 +9,7 @@ module Api
           
           #Adjust locale to save
           I18n.locale =  (!params[:lang].nil?) ? params[:lang] :  I18n.default_locale
-          params.permit!
+          params.permit(:id, :lang, :name, :description)
           if @section.update_attributes(name: params[:name],description: params[:description])
             render json: @section.to_json
           else
@@ -28,8 +28,7 @@ module Api
           
           #Adjust locale to save
           I18n.locale =  (!params[:lang].nil?) ? params[:lang] :  I18n.default_locale
-          # params.permit(:survey_question_description, :name, :question_order, :obs)
-          params.permit!
+          params.permit(:id, :lang, :survey_question_description, :name, :question_order, :obs)
            # build 'survey_question_description field'
           questionDescription = Array.new
           idx = 0
@@ -223,7 +222,7 @@ module Api
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def survey_question_params
-        params.require(:survey_question).permit!
+        params.require(:survey_question).permit(:id,:name,:question_order,:position,:type,:survey_question_description,:state,:city,:type_role,:page,:weight,:obs,:only_principal,:has_child,:compound,:compound_ref,:compound_first,:not_normalize)
       end
     end
   end

@@ -69,6 +69,6 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def survey_section_params
-    params.require(:survey_section).permit!
+    params.require(:survey_section).permit(:id,:name,:pageTitleCssClass,:position,:description,:has_feedback,:only_feedback,:has_result,:has_question,:ceil_result,:divisor,:user_type,)
   end
 end

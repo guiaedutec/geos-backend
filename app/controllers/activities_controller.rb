@@ -58,6 +58,6 @@ class ActivitiesController < AdminController
     @activity = Activity.find(params[:id])
   end
   def activity_params
-    params.require(:activity).permit!
+    params.require(:activity).permit(:title, :description, :title_file_upload, :file_upload, :is_state, :type)
   end
 end

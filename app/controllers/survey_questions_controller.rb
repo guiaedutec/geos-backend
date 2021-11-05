@@ -69,6 +69,6 @@ class SurveyQuestionsController < AdminController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def survey_question_params
-    params.require(:survey_question).permit!
+    params.require(:survey_question).permit(:id,:name,:question_order,:position,:type,:survey_question_description,:state,:city,:type_role,:page,:weight,:obs,:only_principal,:has_child,:compound,:compound_ref,:compound_first,:not_normalize)
   end
 end

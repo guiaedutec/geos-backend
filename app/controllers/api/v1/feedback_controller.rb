@@ -94,7 +94,7 @@ module Api
           
           #Adjust locale to save
           I18n.locale =  (!params[:lang].nil?) ? params[:lang] :  I18n.default_locale
-          params.permit!
+          params.permit(:id, :lang, :body, :group, :title, :subtitle, :type)
           # build 'body field'
           body = Hash.new
           i = 0

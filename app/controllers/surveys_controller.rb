@@ -69,6 +69,6 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def survey_params
-    params.require(:survey).permit!
+    params.require(:survey).permit(:id,:name,:description,:type,:user_type,:is_cyclic,:recurrence_days,:shuffle_options,:feedback,:has_combined,:active,:years)
   end
 end

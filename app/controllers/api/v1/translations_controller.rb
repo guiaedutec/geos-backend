@@ -40,7 +40,7 @@ module Api
       end
       private
       def translations_params
-        params.require(:translation).permit!
+        params.require(:translation).permit(translation: params[:translation].keys)
       end    
     end
   end
