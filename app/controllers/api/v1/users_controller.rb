@@ -110,7 +110,7 @@ module Api
       # @return [JSON]: country id and name, province id and name, state id and name, city id and name, type institution, institution id and name added
       def save_admin_country
         user = current_user
-        params.permit(:name, :email, :country_name, :country_id, :phone_number, :lang)
+        params.require(:user).permit(:access_token, :name, :email, :password, :country_name, :country_id, :phone_number, :lang)
         name = params[:name]
         email = params[:email]
         country_name = params[:country_name]
@@ -265,9 +265,7 @@ module Api
         render json: user ? { email: user.email } : {}
       end
 
-      def create
-        puts "Params - #{params}";
-        
+      def create  
         if !user_params
           user_params[:name] = params[:name]
         end
@@ -363,7 +361,7 @@ module Api
       end
 
       def user_params        
-        params.require(:user).permit(:profile, :name, :password, :email, :born, :affiliation_id, :country_id, :province_id, :state_id, :city_id, :school_id, :stages, :knowledges, :locked, :affiliation_name, :responsible_name, :responsible_email, :responsible_phone_number)
+        params.require(:user).permit(:access_token, :profile, :name, :password, :email, :born, :affiliation_id, :country_id, :province_id, :state_id, :city_id, :school_id, :stages, :knowledges, :locked, :affiliation_name, :responsible_name, :responsible_email, :responsible_phone_number)
       end
 
     end
