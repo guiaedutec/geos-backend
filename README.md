@@ -25,4 +25,4 @@ This work is licensed under a
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
 
 ---
-_The Guia Edutec was originally developed by CIEB. The process of opening the code had the participation and collaboration of Fundação ProFuturo._
+_The Guia Edutec was originally developed by CIEB. The process of opening the code has made possible by financial support of Fundación ProFuturo._
