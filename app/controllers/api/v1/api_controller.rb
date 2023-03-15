@@ -549,6 +549,13 @@ module Api
             @feedbacks = @feedbacks_all
           end
 
+
+          @visao = @feedbacks_all.select { |fb| fb[:dimension] === "vision" }
+          @competencia = @feedbacks_all.select { |fb| fb[:dimension] === "competence" }
+          @red = @feedbacks_all.select { |fb| fb[:dimension] === "resources" }
+          @infra = @feedbacks_all.select { |fb| fb[:dimension] === "infrastructure" }
+
+
           @survey_sections = SurveySection.where(:survey_id => survey_id, :has_result => true).order(:position => :asc)
           if @survey_response
             responses = @survey_response.response_answers
@@ -569,7 +576,7 @@ module Api
             if sec.has_result && @survey_response
               if !@survey_response.is_combined
                 @scores.push(@survey_response.section_scores(sec, responses, @school))
-              else1
+              else
                 scoreCombined = Array.new
                 scoreD = @survey_response.section_scores(sec, responsesD, @school)
                 scoreC1 = @survey_response.section_scores(sec, responsesC1, @school)
@@ -676,12 +683,28 @@ module Api
             @school.name = ""
           end
         end
-
+        
+        
         @logoHeaderSecondary = wicked_pdf_asset_base64("#{ENV['FRONTEND_URL']}/images/theme/logo-header-secondary-#{@lang}.png")
+        @logoFooter ="#{ENV['FRONTEND_URL']}/images/theme/logo-footer.png"
+
+        
+        file_type = 'haml'
+        orientation = 'Landscape'
+        
+        if @survey.feedback.downcase.include? "school_v3"
+          file_type = 'erb'
+          orientation = 'Portrait'
+        end
+               
+
         render pdf: 'survey_response',
-               layout: 'pdf', orientation: 'Landscape',
-               file: "api/v1/api/survey_feedback_#{@survey.feedback.downcase}.pdf.haml",
-               margin:  { top: 0, bottom: 0, left: 0, right: 0 }, show_as_html: params.key?('debug')
+          layout: 'pdf', 
+          orientation: orientation,
+          file: "api/v1/api/survey_feedback_#{@survey.feedback.downcase}.pdf.#{file_type}",
+          page_size: 'A4',
+          margin:  { top: 0, bottom: 0, left: 0, right: 0 },
+          show_as_html: params.key?('debug')
       end
 
       def wicked_pdf_asset_base64(url)
@@ -699,7 +722,6 @@ module Api
 
       def school_plans_answers
         @school_answer_search_details = SchoolAnswerSearch.new(search_params)
-        puts @school_answer_search_details
         respond_to do |format|
           format.json
           format.xls do

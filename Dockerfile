@@ -4,7 +4,7 @@ FROM ruby:2.7.2
 ENV TZ America/Sao_Paulo
 
 # Install essential Linux packages
-RUN apt-get update -qq
+RUN apt-get -y update -qq
 RUN apt-get install -y build-essential git libpq-dev nodejs sudo unzip cron ntp tzdata
 
 # Files created inside the container repect the ownership

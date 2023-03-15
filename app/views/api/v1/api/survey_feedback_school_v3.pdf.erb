@@ -1,0 +1,728 @@
+<% content_for :head do %>
+  <style>
+    .page.number-1{
+      background-color: <%= @colorSecondary %>;
+    }
+    .page.number-1 {
+      border-right: 5px solid <%= @colorSecondary %>;
+    }
+
+    .page.number-1 main .title{
+      color: <%= @colorPrimary %>;
+    }
+
+    .page.number-7 .container{
+      background-color: <%= @colorSecondary %> !important;
+    }
+
+    .page.number-2 header .school-name,
+    .page.number-3 header .school-name,
+    .page.number-4 header .school-name,
+    .page.number-5 header .school-name,
+    .page.number-6 header .school-name {
+      background-color: <%= @colorSecondary %>;
+    }
+  </style>
+<% end %>
+<% @feedbacks.each_with_index do |fb, index| %>
+<% if fb.page == 1 %>
+<div class="page number-1">
+  <header>
+    <div class="logo-guiaedutec">
+      <%= wicked_pdf_image_tag('devolutive-school-v3/logo-guia-edutec-branco.png', :width=>"300") %>
+    </div>
+  </header>
+  <main>
+    <h1 class="title"><%= @feedbacks_all[0]['body']["0"].html_safe %></h1>
+    <h3 class="school-name"><%= @school.name %></h3>
+    <p><%= @feedbacks_all[0]['body']["1"].html_safe %></p>
+  </main>
+  <footer>
+    <div class="logo-cieb-container">
+      <%= wicked_pdf_image_tag(@logoFooter) %>
+    </div>
+    <div class="date">
+      <p><%= l(@survey_response.submitted_at, format: :month)%></p>
+    </div>
+  </footer>
+</div>
+<% end %>
+<% if fb.page == 2 %>
+<div class="page number-2 background-claro">
+  <header>
+    <div class="logo-guiaedutec">
+      <%= wicked_pdf_image_tag('devolutive-school-v3/logo-guia-edutec-color.png', :width=>"200") %>
+    </div>
+    <div class="school-name">
+      <span>
+        <%= @feedbacks_all[1]['body']["24"].html_safe %>
+      </span>
+      <p>
+        <%= @school.name %>
+      </p>
+    </div>
+  </header>
+  <main>
+    <section class="row_1">
+      <h1><em><%= @feedbacks_all[1]['body']["0"].html_safe %>, <%= @user["name"].split[0] %></em></h1>
+      <p>
+        <%= @feedbacks_all[1]['body']["1"].html_safe %>
+      </p>
+    </section>
+    <section class="row_2">
+          <div class="panel">
+            <h1>
+            <%= @feedbacks_all[1]['body']["8"].html_safe %>
+            </h1>
+          </div>
+          <div class="left_bar">
+          </div>
+          <div class="table_title">
+            <h1><%= @feedbacks_all[1]['body']["2"].html_safe %></h1>
+            <h2><em><%= @feedbacks_all[1]['body']["3"].html_safe %> <%= @survey_response.submitted_at.year %></em></h2>
+          </div>
+          <table class="result_table">
+            <thead>
+              <tr>
+                <th class="none"></th>
+                <th class="title_col v_title">
+                  <%= @feedbacks_all[1]['body']["4"].html_safe %>
+                  <div class="v_title_bottom">
+                  </div>
+                </th>
+                <th class="title_col c_title">
+                <%= @feedbacks_all[1]['body']["5"].html_safe %>
+                    <div class="c_title_bottom">
+                  </div>
+                </th>
+                <th class="title_col r_title">
+                <%= @feedbacks_all[1]['body']["6"].html_safe %>
+                  <div class="r_title_bottom">
+                  </div>
+                </th>
+                <th class="title_col i_title">
+                <%= @feedbacks_all[1]['body']["7"].html_safe %>
+                  <div class="i_title_bottom">
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="title_row"><%= @feedbacks_all[1]['body']["9"].html_safe %></td>
+                <td class="">
+                  <% if @results[0]["value"] == 4 %>
+                    <div class="result_puzzle">
+                      <%= wicked_pdf_image_tag('devolutive-school-v3/puzzle/visao_amarelo.svg', :class=>
+                      "img-fit") %>
+                    </div>
+                  <% end %>
+                </td>
+                <td class="">
+                  <% if @results[1]["value"] == 4 %>
+                    <div class="result_puzzle">
+                      <%= wicked_pdf_image_tag('devolutive-school-v3/puzzle/competencia_rosa.svg', :class=>
+                      "img-fit") %>
+                    </div>
+                  <% end %>
+                </td>
+                <td class="">
+                  <% if @results[2]["value"] == 4 %>
+                    <div class="result_puzzle">
+                      <%= wicked_pdf_image_tag('devolutive-school-v3/puzzle/red_azul.svg', :class=>
+                      "img-fit") %>
+                    </div>
+                  <% end %>
+                </td>
+                <td class="">
+                  <% if @results[3]["value"] == 4 %>
+                    <div class="result_puzzle_infra_verde">
+                      <%= wicked_pdf_image_tag('devolutive-school-v3/puzzle/infra_verde.svg', :class=>
+                      "img-fit") %>
+                    </div>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td class="title_row"><%= @feedbacks_all[1]['body']["10"].html_safe %></td>
+                <td class="">
+                    <% if @results[0]["value"] == 3 %>
+                      <div class="result_puzzle">
+                        <%= wicked_pdf_image_tag('devolutive-school-v3/puzzle/visao_amarelo.svg', :class=>
+                      "img-fit") %>
+                        <span class="result_puzzle_text">
+                        </span>
+                      </div>
+                    <% end %>
+                </td>
+                <td class="">
+                <% if @results[1]["value"] == 3 %>
+                  <div class="result_puzzle">
+                    <%= wicked_pdf_image_tag('devolutive-school-v3/puzzle/competencia_rosa.svg', :class=>
+                  "img-fit") %>
+                    <span class="result_puzzle_text">
+                    </span>
+                  </div>
+                <% end %>
+                </td>
+                <td class="">
+                <% if @results[2]["value"] == 3 %>
+                  <div class="result_puzzle">
+                      <%= wicked_pdf_image_tag('devolutive-school-v3/puzzle/red_azul.svg', :class=>
+                    "img-fit") %>
+                  </div>
+                <% end %>
+                </td>
+                <td class="">
+                <% if @results[3]["value"] == 3 %>
+                  <div class="result_puzzle_infra_verde">
+                    <%= wicked_pdf_image_tag('devolutive-school-v3/puzzle/infra_verde.svg', :class=>
+                  "img-fit") %>
+                    <span class="result_puzzle_text">
+                    </span>
+                  </div>
+                <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td class="title_row"><%= @feedbacks_all[1]['body']["11"].html_safe %></td>
+                <td class="">
+                <% if @results[0]["value"] == 2 %>
+                  <div class="result_puzzle">
+                    <%= wicked_pdf_image_tag('devolutive-school-v3/puzzle/visao_amarelo.svg', :class=>
+                  "img-fit") %>
+                    <span class="result_puzzle_text">
+                    </span>
+                  </div>
+                  <% end %>
+                </td>
+                <td class="">
+                <% if @results[1]["value"] == 2 %>
+                  <div class="result_puzzle">
+                    <%= wicked_pdf_image_tag('devolutive-school-v3/puzzle/competencia_rosa.svg', :class=>
+                  "img-fit") %>
+                    <span class="result_puzzle_text">
+                    </span>
+                  </div>
+                  <% end %>
+                </td>
+                <td class="">
+                  <% if @results[2]["value"] == 2 %>
+                    <div class="result_puzzle">
+                      <%= wicked_pdf_image_tag('devolutive-school-v3/puzzle/red_azul.svg', :class=>
+                    "img-fit") %>
+                    </div>
+                  <% end %>
+                </td>
+                <td class="">
+                  <% if @results[3]["value"] == 2 %>
+                    <div class="result_puzzle_infra_verde">
+                      <%= wicked_pdf_image_tag('devolutive-school-v3/puzzle/infra_verde.svg', :class=>
+                    "img-fit") %>
+                    </div>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td class="title_row"><%= @feedbacks_all[1]['body']["12"].html_safe %></td>
+                <td class="">
+                <% if @results[0]["value"] == 1 %>
+                  <div class="result_puzzle">
+                    <%= wicked_pdf_image_tag('devolutive-school-v3/puzzle/visao_amarelo.svg', :class=>
+                  "img-fit") %>
+                    <span class="result_puzzle_text">
+                    </span>
+                  </div>
+                <% end %>
+                </td>
+                <td class="">
+                <% if @results[1]["value"] == 1 %>
+                  <div class="result_puzzle">
+                    <%= wicked_pdf_image_tag('devolutive-school-v3/puzzle/competencia_rosa.svg', :class=>
+                  "img-fit") %>
+                    <span class="result_puzzle_text">
+                    </span>
+                  </div>
+                <% end %>
+                </td>
+                <td class="">
+                <% if @results[2]["value"] == 1 %>
+                  <div class="result_puzzle">
+                    <%= wicked_pdf_image_tag('devolutive-school-v3/puzzle/red_azul.svg', :class=>
+                  "img-fit") %>
+                    <span class="result_puzzle_text">
+                    </span>
+                  </div>
+                <% end %>
+                </td>
+                <td class="">
+                <% if @results[3]["value"] == 1 %>
+                    <div class="result_puzzle_infra_verde">
+                    <%= wicked_pdf_image_tag('devolutive-school-v3/puzzle/infra_verde.svg', :class=>
+                    "img-fit") %>
+                    <span class="result_puzzle_text">
+                    </span>
+                  </div>
+                <% end %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </section>
+    <section>
+      <p><%= @feedbacks_all[1]['body']["13"].html_safe %></p>
+    </section>
+    <section class="row_3">
+      <div class="velocimeter">
+        <a href="#vision">
+          <span class="span_yellow"><%= @feedbacks_all[1]['body']["14"].html_safe %></span>
+          <%= wicked_pdf_image_tag("devolutive-school-v3/velocimetro/#{@lang}/v_level_#{@results[0]["value"]}.svg", :class=>"img-fit") %>
+        </a>
+      </div>
+      <div class="velocimeter">
+        <a href="#competence">
+          <span class="span_pink"><%= @feedbacks_all[1]['body']["15"].html_safe %></span>
+          <%= wicked_pdf_image_tag("devolutive-school-v3/velocimetro/#{@lang}/c_level_#{@results[1]["value"]}.svg", :class=>
+            "img-fit") %>
+        </a>
+      </div>
+      <div class="velocimeter">
+        <a href="#red">
+          <span class="span_blue"><%= @feedbacks_all[1]['body']["16"].html_safe %></span>
+          <%= wicked_pdf_image_tag("devolutive-school-v3/velocimetro/#{@lang}/r_level_#{@results[2]["value"]}.svg", :class=>
+            "img-fit") %>
+        </a>
+      </div>
+      <div class="velocimeter">
+        <a href="#infra">
+          <span class="span_green"><%= @feedbacks_all[1]['body']["17"].html_safe %></span>
+          <%= wicked_pdf_image_tag("devolutive-school-v3/velocimetro/#{@lang}/i_level_#{@results[3]["value"]}.svg", :class=>
+            "img-fit") %>
+        </a>
+      </div>
+    </section>
+    <section class="row_4">
+      <div class="box">
+        <p>
+        <%= @feedbacks_all[1]['body']["18"].html_safe %>
+        </p>
+        <p>
+        <%= @feedbacks_all[1]['body']["19"].html_safe %>
+        </p>
+        <ul>
+          <li><em><%= @feedbacks_all[1]['body']["20"].html_safe %></em></li>
+          <li><em><%= @feedbacks_all[1]['body']["21"].html_safe %></em></li>
+          <li><em><%= @feedbacks_all[1]['body']["22"].html_safe %></em></li>
+          <li><em><%= @feedbacks_all[1]['body']["23"].html_safe %></em></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="logo-cieb-container">
+      <%= wicked_pdf_image_tag('devolutive-school-v3/logo-cieb.svg', :class=>"img-fit") %>
+    </div>
+  </footer>  
+</div>
+<% end %>
+<% end %>
+<div class="page number-3 background-claro">
+  <header>
+    <div class="logo-guiaedutec">
+      <%= wicked_pdf_image_tag('devolutive-school-v3/logo-guia-edutec-color.png', :width=>"200") %>
+    </div>
+    <div class="school-name">
+      <span>
+        <%= @feedbacks_all[1]['body']["24"].html_safe %>  
+      </span>
+      <p>
+        <%= @school.name %>
+      </p>
+    </div>
+  </header>
+  <main>
+    <div class="results">
+      <section class="v_row_2">
+        <article class="v_item_1" id="vision">
+          <div id="title-1">
+          <div>
+          <%= wicked_pdf_image_tag("devolutive-school-v3/visao/01-tags-visao-01-onde-esta.svg", :class=>"img-fit") %>
+          </div>
+          <h1><%= @feedbacks_all[1]['body']["20"].html_safe %></h1>
+           
+          </div>
+          <div>
+            <%= wicked_pdf_image_tag("devolutive-school-v3/velocimetro/#{@lang}/v_level_#{@results[0]["value"]}.svg", :class=>"img-fit") %>
+          </div>
+          <p id="first-paragraph">
+            <%= @visao[@results[0]["value"]-1].body["0"].html_safe %> 
+          </p>
+        </article>
+        <article class="v_item_2">
+          <div id="title-2">
+          <div>
+          <%= wicked_pdf_image_tag("devolutive-school-v3/visao/01-tags-visao-02-oque-significa.svg", :class=>"img-fit") %>
+          </div>
+          <h1><%= @feedbacks_all[1]['body']["21"].html_safe %></h1>
+           
+          </div>
+          <%= @visao[@results[0]["value"]-1].body["1"].html_safe %> 
+        </article>
+      </section>
+      <section class="v_row_3">
+        <article class="v_item_3">
+          <div id="title-3">
+          <div>
+          <%= wicked_pdf_image_tag("devolutive-school-v3/visao/01-tags-visao-03-como-evoluir.svg", :class=>"img-fit") %>
+
+          </div>
+          <h1><%= @feedbacks_all[1]['body']["22"].html_safe %></h1>
+          </div>
+          <p>
+            <%= @visao[@results[0]["value"]-1].body["2"].html_safe %>
+          </p>
+        </article>
+      </section>
+    </div>
+  </main> 
+</div>
+<div class="page number-3 background-claro">
+  <header>
+    <div class="logo-guiaedutec">
+      <%= wicked_pdf_image_tag('devolutive-school-v3/logo-guia-edutec-color.png', :width=>"200") %>
+    </div>
+    <div class="school-name">
+      <span>
+        <%= @feedbacks_all[1]['body']["24"].html_safe %>
+      </span>
+      <p>
+        <%= @school.name %>
+      </p>
+    </div>
+  </header>
+  <main>
+      <div class="results">
+        <section class="v_row_5">
+          <article class="v_item_4">
+            <div id="title-4">
+            <div>
+            <%= wicked_pdf_image_tag("devolutive-school-v3/visao/01-tags-visao-04-ferramentas.svg", :class=>"img-fit") %>
+
+            </div>
+            <h1><%= @feedbacks_all[1]['body']["23"].html_safe %></h1>
+            </div>
+            <p>
+              <%= @visao[@results[0]["value"]-1].body["3"].html_safe %> 
+            </p>
+          </article>
+        </section>
+      </div>
+  </main>
+</div>
+
+<div class="page number-4 background-claro">
+  <header>
+    <div class="logo-guiaedutec">
+      <%= wicked_pdf_image_tag('devolutive-school-v3/logo-guia-edutec-color.png', :width=>"200") %>
+    </div>
+    <div class="school-name">
+      <span>
+        <%= @feedbacks_all[1]['body']["24"].html_safe %>  
+      </span>
+      <p>
+        <%= @school.name %>
+      </p>
+    </div>
+  </header>
+  <main>
+    <div class="results">
+      <section class="v_row_2">
+        <article class="v_item_1" id="competence">
+          <div id="title-1">
+            <div>
+              <%= wicked_pdf_image_tag("devolutive-school-v3/competencia/02-tags-competencia-01-onde-esta.svg", :class=>"img-fit") %>
+            </div>
+            <h1><%= @feedbacks_all[1]['body']["20"].html_safe %></h1>
+          </div>
+
+          <div>
+            <%= wicked_pdf_image_tag("devolutive-school-v3/velocimetro/#{@lang}/c_level_#{@results[1]["value"]}.svg", :class=>
+          "img-fit") %>
+          </div>
+          
+          <p id="first-paragraph">
+            <%= @competencia[@results[1]["value"]-1].body["0"].html_safe %> 
+          </p>
+        </article>
+        <article class="v_item_2">
+          <div id="title-2">
+            <div>
+            <%= wicked_pdf_image_tag("devolutive-school-v3/competencia/02-tags-competencia-02-oque-significa.svg", :class=>"img-fit") %>
+            </div>
+            <h1><%= @feedbacks_all[1]['body']["21"].html_safe %></h1>
+          </div>
+          
+          <%= @competencia[@results[1]["value"]-1].body["1"].html_safe %> 
+          
+          </article>
+      </section>
+      <section class="v_row_3">
+        <article class="v_item_3">
+          <div id="title-3">
+          <div>
+          <%= wicked_pdf_image_tag("devolutive-school-v3/competencia/02-tags-competencia-03-como-evoluir.svg", :class=>"img-fit") %>
+          </div>
+          <h1><%= @feedbacks_all[1]['body']["22"].html_safe %></h1>
+          </div>
+          <p>
+            <%= @competencia[@results[1]["value"]-1].body["2"].html_safe %>
+          </p>
+        </article>
+      </section>
+    </div>
+  </main> 
+</div>
+<div class="page number-4 background-claro">
+  <header>
+    <div class="logo-guiaedutec">
+      <%= wicked_pdf_image_tag('devolutive-school-v3/logo-guia-edutec-color.png', :width=>"200") %>
+    </div>
+    <div class="school-name">
+      <span>
+        <%= @feedbacks_all[1]['body']["24"].html_safe %>
+      </span>
+      <p>
+        <%= @school.name %>
+      </p>
+    </div>
+  </header>
+  <main>
+      <div class="results">
+        <section class="v_row_5">
+          <article class="v_item_4">
+            <div id="title-4">
+              <div>
+              <%= wicked_pdf_image_tag("devolutive-school-v3/competencia/02-tags-competencia-04-ferramentas.svg", :class=>"img-fit") %>
+
+              </div>
+              <h1><%= @feedbacks_all[1]['body']["23"].html_safe %></h1>
+            </div>
+            <p>
+                <%= @competencia[@results[1]["value"]-1].body["3"].html_safe %> 
+            </p>
+          </article>
+        </section>
+      </div>
+  </main>
+</div>
+
+<%# FIM PAGE 4 %>
+
+<%# PAGE 5 %>
+<div class="page number-5 background-claro">
+  <header>
+    <div class="logo-guiaedutec">
+      <%= wicked_pdf_image_tag('devolutive-school-v3/logo-guia-edutec-color.png', :width=>"200") %>
+    </div>
+    <div class="school-name">
+      <span>
+        <%= @feedbacks_all[1]['body']["24"].html_safe %>  
+      </span>
+      <p>
+        <%= @school.name %>
+      </p>
+    </div>
+  </header>
+  <main>
+    <div class="results">
+      <section class="v_row_2">
+        <article class="v_item_1" id="red">
+          <div id="title-1">
+            <div>
+            <%= wicked_pdf_image_tag("devolutive-school-v3/recursos/03-tags-recursos-01-onde-esta.svg", :class=>"img-fit") %>
+            </div>
+            <h1><%= @feedbacks_all[1]['body']["20"].html_safe %></h1>
+          </div>
+          <div>
+            <%= wicked_pdf_image_tag("devolutive-school-v3/velocimetro/#{@lang}/r_level_#{@results[2]["value"]}.svg", :class=> "img-fit") %>
+          </div>
+          <p id="first-paragraph">
+            <%= @red[@results[2]["value"]-1].body["0"].html_safe %>
+          </p>
+        </article>
+        <article class="v_item_2">
+          <div id="title-2">
+          <div>
+          <%= wicked_pdf_image_tag("devolutive-school-v3/recursos/03-tags-recursos-02-oque-significa.svg", :class=>"img-fit") %>
+          </div>
+          <h1><%= @feedbacks_all[1]['body']["21"].html_safe %></h1>
+          <p>
+          <%= @red[@results[2]["value"]-1].body["1"].html_safe %>
+          <p>
+        </article>
+      </section>
+      <section class="v_row_3">
+        <article class="v_item_3">
+          <div id="title-3">
+          <div>
+          <%= wicked_pdf_image_tag("devolutive-school-v3/recursos/03-tags-recursos-03-como-evoluir.svg", :class=>"img-fit") %>
+          </div>
+          <h1><%= @feedbacks_all[1]['body']["22"].html_safe %></h1>
+          </div>
+          <p>
+            <%= @red[@results[2]["value"]-1].body["2"].html_safe %>
+          </p>
+        </article>
+      </section>
+    </div>
+  </main> 
+</div>
+<div class="page number-5 background-claro">
+  <header>
+    <div class="logo-guiaedutec">
+      <%= wicked_pdf_image_tag('devolutive-school-v3/logo-guia-edutec-color.png', :width=>"200") %>
+    </div>
+    <div class="school-name">
+      <span>
+        <%= @feedbacks_all[1]['body']["24"].html_safe %>
+      </span>
+      <p>
+        <%= @school.name %>
+      </p>
+    </div>
+  </header>
+  <main>
+      <div class="results">
+        <section class="v_row_5">
+          <article class="v_item_4">
+            <div id="title-4">
+            <div>
+            <%= wicked_pdf_image_tag("devolutive-school-v3/recursos/03-tags-recursos-04-ferramentas.svg", :class=>"img-fit") %>
+            </div>
+            <h1><%= @feedbacks_all[1]['body']["23"].html_safe %></h1>
+            </div>
+            <div class="teste">
+              <%= @red[@results[2]["value"]-1].body["3"].html_safe %>
+            </div>
+          </article>
+        </section>
+      </div>
+  </main>
+</div>
+
+<%# FIM PAGE 5 %>
+
+
+<%# PAGE 6  %>
+<div class="page number-6 background-claro">
+  <header>
+    <div class="logo-guiaedutec">
+      <%= wicked_pdf_image_tag('devolutive-school-v3/logo-guia-edutec-color.png', :width=>"200") %>
+    </div>
+    <div class="school-name">
+      <span>
+        <%= @feedbacks_all[1]['body']["24"].html_safe %>  
+      </span>
+      <p>
+        <%= @school.name %>
+      </p>
+    </div>
+  </header>
+  <main>
+    <div class="results">
+      <section class="v_row_2">
+        <article class="v_item_1" id="infra">
+          <div id="title-1">
+          <div>
+          <%= wicked_pdf_image_tag("devolutive-school-v3/infra/04-tags-infraestrutura-01-onde-esta.svg", :class=>"img-fit") %>
+          </div>
+          <h1><%= @feedbacks_all[1]['body']["20"].html_safe %></h1>
+          </div>
+          <div>
+            <%= wicked_pdf_image_tag("devolutive-school-v3/velocimetro/#{@lang}/i_level_#{@results[3]["value"]}.svg", :class=>
+          "img-fit") %>
+          </div>
+          <p id="first-paragraph">
+            <%= @infra[@results[3]["value"]-1].body["0"].html_safe %>
+          </p>
+        </article>
+        <article class="v_item_2">
+          <div id="title-2">
+          <div>
+          <%= wicked_pdf_image_tag("devolutive-school-v3/infra/04-tags-infraestrutura-02-oque-significa.svg", :class=>"img-fit") %>
+
+          </div>
+          <h1><%= @feedbacks_all[1]['body']["21"].html_safe %></h1>
+          </div>
+          <%= @infra[@results[3]["value"]-1].body["1"].html_safe %>
+        </article>
+      </section>
+      <section class="v_row_3">
+        <article class="v_item_3">
+          <div id="title-3">
+          <div>
+          <%= wicked_pdf_image_tag("devolutive-school-v3/infra/04-tags-infraestrutura-03-como-evoluir.svg", :class=>"img-fit") %>
+          </div>
+          <h1><%= @feedbacks_all[1]['body']["22"].html_safe %></h1>
+          </div>
+          <p>
+            <%= @infra[@results[3]["value"]-1].body["2"].html_safe %>
+          </p>
+        </article>
+      </section>
+    </div>
+  </main> 
+</div>
+<div class="page number-6 background-claro">
+  <header>
+    <div class="logo-guiaedutec">
+      <%= wicked_pdf_image_tag('devolutive-school-v3/logo-guia-edutec-color.png', :width=>"200") %>
+    </div>
+    <div class="school-name">
+      <span>
+        <%= @feedbacks_all[1]['body']["24"].html_safe %>
+      </span>
+      <p>
+        <%= @school.name %>
+      </p>
+    </div>
+  </header>
+  <main>
+      <div class="results">
+        <section class="v_row_5">
+          <article class="v_item_4">
+            <div id="title-4">
+            <div>
+            <%= wicked_pdf_image_tag("devolutive-school-v3/infra/04-tags-infraestrutura-04-ferramentas.svg", :class=>"img-fit") %>
+            </div>
+            <h1><%= @feedbacks_all[1]['body']["23"].html_safe %></h1>
+            </div>
+            <p>
+              <%= @infra[@results[3]["value"]-1].body["3"].html_safe %>
+            </p>
+          </article>
+        </section>
+      </div>
+  </main>
+</div>
+
+<%# FIM PAGE 6 %>
+<div class="page number-7">
+  <div class="container">
+  <main>
+    <div id="teste"></div>
+    <div class="logo-cieb">
+      <%= wicked_pdf_image_tag(@logoFooter, :class=> "img-fit") %>
+    </div>
+    <p>
+    <mark>
+      INOVAÇÃO E CONEXÕES<br> QUE TRANSFORMAM<br>
+      A EDUCAÇÃO
+    </mark>
+    </p>
+  </main>
+  <footer>
+    cieb.net.br
+  </footer>
+  </div>
+</div>

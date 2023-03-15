@@ -269,7 +269,10 @@ module Api
         if !user_params
           user_params[:name] = params[:name]
         end
-        @user = User.new(user_params)
+
+        school_type = user_params[:school_type]
+
+        @user = User.new(user_params.except("teacher_data"))
 
         if(ActiveModel::Type::Boolean.new.cast(params['noaff']))
           @institution = Institution.find_by(name: 'Dummy Affiliation For Unaffiliated Users')
@@ -286,6 +289,47 @@ module Api
           if @user.admin_state? || @user.admin_city? || @user.teacher? || @user.principal?
             @institution = Institution.find_by(id: BSON::ObjectId.from_string(user_params[:affiliation_id]))
             @user.institution = @institution
+          end
+          if @user.teacher?
+            @survey = Survey.find_by({:type => "personal"})
+            if Formation.where(:name => user_params[:initial_formation]).first.nil?
+              formation = Formation.new(:name => user_params[:initial_formation].to_s.capitalize.strip)
+              formation.save
+            end
+            if EducationalInstitution.where(:name => user_params[:institution_initial_formation]).first.nil?
+              educational_institution = EducationalInstitution.new(:name => user_params[:institution_initial_formation])
+              educational_institution.save
+            end
+            year_difference = Time.zone.now.year - Date.parse(user_params[:final_year_of_initial_formation]).year
+            if year_difference < 2
+              @user[:range_final_year_of_initial_formation] = "less_2_years"
+            elsif year_difference >= 2 && year_difference <= 5
+              @user[:range_final_year_of_initial_formation] = "bet_2_and_5_years"
+            elsif year_difference >= 6 && year_difference <= 10
+              @user[:range_final_year_of_initial_formation] = "bet_6_and_10_years"
+            elsif year_difference > 10
+              @user[:range_final_year_of_initial_formation] = "more_10_years"
+            end
+
+            survey_schedule_id = nil
+            
+            @survey_schedules = SurveySchedule.where(:survey_id => @survey.id, :affiliation_id => BSON::ObjectId.from_string(user_params[:affiliation_id]))
+            
+            if @survey_schedules.length != 0
+              survey_schedule_id = @survey_schedules.sort({created_at: 1}).last["_id"]
+            else
+              new_schedule = SurveySchedule.new(:state_id => user_params[:city_id], :survey_id => @survey.id, :affiliation_id => BSON::ObjectId.from_string(user_params[:affiliation_id]))
+              if new_schedule.save
+                survey_schedule_id = new_schedule.id
+              end
+            end
+
+            survey_response = SurveyResponse.new(user: @user, survey_id: @survey.id, survey_schedule_id: BSON::ObjectId.from_string(survey_schedule_id), school_id: BSON::ObjectId.from_string(user_params[:school_id]), user_id: @user.id, status: "Created")            
+            if survey_response.save
+              @user[:teacher_data] = {}
+              user_params[:teacher_data][:created_at] = Time.now
+              @user[:teacher_data][:"#{survey_response.id}"] = user_params[:teacher_data].as_json
+            end
           end
         end
 
@@ -305,7 +349,72 @@ module Api
       end
 
       def update
-        if @user.update(user_params)
+
+        @user = User.find(user_params[:_id])
+
+        if @user.teacher?
+          @survey = Survey.find_by({:type => "personal"})
+          if Formation.where(:name => user_params[:initial_formation]).first.nil?
+            formation = Formation.new(:name => user_params[:initial_formation].to_s.capitalize.strip)
+            formation.save
+          end
+          if EducationalInstitution.where(:name => user_params[:institution_initial_formation]).first.nil?
+            educational_institution = EducationalInstitution.new(:name => user_params[:institution_initial_formation])
+            educational_institution.save
+          end
+          year_difference = Time.zone.now.year - Date.parse(user_params[:final_year_of_initial_formation]).year
+          if year_difference < 2
+            user_params[:range_final_year_of_initial_formation] = "less_2_years"
+          elsif year_difference >= 2 && year_difference <= 5
+            user_params[:range_final_year_of_initial_formation] = "bet_2_and_5_years"
+          elsif year_difference >= 6 && year_difference <= 10
+            user_params[:range_final_year_of_initial_formation] = "bet_6_and_10_years"
+          elsif year_difference > 10
+            user_params[:range_final_year_of_initial_formation] = "more_10_years"
+          end
+
+          survey_schedule_id = nil
+          @survey_schedules = SurveySchedule.where(:survey_id => @survey.id, :affiliation_id => BSON::ObjectId.from_string(user_params[:affiliation_id]))
+
+          if @survey_schedules.length != 0
+            survey_schedule_id = @survey_schedules.sort({created_at: 1}).last["_id"]
+          else
+            new_schedule = SurveySchedule.new(:state_id => user_params[:city_id], :survey_id => @survey.id, :affiliation_id => BSON::ObjectId.from_string(user_params[:affiliation_id]))
+            if new_schedule.save
+              survey_schedule_id = new_schedule.id
+            end
+          end
+
+          puts 'aaaa'
+
+          teacher_data_aux = user_params[:teacher_data].clone.as_json
+          user_params_aux = {**user_params}
+
+          @survey_response = SurveyResponse.where(survey_id: @survey.id, survey_schedule_id: BSON::ObjectId.from_string(survey_schedule_id), school_id: BSON::ObjectId.from_string(user_params[:school_id]), user_id: @user.id).first          
+          if @survey_response.nil?
+            @survey_response = SurveyResponse.new(user: @user, survey_id: @survey.id, survey_schedule_id: BSON::ObjectId.from_string(survey_schedule_id), school_id: BSON::ObjectId.from_string(user_params[:school_id]), user_id: @user.id, status: "Created")
+            if @survey_response.save
+              teacher_data_aux[:created_at] = Time.now
+            end
+          else
+            teacher_data_aux[:updated_at] = Time.now
+          end
+        
+          # teacher_data_aux_2 = {}
+          # teacher_data_aux_2[:"#{@survey_response.id}"] = teacher_data_aux
+          user_params_aux[:teacher_data] = {}
+          user_params_aux[:teacher_data][:"#{@survey_response.id}"] = teacher_data_aux
+
+          if @user[:teacher_data].nil?
+            @user[:teacher_data] = {}
+          end 
+
+          user_params_aux[:teacher_data] = @user[:teacher_data].merge(user_params_aux[:teacher_data])
+
+        end
+
+      
+        if @user.update(user_params_aux)
           render json: @user.as_json
         else
           render json: @user.errors, status: :internal_server_error
@@ -361,7 +470,7 @@ module Api
       end
 
       def user_params        
-        params.require(:user).permit(:access_token, :profile, :name, :password, :email, :born, :affiliation_id, :country_id, :province_id, :state_id, :city_id, :school_id, :stages, :knowledges, :locked, :affiliation_name, :responsible_name, :responsible_email, :responsible_phone_number)
+        params.require(:user).permit(:_id, :access_token, :profile, :name, :password, :email, :born, :affiliation_id, :geo_structure_level1_name, :geo_structure_level2_name, :geo_structure_level3_name, :geo_structure_level4_name, :country_id, :province_id, :state_id, :city_id, :school_id,  :locked, :affiliation_name, :responsible_name, :responsible_email, :responsible_phone_number, :cpf, :term, :sharing, :gender, :initial_formation, :institution_initial_formation, :internship_practice, :technology_in_teaching_and_learning, :course_modality, :final_year_of_initial_formation,institution:[], stages: [], knowledges: [], formation_level: [:value, :label, :isDisabled], teacher_data: [:formation_level, :cont_educ_in_the_use_of_digital_technologies, :years_teaching, :years_of_uses_technology_for_teaching, technology_application: []])
       end
 
     end

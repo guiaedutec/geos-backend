@@ -34,7 +34,7 @@ class User
   field :term,                       type: Boolean
   field :sharing,                    type: Boolean
   field :formation,                  type: Boolean
-  field :formation_level,            type: Array
+  field :formation_level,            type: Hash
   field :manager_file,               type: Object
   field :phone_number,               type: String
   

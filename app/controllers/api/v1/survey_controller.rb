@@ -120,7 +120,8 @@ module Api
             @list_surveys.push(@actual_survey)
           end
         else
-          @list_surveys = @surveys.uniq { |s| s.type }
+          @list_surveys = @surveys
+          # @list_surveys = @surveys.uniq { |s| s.type }
         end
 
         if (user.admin?)

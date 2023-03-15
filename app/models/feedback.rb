@@ -10,6 +10,7 @@ class Feedback
   field :type, type: String
   field :level, type: String
   field :group, type: Hash, localize: true
+  field :report, type: Hash, localize: true
   
   belongs_to  :survey
   belongs_to :survey_section
